@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="auto">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JAJM2006 - My Portfolio</title>
+  <title>Joshua McManus — Geostrategy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -26,9 +26,23 @@
       --accent:    #a89f6e;
       --accent-2:  #c4b98a;
       --accent-dim:#3a3520;
-      --mono:      'JetBrains Mono', monospace;
-      --serif:     'EB Garamond', 'Libre Baskerville', Georgia, serif;
-      --max:       860px;
+    }
+
+    [data-theme="light"] {
+      --ink:       #f5f0e8;
+      --ink-2:     #ede8de;
+      --ink-3:     #e4ddd2;
+      --ink-4:     #d8d0c3;
+      --rule:      #c8bfaf;
+      --rule-2:    #b0a590;
+      --dim:       #7a6e5a;
+      --muted:     #5a5040;
+      --body:      #3a3020;
+      --head:      #1a1208;
+      --bright:    #0d0800;
+      --accent:    #7a6e3a;
+      --accent-2:  #5a5020;
+      --accent-dim:#e8e0c0;
     }
 
     html { scroll-behavior: smooth; font-size: 17px; }
@@ -36,84 +50,108 @@
     body {
       background: var(--ink);
       color: var(--body);
-      font-family: var(--serif);
+      font-family: 'EB Garamond', Georgia, serif;
       line-height: 1.75;
       -webkit-font-smoothing: antialiased;
+      transition: background .3s, color .3s;
     }
 
-    /* ─── TYPOGRAPHY ─── */
-    h1, h2, h3, h4 { color: var(--head); font-family: var(--serif); font-weight: 400; line-height: 1.25; }
+    h1, h2, h3, h4 { color: var(--head); font-family: 'EB Garamond', serif; font-weight: 400; line-height: 1.25; }
     p { margin-bottom: 1.1em; max-width: 66ch; }
     a { color: var(--accent-2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .2s, color .2s; }
     a:hover { color: var(--bright); border-bottom-color: var(--accent); }
     strong { color: var(--head); font-weight: 500; }
     em { font-style: italic; }
 
-    .mono { font-family: var(--mono); font-size: .78em; font-weight: 300; letter-spacing: .02em; }
-    .label { font-family: var(--mono); font-size: .68em; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+    .mono { font-family: 'JetBrains Mono', monospace; font-size: .78em; font-weight: 300; letter-spacing: .02em; }
+    .label { font-family: 'JetBrains Mono', monospace; font-size: .68em; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
     .rule-h { border: none; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
-    .rule-h.tight { margin: 1.5rem 0; }
 
-    /* ─── LAYOUT ─── */
-    .container { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+    .container { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
 
-    /* ─── NAV ─── */
+    /* ── NAV ── */
     nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(13,13,15,.92);
+      background: var(--ink-2);
       border-bottom: 1px solid var(--rule);
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: background .3s;
     }
     .nav-inner {
-      max-width: var(--max); margin: 0 auto; padding: 0 2rem;
+      max-width: 860px; margin: 0 auto; padding: 0 2rem;
       display: flex; align-items: center; justify-content: space-between;
       height: 56px;
     }
     .nav-logo {
-      font-family: var(--mono); font-size: .78em; font-weight: 500;
-      letter-spacing: .08em; color: var(--accent-2);
-      border-bottom: none;
+      font-family: 'JetBrains Mono', monospace; font-size: .78em; font-weight: 500;
+      letter-spacing: .08em; color: var(--accent-2); border-bottom: none; flex-shrink: 0;
     }
     .nav-logo:hover { color: var(--bright); border-bottom: none; }
-    .nav-links { display: flex; gap: 2rem; }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; }
     .nav-links a {
-      font-family: var(--mono); font-size: .72em;
+      font-family: 'JetBrains Mono', monospace; font-size: .68em;
       letter-spacing: .1em; text-transform: uppercase;
-      color: var(--muted); border-bottom: none;
-      transition: color .2s;
+      color: var(--muted); border-bottom: none; transition: color .2s; white-space: nowrap;
     }
     .nav-links a:hover { color: var(--bright); border-bottom: none; }
 
-    /* ─── HERO ─── */
+    .theme-toggle {
+      background: none; border: 1px solid var(--rule-2); border-radius: 4px;
+      cursor: pointer; font-size: .85rem; padding: .3em .55em;
+      color: var(--muted); transition: color .2s, border-color .2s; line-height: 1; flex-shrink: 0;
+    }
+    .theme-toggle:hover { color: var(--bright); border-color: var(--accent); }
+
+    .nav-hamburger {
+      display: none; background: none; border: none; cursor: pointer;
+      flex-direction: column; gap: 5px; padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--muted); border-radius: 2px;
+      transition: transform .25s, opacity .25s;
+    }
+    .nav-drawer {
+      display: none; flex-direction: column;
+      background: var(--ink-2); border-bottom: 1px solid var(--rule);
+      padding: 1rem 2rem 1.25rem; gap: .9rem; transition: background .3s;
+    }
+    .nav-drawer a {
+      font-family: 'JetBrains Mono', monospace; font-size: .72em;
+      letter-spacing: .1em; text-transform: uppercase; color: var(--muted); border-bottom: none;
+    }
+    .nav-drawer a:hover { color: var(--bright); }
+    .nav-drawer.open { display: flex; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── HERO ── */
     #hero {
-      padding: 8rem 0 6rem;
-      border-bottom: 1px solid var(--rule);
+      padding: 6rem 0 5rem; border-bottom: 1px solid var(--rule);
       position: relative; overflow: hidden;
     }
     .hero-grid {
       position: absolute; inset: 0; pointer-events: none; opacity: .04;
-      background-image:
-        linear-gradient(var(--accent) 1px, transparent 1px),
-        linear-gradient(90deg, var(--accent) 1px, transparent 1px);
+      background-image: linear-gradient(var(--accent) 1px, transparent 1px), linear-gradient(90deg, var(--accent) 1px, transparent 1px);
       background-size: 60px 60px;
     }
     .hero-eyebrow { margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
     .hero-eyebrow::after { content: ''; flex: 1; max-width: 120px; height: 1px; background: var(--accent); opacity: .5; }
     .hero-title {
-      font-family: var(--serif); font-size: clamp(2.8rem, 6vw, 4.5rem);
-      font-weight: 400; line-height: 1.1; letter-spacing: -.01em;
-      color: var(--bright); margin-bottom: .75rem;
+      font-size: clamp(2.4rem, 7vw, 4.5rem); font-weight: 400; line-height: 1.1;
+      letter-spacing: -.01em; color: var(--bright); margin-bottom: .75rem;
     }
     .hero-title em { color: var(--accent-2); font-style: italic; }
     .hero-subtitle {
-      font-family: var(--serif); font-size: clamp(1.1rem, 2vw, 1.3rem);
-      color: var(--muted); margin-bottom: 2.5rem;
-      font-style: italic; max-width: 54ch;
+      font-size: clamp(1rem, 2.5vw, 1.3rem); color: var(--muted);
+      margin-bottom: 2.5rem; font-style: italic; max-width: 54ch;
     }
     .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn {
-      font-family: var(--mono); font-size: .72em; letter-spacing: .1em;
-      text-transform: uppercase; padding: .7em 1.6em;
+      font-family: 'JetBrains Mono', monospace; font-size: .72em; letter-spacing: .08em;
+      text-transform: uppercase; padding: .7em 1.4em;
       border: 1px solid var(--rule-2); color: var(--body);
       border-radius: 2px; transition: background .2s, color .2s, border-color .2s;
       cursor: pointer; display: inline-block;
@@ -122,87 +160,108 @@
     .btn-accent { border-color: var(--accent); color: var(--accent-2); }
     .btn-accent:hover { background: var(--accent-dim); color: var(--bright); border-bottom: 1px solid var(--accent); }
 
-    /* ─── SECTIONS ─── */
-    section { padding: 5rem 0; border-bottom: 1px solid var(--rule); }
+    /* ── SECTIONS ── */
+    section { padding: 4.5rem 0; border-bottom: 1px solid var(--rule); }
     section:last-of-type { border-bottom: none; }
-    .section-header { display: flex; align-items: baseline; gap: 1.25rem; margin-bottom: 3rem; }
-    .section-num { font-family: var(--mono); font-size: .7em; color: var(--accent); }
-    .section-title { font-size: 1.7rem; letter-spacing: -.01em; }
+    .section-header { display: flex; align-items: baseline; gap: 1.25rem; margin-bottom: 3rem; flex-wrap: wrap; }
+    .section-num { font-family: 'JetBrains Mono', monospace; font-size: .7em; color: var(--accent); }
+    .section-title { font-size: clamp(1.4rem, 3vw, 1.7rem); letter-spacing: -.01em; }
 
-    /* ─── ABOUT ─── */
-    .about-layout { display: grid; grid-template-columns: 1fr 280px; gap: 4rem; align-items: start; }
+    /* ── ABOUT ── */
+    .about-layout { display: grid; grid-template-columns: 1fr 260px; gap: 3.5rem; align-items: start; }
     .about-meta { display: flex; flex-direction: column; gap: 1.5rem; }
     .meta-block { border-left: 2px solid var(--accent-dim); padding-left: 1rem; }
     .meta-block .label { display: block; margin-bottom: .3rem; }
     .meta-block p { color: var(--muted); font-size: .92em; margin: 0; }
     .about-text p:last-child { margin-bottom: 0; }
 
-    /* ─── WORKS / PROJECTS ─── */
-    .entry-list { display: flex; flex-direction: column; gap: 0; }
+    /* ── ENTRIES ── */
+    .entry-list { display: flex; flex-direction: column; }
     .entry {
-      padding: 1.75rem 0;
-      border-bottom: 1px solid var(--rule);
-      display: grid; grid-template-columns: 80px 1fr auto;
-      gap: 1.5rem; align-items: start;
+      padding: 1.6rem 0; border-bottom: 1px solid var(--rule);
+      display: grid; grid-template-columns: 72px 1fr auto; gap: 1.25rem; align-items: start;
     }
     .entry:first-child { border-top: 1px solid var(--rule); }
-    .entry-year { font-family: var(--mono); font-size: .72em; color: var(--dim); padding-top: .15rem; }
+    .entry-year { font-family: 'JetBrains Mono', monospace; font-size: .7em; color: var(--dim); padding-top: .2rem; }
     .entry-title { font-size: 1.05rem; font-weight: 500; color: var(--head); margin-bottom: .25rem; }
     .entry-title a { color: var(--head); border-bottom-color: transparent; }
     .entry-title a:hover { color: var(--accent-2); border-bottom-color: var(--accent); }
-    .entry-meta { font-family: var(--mono); font-size: .68em; color: var(--dim); margin-bottom: .45rem; letter-spacing: .04em; }
+    .entry-meta { font-family: 'JetBrains Mono', monospace; font-size: .66em; color: var(--dim); margin-bottom: .45rem; letter-spacing: .03em; }
     .entry-desc { font-size: .91em; color: var(--muted); line-height: 1.6; margin: 0; max-width: 55ch; }
     .tag-list { display: flex; flex-direction: column; align-items: flex-end; gap: .4rem; padding-top: .1rem; }
     .tag {
-      font-family: var(--mono); font-size: .63em; letter-spacing: .08em;
-      text-transform: uppercase; padding: .25em .65em;
+      font-family: 'JetBrains Mono', monospace; font-size: .6em; letter-spacing: .08em;
+      text-transform: uppercase; padding: .25em .6em;
       border: 1px solid var(--rule-2); color: var(--dim);
       border-radius: 2px; white-space: nowrap;
     }
-    .tag.pub { border-color: var(--accent-dim); color: var(--accent); }
-    .tag.wip { border-color: #2a3a2a; color: #6a9a6a; }
+    .tag.pub  { border-color: var(--accent-dim); color: var(--accent); }
+    .tag.wip  { border-color: #2a3a2a; color: #6a9a6a; }
+    .tag.done { border-color: #1e3a4a; color: #6aaaba; }
 
-    /* ─── CV ─── */
+    /* ── CV ── */
     .cv-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-    .cv-section-title { font-family: var(--mono); font-size: .68em; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
+    .cv-section-title { font-family: 'JetBrains Mono', monospace; font-size: .66em; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
     .cv-item { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--rule); }
     .cv-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
     .cv-item-title { font-size: 1rem; color: var(--head); margin-bottom: .15rem; }
-    .cv-item-sub { font-family: var(--mono); font-size: .7em; color: var(--dim); margin-bottom: .4rem; }
+    .cv-item-sub { font-family: 'JetBrains Mono', monospace; font-size: .68em; color: var(--dim); margin-bottom: .4rem; }
     .cv-item-desc { font-size: .88em; color: var(--muted); margin: 0; }
     .cv-download { margin-top: 2rem; }
 
-    /* ─── CONTACT ─── */
+    /* ── FOOTER ── */
     footer { padding: 4rem 0 3rem; }
     .footer-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: end; }
-    .footer-tagline { font-size: 1.4rem; font-style: italic; color: var(--muted); max-width: 36ch; line-height: 1.4; }
+    .footer-tagline { font-size: 1.3rem; font-style: italic; color: var(--muted); max-width: 36ch; line-height: 1.4; }
     .contact-links { display: flex; flex-direction: column; gap: .75rem; }
     .contact-link { display: flex; align-items: center; gap: .75rem; }
-    .contact-link .label { display: inline; }
     .contact-link a { border-bottom: none; }
     .contact-link a:hover { border-bottom: none; }
     .footer-base {
-      margin-top: 3rem; padding-top: 1.5rem;
-      border-top: 1px solid var(--rule);
-      display: flex; justify-content: space-between; align-items: center;
-      font-family: var(--mono); font-size: .66em; color: var(--dim);
+      margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--rule);
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem;
+      font-family: 'JetBrains Mono', monospace; font-size: .64em; color: var(--dim);
     }
 
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 680px) {
-      .nav-links { gap: 1.2rem; }
-      .nav-links a { font-size: .65em; }
-      .about-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-      .about-meta { order: -1; flex-direction: row; flex-wrap: wrap; }
-      .entry { grid-template-columns: 60px 1fr; }
+    /* ── SCROLL FADE ── */
+    .fade-in { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE: tablet ── */
+    @media (max-width: 720px) {
+      .container { padding: 0 1.25rem; }
+      .nav-inner { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-drawer { padding: 1rem 1.25rem 1.25rem; }
+      #hero { padding: 4rem 0 3.5rem; }
+      section { padding: 3.5rem 0; }
+      .about-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .about-meta { flex-direction: row; flex-wrap: wrap; gap: 1.25rem; }
+      .meta-block { min-width: 140px; flex: 1; }
+      .entry { grid-template-columns: 56px 1fr; gap: 1rem; }
       .tag-list { display: none; }
       .cv-columns { grid-template-columns: 1fr; gap: 2rem; }
       .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-base { flex-direction: column; align-items: flex-start; }
     }
 
-    /* ─── SCROLL ANIMATION ─── */
-    .fade-in { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
-    .fade-in.visible { opacity: 1; transform: none; }
+    /* ── RESPONSIVE: phone ── */
+    @media (max-width: 480px) {
+      html { font-size: 15px; }
+      .container { padding: 0 1rem; }
+      .nav-inner { padding: 0 1rem; height: 52px; }
+      .nav-drawer { padding: 1rem 1rem 1.25rem; }
+      #hero { padding: 3rem 0 2.5rem; }
+      .hero-title { font-size: 2.2rem; }
+      .hero-subtitle { font-size: .95rem; }
+      .hero-cta { flex-direction: column; align-items: flex-start; }
+      .btn { width: 100%; text-align: center; }
+      section { padding: 2.75rem 0; }
+      .section-header { margin-bottom: 2rem; }
+      .entry { grid-template-columns: 44px 1fr; gap: .75rem; }
+      .about-meta { flex-direction: column; }
+    }
   </style>
 </head>
 <body>
@@ -210,14 +269,26 @@
   <!-- ── NAV ── -->
   <nav aria-label="Primary navigation">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo">jajm2006.uk</a>
+      <a href="#hero" class="nav-logo mono">jajm2006.uk</a>
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#works">Works</a>
         <a href="#projects">Projects</a>
         <a href="#cv">CV</a>
         <a href="#contact">Contact</a>
+        <button class="theme-toggle" aria-label="Toggle light/dark theme" onclick="toggleTheme()">☀︎</button>
       </div>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu(this)">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-drawer" id="nav-drawer">
+      <a href="#about"    onclick="closeMenu()">About</a>
+      <a href="#works"    onclick="closeMenu()">Works</a>
+      <a href="#projects" onclick="closeMenu()">Projects</a>
+      <a href="#cv"       onclick="closeMenu()">CV</a>
+      <a href="#contact"  onclick="closeMenu()">Contact</a>
+      <button class="theme-toggle" style="align-self:flex-start;margin-top:.25rem" aria-label="Toggle theme" onclick="toggleTheme()">☀︎</button>
     </div>
   </nav>
 
@@ -229,11 +300,11 @@
         <span class="label">My Portfolio</span>
       </div>
       <h1 class="hero-title">Joshua McManus<br /><em>Geostrategy</em></h1>
-      <p class="hero-subtitle">Final-year undergraduate in the Humanities &amp; Social Sciences, transitioning to postgraduate research. Committed to the future of knowlegde.</p>
+      <p class="hero-subtitle">Final-year undergraduate in Security, Intelligence &amp; Cyber Studies, transitioning to postgraduate research. Committed to the future of knowledge.</p>
       <div class="hero-cta">
-        <a href="#works" class="btn btn-accent">Academic Works</a>
+        <a href="#works"    class="btn btn-accent">Academic Works</a>
         <a href="#projects" class="btn">Personal Projects</a>
-        <a href="#cv" class="btn">Curriculum Vitae</a>
+        <a href="#cv"       class="btn">Curriculum Vitae</a>
       </div>
     </div>
   </header>
@@ -249,24 +320,16 @@
         </div>
         <div class="about-layout">
           <div class="about-text">
-            <p>
-              I am a final-year undergraduate student specialising in Security, Intelligence, and Cyber studies at The University of Buckingham. My research sits at the intersection of Sustainability and Security, with a particular focus on Development-Security.
-            </p>
-            <p>
-              Beginning in 2026, I will be pursuing postgraduate study in Development, where I intend to develop my ideas thesis on the geostrategic implications of maritime nuclear propulsion systems.
-            </p>
-            <p>
-              Outside of formal research, I maintain a set of personal and technical projects that inform my methodological thinking - including work in data analysis, digital humanities, and open-source tooling.
-            </p>
+            <p>I am a final-year undergraduate student specialising in Security, Intelligence, and Cyber Studies at The University of Buckingham. My research sits at the intersection of Sustainability and Security, with a particular focus on Development-Security.</p>
+            <p>Beginning in 2026, I will be pursuing postgraduate study in Development, where I intend to develop my thesis on the geostrategic implications of maritime nuclear propulsion systems.</p>
+            <p>Outside of formal research, I maintain a set of personal and technical projects that inform my methodological thinking — including work in data analysis, digital humanities, and open-source tooling.</p>
             <hr class="rule-h" />
-            <p style="font-style:italic; color:var(--muted); font-size:.94em;">
-              I am currently open to research collaborations, conference opportunities, and postgraduate networks in such areas.
-            </p>
+            <p style="font-style:italic; color:var(--muted); font-size:.94em;">I am currently open to research collaborations, conference opportunities, and postgraduate networks in such areas.</p>
           </div>
           <div class="about-meta">
             <div class="meta-block">
               <span class="label">Institution</span>
-              <p>The University of Buckingham<br />Buckingham University's Centre for Security and Intelligence Studies (BUCSIS)</p>
+              <p>The University of Buckingham<br />BUCSIS</p>
             </div>
             <div class="meta-block">
               <span class="label">Research Areas</span>
@@ -274,7 +337,7 @@
             </div>
             <div class="meta-block">
               <span class="label">Status</span>
-              <p>Final Year UG<br />Incoming PG - 2026</p>
+              <p>Final Year UG<br />Incoming PG — 2026</p>
             </div>
             <div class="meta-block">
               <span class="label">Location</span>
@@ -292,20 +355,18 @@
           <span class="section-num mono">§ 02</span>
           <h2 class="section-title">Academic Works</h2>
         </div>
-        <p style="margin-bottom:2.5rem; color:var(--muted); font-style:italic;">
-          Dissertations, essays, and formal academic outputs. Arranged by year of submission.
-        </p>
+        <p style="margin-bottom:2.5rem; color:var(--muted); font-style:italic;">Dissertations, essays, and formal academic outputs. Arranged by year of submission.</p>
         <div class="entry-list">
 
           <div class="entry">
             <div class="entry-year">2026</div>
             <div>
-              <div class="entry-title"><a href="#">Sustainable Scotland: A Comparitive Analysis of Development-Security</a></div>
+              <div class="entry-title"><a href="#">Sustainable Scotland: A Comparative Analysis of Development-Security</a></div>
               <div class="entry-meta">Undergraduate Dissertation · University of Buckingham · Supervised by Dr. Tanvi Pate</div>
               <p class="entry-desc">Analysing the ideas of Scottish Development-Security by comparing case studies of Norway and China.</p>
             </div>
             <div class="tag-list">
-              <span class="tag pub">Ongoing</span>
+              <span class="tag wip">Ongoing</span>
               <span class="tag">Dissertation</span>
             </div>
           </div>
@@ -313,25 +374,25 @@
           <div class="entry">
             <div class="entry-year">2026</div>
             <div>
-              <div class="entry-title"><a href="#">Far Right Ideologies: A Strategic Report on Threats Posed to Vulnerable Communities in the North East.</a></div>
-              <div class="entry-meta">Report to the North East Mayoral Strategic Authority</div>
-              <p class="entry-desc">Analysing the effects that Far-Right ideologies, such as the manosphere and incel culture, has on communities.</p>
+              <div class="entry-title"><a href="#">Far Right Ideologies: A Strategic Report on Threats Posed to Vulnerable Communities in the North East</a></div>
+              <div class="entry-meta">Report · North East Mayoral Strategic Authority</div>
+              <p class="entry-desc">Analysing the effects that Far-Right ideologies, such as the manosphere and incel culture, have on communities.</p>
             </div>
             <div class="tag-list">
-              <span class="tag pub">Ongoing</span>
-              <span class="tag">Essay</span>
+              <span class="tag wip">Ongoing</span>
+              <span class="tag">Report</span>
             </div>
           </div>
 
           <div class="entry">
             <div class="entry-year">2026</div>
             <div>
-              <div class="entry-title"><a href="#">Global Security and International Law: To what extent can a state legally enact Protection of Nationals Abroad?/a></div>
-              <div class="entry-meta">Assessed Essay</div>
-              <p class="entry-desc">A marked essay as part of my undergradute work, in connection to the University of Buckingham's Law School.</p>
+              <div class="entry-title"><a href="#">Global Security and International Law: To What Extent Can a State Legally Enact Protection of Nationals Abroad?</a></div>
+              <div class="entry-meta">Assessed Essay · University of Buckingham Law School</div>
+              <p class="entry-desc">A marked essay as part of my undergraduate work, in connection with the University of Buckingham's Law School.</p>
             </div>
             <div class="tag-list">
-              <span class="tag pub">Complete</span>
+              <span class="tag done">Complete</span>
               <span class="tag">Essay</span>
             </div>
           </div>
@@ -339,12 +400,12 @@
           <div class="entry">
             <div class="entry-year">2025</div>
             <div>
-              <div class="entry-title">DNA & Crime: An Introduction Into Forensic Genetic Genealogy.</div>
+              <div class="entry-title">DNA &amp; Crime: An Introduction Into Forensic Genetic Genealogy</div>
               <div class="entry-meta">Assessed Essay</div>
-              <p class="entry-desc">This paper provides the foundational grounds into understanding Forensic Genetic Genealogy and its applications in law enforcment.</p>
+              <p class="entry-desc">This paper provides the foundational grounds for understanding Forensic Genetic Genealogy and its applications in law enforcement.</p>
             </div>
             <div class="tag-list">
-              
+              <span class="tag done">Complete</span>
               <span class="tag">Essay</span>
             </div>
           </div>
@@ -360,33 +421,32 @@
           <span class="section-num mono">§ 03</span>
           <h2 class="section-title">Projects</h2>
         </div>
-        <p style="margin-bottom:2.5rem; color:var(--muted); font-style:italic;">
-          Personal, technical, and interdisciplinary work - side inquiries that sit outside formal academic submission.
-        </p>
+        <p style="margin-bottom:2.5rem; color:var(--muted); font-style:italic;">Personal, technical, and interdisciplinary work — side inquiries that sit outside formal academic submission.</p>
         <div class="entry-list">
 
           <div class="entry">
             <div class="entry-year">2025</div>
             <div>
               <div class="entry-title"><a href="#">Project: SenaCode</a></div>
-              <div class="entry-meta">Personal Project</div>
-              <p class="entry-desc">An Open-Source digital ecosystem from the ground up.</p>
+              <div class="entry-meta">Personal Project · The SPARK Group</div>
+              <p class="entry-desc">An open-source digital ecosystem built from the ground up.</p>
             </div>
             <div class="tag-list">
               <span class="tag wip">Ongoing</span>
-              <span class="tag">In association with The SPARK Group</span>
+              <span class="tag">Open Source</span>
             </div>
           </div>
 
           <div class="entry">
             <div class="entry-year">2025</div>
             <div>
-              <div class="entry-title"><a href="#">Project SparkNet</a></div>
-              <div class="entry-meta">Personal Project</div>
-              <p class="entry-desc">By combining multiple SenaCode devices, I helped design the basics of the decentralised SparkNet Exchange Protol (SNX).</p>
+              <div class="entry-title"><a href="#">Project: SparkNet</a></div>
+              <div class="entry-meta">Personal Project · The SPARK Group</div>
+              <p class="entry-desc">By combining multiple SenaCode devices, I helped design the basics of the decentralised SparkNet Exchange Protocol (SNX).</p>
             </div>
             <div class="tag-list">
-              <span class="tag">In association with The SPARK Group</span>
+              <span class="tag wip">Ongoing</span>
+              <span class="tag">Open Source</span>
             </div>
           </div>
 
@@ -394,11 +454,12 @@
             <div class="entry-year">2025</div>
             <div>
               <div class="entry-title"><a href="#">Project: Kielder</a></div>
-              <div class="entry-meta">Assesed Project</div>
-              <p class="entry-desc">As part of my Intergated Industry Experience Module, I partnered with the University of Buckingham's School of Computing, to learn the principles of Database Design. Paired with my previous knowlegde in COBOL, I created a very rudamentary Intelligence Collection Database.</p>
+              <div class="entry-meta">Assessed Project · Integrated Industry Experience Module</div>
+              <p class="entry-desc">In partnership with the University of Buckingham's School of Computing, I applied principles of database design alongside prior knowledge in COBOL to create a rudimentary Intelligence Collection Database.</p>
             </div>
             <div class="tag-list">
-              <span class="tag">In association with The SPARK Group</span>
+              <span class="tag done">Complete</span>
+              <span class="tag">Database</span>
             </div>
           </div>
 
@@ -418,14 +479,14 @@
           <div>
             <div class="cv-section-title">Education</div>
             <div class="cv-item">
-              <div class="cv-item-title">BA(Hons) Security, Intelligence and Cyber | The University of Buckingham</div>
-              <div class="cv-item-sub">2024 – 2026</div>
-              <p class="cv-item-desc">Final year undergraduate student on a 2-year accelerated bachelors, expecting to graduate with 1st class honours.</p>
+              <div class="cv-item-title">BA(Hons) Security, Intelligence and Cyber</div>
+              <div class="cv-item-sub">The University of Buckingham · 2024 – 2026</div>
+              <p class="cv-item-desc">Final-year undergraduate on a two-year accelerated degree, expecting to graduate with First Class Honours.</p>
             </div>
             <div class="cv-item">
               <div class="cv-item-title">Ponteland High School</div>
               <div class="cv-item-sub">2015 – 2022</div>
-              <p class="cv-item-desc">A-levels: Geography, Maths, and Physics.</p>
+              <p class="cv-item-desc">A-levels: Geography, Mathematics, and Physics.</p>
             </div>
           </div>
 
@@ -433,22 +494,21 @@
             <div class="cv-section-title">Experience &amp; Roles</div>
             <div class="cv-item">
               <div class="cv-item-title">Student Geostrategist</div>
-              <div class="cv-item-sub">The SPARK Group · 2024 -> Present</div>
-              <p class="cv-item-desc">Founder and Lead developer on multiple projects</p>
+              <div class="cv-item-sub">The SPARK Group · 2024 – Present</div>
+              <p class="cv-item-desc">Founder and lead developer across multiple open-source projects.</p>
             </div>
             <div class="cv-item">
-              <div class="cv-item-title">Student Academic Prepresentative/div>
-              <div class="cv-item-sub"> 2024 - 2026</div>
-              <p class="cv-item-desc">Helping to give my small centre a louder voice.</p>
+              <div class="cv-item-title">Student Academic Representative</div>
+              <div class="cv-item-sub">University of Buckingham · 2024 – 2026</div>
+              <p class="cv-item-desc">Representing BUCSIS students and amplifying the centre's voice within the institution.</p>
             </div>
           </div>
 
           <div>
             <div class="cv-section-title">Awards &amp; Honours</div>
             <div class="cv-item">
-              <div class="cv-item-title">Fellowship of the Royal Soceity of Arts</div>
+              <div class="cv-item-title">Fellowship of the Royal Society of Arts</div>
               <div class="cv-item-sub">RSA · 2026</div>
-              <p class="cv-item-desc"></p>
             </div>
           </div>
 
@@ -462,16 +522,15 @@
             <div class="cv-item">
               <div class="cv-item-title">Technical Skills</div>
               <div class="cv-item-sub">Software &amp; Tools</div>
-              <p class="cv-item-desc">GIT, COBOL, NixOS, QGIS</p>
+              <p class="cv-item-desc">Git, COBOL, NixOS, QGIS.</p>
             </div>
             <div class="cv-item">
               <div class="cv-item-title">Languages</div>
-              <p class="cv-item-desc">English (native)</p>
+              <p class="cv-item-desc">English (native).</p>
             </div>
           </div>
 
         </div>
-
         <div class="cv-download">
           <a href="cv.pdf" class="btn btn-accent">Download full CV (PDF)</a>
         </div>
@@ -480,7 +539,7 @@
 
   </main>
 
-  <!-- ── FOOTER / CONTACT ── -->
+  <!-- ── FOOTER ── -->
   <footer id="contact">
     <div class="container fade-in">
       <div class="section-header">
@@ -492,33 +551,68 @@
         <div class="contact-links">
           <div class="contact-link">
             <span class="label">Email</span>
-            <a href="mailto:you@jajm2006.uk">Joshua@jajm2006.uk</a>
+            <a href="mailto:Joshua@jajm2006.uk">Joshua@jajm2006.uk</a>
           </div>
           <div class="contact-link">
             <span class="label">ORCID</span>
-            <a href="https://orcid.org/0000-0000-0000-0000" target="_blank" rel="noopener">0009-0004-5910-7707</a>
+            <a href="https://orcid.org/0009-0004-5910-7707" target="_blank" rel="noopener">0009-0004-5910-7707</a>
           </div>
           <div class="contact-link">
             <span class="label">GitHub</span>
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener">github.com/JAJM2006</a>
+            <a href="https://github.com/JAJM2006" target="_blank" rel="noopener">github.com/JAJM2006</a>
           </div>
           <div class="contact-link">
             <span class="label">LinkedIn</span>
-            <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">linkedin.com/in/JAJM2006</a>
+            <a href="https://linkedin.com/in/JAJM2006" target="_blank" rel="noopener">linkedin.com/in/JAJM2006</a>
           </div>
         </div>
       </div>
       <div class="footer-base">
-        <span>© 2026 Geordie Mac - jajm2006.uk</span>
+        <span>© 2026 Geordie Mac — jajm2006.uk</span>
         <span class="mono">Static HTML · No tracking · No cookies</span>
       </div>
     </div>
   </footer>
 
   <script>
+    // ── THEME ──
+    const root = document.documentElement;
+    const toggleBtns = document.querySelectorAll('.theme-toggle');
+    function getSystemTheme() { return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+    function applyTheme(theme) {
+      root.setAttribute('data-theme', theme);
+      const icon = theme === 'dark' ? '☀︎' : '☽';
+      toggleBtns.forEach(b => b.textContent = icon);
+      localStorage.setItem('theme', theme);
+    }
+    function toggleTheme() {
+      applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    }
+    const saved = localStorage.getItem('theme');
+    applyTheme(saved || getSystemTheme());
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      if (!localStorage.getItem('theme')) applyTheme(e.matches ? 'dark' : 'light');
+    });
+
+    // ── HAMBURGER ──
+    function toggleMenu(btn) {
+      const drawer = document.getElementById('nav-drawer');
+      const open = drawer.classList.toggle('open');
+      btn.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open);
+    }
+    function closeMenu() {
+      const drawer = document.getElementById('nav-drawer');
+      const btn = document.querySelector('.nav-hamburger');
+      drawer.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', false);
+    }
+
+    // ── SCROLL FADE ──
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-    }, { threshold: 0.08 });
+    }, { threshold: 0.06 });
     document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
   </script>
 
