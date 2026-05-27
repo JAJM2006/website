@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/core'
+import { defineConfig } from 'astro'
 import svelte from '@astrojs/svelte'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
