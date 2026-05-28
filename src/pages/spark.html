@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The SPARK Group — Strategic Pursuits in the Advancement of Research and Knowledge. An open-source collective founded by Joshua McManus (JAJM2006), working on SenaCode, SparkNet, Project Kielder, and more." />
+  <meta name="author" content="Joshua McManus" />
+  <meta property="og:title" content="The SPARK Group — JAJM2006" />
+  <meta property="og:description" content="An open-source collective working on decentralised networks, sovereign operating systems, and legacy database systems." />
+  <meta property="og:url" content="https://www.jajm2006.uk/spark" />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://www.jajm2006.uk/spark" />
+  <title>The SPARK Group — jajm2006.uk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:       #0d0d0f;
+      --ink-2:     #141418;
+      --ink-3:     #1c1c22;
+      --ink-4:     #252530;
+      --rule:      #2e2e3a;
+      --rule-2:    #3d3d50;
+      --dim:       #5a5a72;
+      --muted:     #8585a0;
+      --body:      #c8c8d8;
+      --head:      #e8e8f0;
+      --bright:    #f4f4f8;
+      --accent:    #a89f6e;
+      --accent-2:  #c4b98a;
+      --accent-dim:#3a3520;
+    }
+
+    [data-theme="light"] {
+      --ink:       #f5f0e8;
+      --ink-2:     #ede8de;
+      --ink-3:     #e4ddd2;
+      --ink-4:     #d8d0c3;
+      --rule:      #c8bfaf;
+      --rule-2:    #b0a590;
+      --dim:       #7a6e5a;
+      --muted:     #5a5040;
+      --body:      #3a3020;
+      --head:      #1a1208;
+      --bright:    #0d0800;
+      --accent:    #7a6e3a;
+      --accent-2:  #5a5020;
+      --accent-dim:#e8e0c0;
+    }
+
+    html { scroll-behavior: smooth; font-size: 17px; }
+
+    body {
+      background: var(--ink);
+      color: var(--body);
+      font-family: 'EB Garamond', Georgia, serif;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      transition: background .3s, color .3s;
+    }
+
+    h1, h2, h3, h4 { color: var(--head); font-family: 'EB Garamond', serif; font-weight: 400; line-height: 1.25; }
+    p { margin-bottom: 1.1em; max-width: 66ch; }
+    a { color: var(--accent-2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .2s, color .2s; }
+    a:hover { color: var(--bright); border-bottom-color: var(--accent); }
+    strong { color: var(--head); font-weight: 500; }
+    em { font-style: italic; }
+
+    .mono { font-family: 'JetBrains Mono', monospace; font-size: .78em; font-weight: 300; letter-spacing: .02em; }
+    .label { font-family: 'JetBrains Mono', monospace; font-size: .68em; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+    .rule-h { border: none; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
+    .container { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--ink-2);
+      border-bottom: 1px solid var(--rule);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: background .3s;
+    }
+    .nav-inner {
+      max-width: 860px; margin: 0 auto; padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 56px;
+    }
+    .nav-logo {
+      font-family: 'JetBrains Mono', monospace; font-size: .78em; font-weight: 500;
+      letter-spacing: .08em; color: var(--accent-2); border-bottom: none; flex-shrink: 0;
+    }
+    .nav-logo:hover { color: var(--bright); border-bottom: none; }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-links a {
+      font-family: 'JetBrains Mono', monospace; font-size: .68em;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted); border-bottom: none; transition: color .2s; white-space: nowrap;
+    }
+    .nav-links a:hover { color: var(--bright); border-bottom: none; }
+    .nav-links a.active { color: var(--accent-2); }
+
+    .theme-toggle {
+      background: none; border: 1px solid var(--rule-2); border-radius: 4px;
+      cursor: pointer; font-size: .85rem; padding: .3em .55em;
+      color: var(--muted); transition: color .2s, border-color .2s; line-height: 1; flex-shrink: 0;
+    }
+    .theme-toggle:hover { color: var(--bright); border-color: var(--accent); }
+
+    .nav-hamburger {
+      display: none; background: none; border: none; cursor: pointer;
+      flex-direction: column; gap: 5px; padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--muted); border-radius: 2px;
+      transition: transform .25s, opacity .25s;
+    }
+    .nav-drawer {
+      display: none; flex-direction: column;
+      background: var(--ink-2); border-bottom: 1px solid var(--rule);
+      padding: 1rem 2rem 1.25rem; gap: .9rem; transition: background .3s;
+    }
+    .nav-drawer a {
+      font-family: 'JetBrains Mono', monospace; font-size: .72em;
+      letter-spacing: .1em; text-transform: uppercase; color: var(--muted); border-bottom: none;
+    }
+    .nav-drawer a:hover { color: var(--bright); }
+    .nav-drawer.open { display: flex; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── HERO ── */
+    #hero {
+      padding: 6rem 0 5rem; border-bottom: 1px solid var(--rule);
+      position: relative; overflow: hidden;
+    }
+    .hero-grid {
+      position: absolute; inset: 0; pointer-events: none; opacity: .04;
+      background-image: linear-gradient(var(--accent) 1px, transparent 1px), linear-gradient(90deg, var(--accent) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-eyebrow { margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+    .hero-eyebrow::after { content: ''; flex: 1; max-width: 120px; height: 1px; background: var(--accent); opacity: .5; }
+    .hero-title {
+      font-size: clamp(2.4rem, 7vw, 4.5rem); font-weight: 400; line-height: 1.1;
+      letter-spacing: -.01em; color: var(--bright); margin-bottom: .75rem;
+    }
+    .hero-title em { color: var(--accent-2); font-style: italic; }
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.3rem); color: var(--muted);
+      margin-bottom: 2.5rem; font-style: italic; max-width: 54ch;
+    }
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      font-family: 'JetBrains Mono', monospace; font-size: .72em; letter-spacing: .08em;
+      text-transform: uppercase; padding: .7em 1.4em;
+      border: 1px solid var(--rule-2); color: var(--body);
+      border-radius: 2px; transition: background .2s, color .2s, border-color .2s;
+      cursor: pointer; display: inline-block;
+    }
+    .btn:hover { background: var(--ink-4); color: var(--bright); border-color: var(--accent); border-bottom: 1px solid var(--accent); }
+    .btn-accent { border-color: var(--accent); color: var(--accent-2); }
+    .btn-accent:hover { background: var(--accent-dim); color: var(--bright); border-bottom: 1px solid var(--accent); }
+
+    /* ── SECTIONS ── */
+    section { padding: 4.5rem 0; border-bottom: 1px solid var(--rule); }
+    section:last-of-type { border-bottom: none; }
+    .section-header { display: flex; align-items: baseline; gap: 1.25rem; margin-bottom: 3rem; flex-wrap: wrap; }
+    .section-num { font-family: 'JetBrains Mono', monospace; font-size: .7em; color: var(--accent); }
+    .section-title { font-size: clamp(1.4rem, 3vw, 1.7rem); letter-spacing: -.01em; }
+
+    /* ── OVERVIEW STATS ── */
+    .overview-stats {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .stat-block {
+      border: 1px solid var(--rule); border-radius: 2px;
+      padding: 1.25rem 1rem; text-align: center;
+    }
+    .stat-num {
+      font-family: 'JetBrains Mono', monospace; font-size: 1.6em;
+      color: var(--accent-2); display: block; margin-bottom: .25rem;
+    }
+    .stat-label { font-family: 'JetBrains Mono', monospace; font-size: .62em; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); }
+
+    /* ── PROJECT CARDS ── */
+    .project-card {
+      border: 1px solid var(--rule); border-radius: 2px;
+      padding: 2rem; margin-bottom: 1.5rem;
+      transition: border-color .2s;
+    }
+    .project-card:hover { border-color: var(--rule-2); }
+    .project-header {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .project-title-group { flex: 1; }
+    .project-id {
+      font-family: 'JetBrains Mono', monospace; font-size: .65em;
+      letter-spacing: .1em; text-transform: uppercase; color: var(--accent);
+      margin-bottom: .3rem; display: block;
+    }
+    .project-name {
+      font-size: 1.2rem; color: var(--head); font-weight: 500;
+    }
+    .project-badges { display: flex; gap: .5rem; flex-wrap: wrap; align-items: flex-start; padding-top: .1rem; }
+    .badge {
+      font-family: 'JetBrains Mono', monospace; font-size: .58em; letter-spacing: .08em;
+      text-transform: uppercase; padding: .25em .6em;
+      border: 1px solid var(--rule-2); color: var(--dim);
+      border-radius: 2px; white-space: nowrap;
+    }
+    .badge.wip   { border-color: #2a3a2a; color: #6a9a6a; }
+    .badge.done  { border-color: #1e3a4a; color: #6aaaba; }
+    .badge.theory{ border-color: #3a2a3a; color: #9a6a9a; }
+
+    .project-desc { color: var(--muted); font-size: .95em; margin-bottom: 1.25rem; }
+    .project-desc p:last-child { margin-bottom: 0; }
+
+    .project-detail {
+      border-top: 1px solid var(--rule); padding-top: 1.25rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;
+    }
+    .detail-block .label { display: block; margin-bottom: .3rem; }
+    .detail-block p { font-size: .88em; color: var(--muted); margin: 0; }
+
+    /* ── LICENSING ── */
+    .license-block {
+      background: var(--ink-2); border: 1px solid var(--rule);
+      border-radius: 2px; padding: 1.75rem; margin-top: 2rem;
+    }
+    .license-block .label { display: block; margin-bottom: .75rem; }
+    .license-block p { font-size: .92em; color: var(--muted); margin-bottom: .75rem; }
+    .license-block p:last-child { margin: 0; }
+
+    /* ── FOOTER ── */
+    footer { padding: 4rem 0 3rem; }
+    .footer-base {
+      margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--rule);
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem;
+      font-family: 'JetBrains Mono', monospace; font-size: .64em; color: var(--dim);
+    }
+
+    /* ── SCROLL FADE ── */
+    .fade-in { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      .container { padding: 0 1.25rem; }
+      .nav-inner { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-drawer { padding: 1rem 1.25rem 1.25rem; }
+      #hero { padding: 4rem 0 3.5rem; }
+      section { padding: 3.5rem 0; }
+      .overview-stats { grid-template-columns: repeat(2, 1fr); }
+      .project-detail { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      html { font-size: 15px; }
+      .container { padding: 0 1rem; }
+      .nav-inner { padding: 0 1rem; height: 52px; }
+      #hero { padding: 3rem 0 2.5rem; }
+      .hero-title { font-size: 2.2rem; }
+      .overview-stats { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .project-card { padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo mono">jajm2006.uk</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/#works">Works</a>
+        <a href="/#projects">Projects</a>
+        <a href="/#cv">CV</a>
+        <a href="/spark" class="active">SPARK</a>
+        <button class="theme-toggle" aria-label="Toggle light/dark theme" onclick="toggleTheme()">☀︎</button>
+      </div>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu(this)">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-drawer" id="nav-drawer">
+      <a href="/"        onclick="closeMenu()">Home</a>
+      <a href="/#works"  onclick="closeMenu()">Works</a>
+      <a href="/#projects" onclick="closeMenu()">Projects</a>
+      <a href="/#cv"     onclick="closeMenu()">CV</a>
+      <a href="/spark"   onclick="closeMenu()">SPARK</a>
+      <button class="theme-toggle" style="align-self:flex-start;margin-top:.25rem" aria-label="Toggle theme" onclick="toggleTheme()">☀︎</button>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <header id="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-eyebrow">
+        <span class="label">Open Source Collective</span>
+      </div>
+      <h1 class="hero-title">The SPARK Group<br /><em>Est. 2024</em></h1>
+      <p class="hero-subtitle">Strategic Pursuits in the Advancement of Research and Knowledge — an independent collective exploring decentralised networks, sovereign computing, and legacy systems.</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-accent">View Projects</a>
+        <a href="https://github.com/JAJM2006" target="_blank" rel="noopener" class="btn">GitHub</a>
+        <a href="/" class="btn">← Portfolio</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── OVERVIEW ── -->
+    <section id="overview">
+      <div class="container fade-in">
+        <div class="section-header">
+          <span class="section-num mono">§ 01</span>
+          <h2 class="section-title">Overview</h2>
+        </div>
+
+        <div class="overview-stats">
+          <div class="stat-block">
+            <span class="stat-num">5</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-num">2024</span>
+            <span class="stat-label">Founded</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-num">OSS</span>
+            <span class="stat-label">Licence</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-num">UK</span>
+            <span class="stat-label">Based</span>
+          </div>
+        </div>
+
+        <p>The SPARK Group was founded in 2024 as an informal open-source collective, bringing together a small group of people before I departed for university. The name is an acronym: <strong>Strategic Pursuits in the Advancement of Research and Knowledge</strong>. In practice, the group functions as a personal research and development lab — a space to build, break, and learn from the ground up.</p>
+
+        <p>I am not a technical person by nature. Every project here represents a deliberate act of learning: choosing hard problems, building from first principles, and documenting the process honestly. The SPARK Group is less a finished product and more a philosophy of inquiry applied to software, hardware, and networks.</p>
+
+        <p>All projects are open source and hosted on the <a href="https://github.com/JAJM2006" target="_blank" rel="noopener">SPARK Group GitHub</a>. Development is ongoing and active, though the pace is shaped by academic commitments.</p>
+
+        <hr class="rule-h" />
+
+        <p style="font-style:italic; color:var(--muted); font-size:.94em;">The SPARK Group operates under its own bespoke licensing agreement, drafted as part of Project Synthacope. All outputs are open source within the terms of that agreement.</p>
+      </div>
+    </section>
+
+    <!-- ── PROJECTS ── -->
+    <section id="projects">
+      <div class="container fade-in">
+        <div class="section-header">
+          <span class="section-num mono">§ 02</span>
+          <h2 class="section-title">Projects</h2>
+        </div>
+        <p style="margin-bottom:2.5rem; color:var(--muted); font-style:italic;">Five projects across systems, networks, hardware, and infrastructure — each a self-contained learning exercise with real outputs.</p>
+
+        <!-- Synthacope -->
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-title-group">
+              <span class="project-id">Project I — Synthacope</span>
+              <div class="project-name">Online Presence &amp; Legal Infrastructure</div>
+            </div>
+            <div class="project-badges">
+              <span class="badge done">Complete</span>
+              <span class="badge">Infrastructure</span>
+            </div>
+          </div>
+          <div class="project-desc">
+            <p>The foundational project of the SPARK Group, focused on establishing the collective's online presence and legal identity. My primary output was the drafting of the <strong>SPARK Group Licensing Agreement</strong> — a bespoke open-source licence governing all group outputs. This was also where I first learnt the basics of web hosting, HTML, and repurposing old PCs as Linux servers.</p>
+            <p>Synthacope is the scaffolding that made everything else possible — without it, the other projects would have no coherent legal or technical home.</p>
+          </div>
+          <div class="project-detail">
+            <div class="detail-block">
+              <span class="label">Primary Output</span>
+              <p>SPARK Group Licensing Agreement; web infrastructure; Linux server deployment</p>
+            </div>
+            <div class="detail-block">
+              <span class="label">Skills Developed</span>
+              <p>Legal drafting; HTML; web hosting; Linux server administration</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SenaCode -->
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-title-group">
+              <span class="project-id">Project II — SenaCode &amp; SCOS</span>
+              <div class="project-name">A Sovereign Operating Environment</div>
+            </div>
+            <div class="project-badges">
+              <span class="badge wip">Ongoing</span>
+              <span class="badge">Systems</span>
+              <span class="badge">OS</span>
+            </div>
+          </div>
+          <div class="project-desc">
+            <p>SenaCode is a minimalist operating environment designed for the Raspberry Pi 5, built around a single guiding principle: <em>Security through Simplicity</em>. Modern operating systems contain tens of millions of lines of code, written by thousands of contributors — so complex that no single person can fully understand, let alone audit, them. SenaCode is a direct challenge to that assumption.</p>
+            <p>The project has three interlocking components. <strong>SCOS</strong> (SenaCode OS) is the bare-metal operating system, written in C with elements of ARM assembly for boot loading, running entirely without unnecessary dependencies. <strong>GATBUI</strong> (Graphically Assisted Text-Based User Interface) is the interface layer — a full-screen terminal environment inspired by retro computing aesthetics (think Pip-Boy from Fallout, or DOS). It is divided into four ASCII-bounded decks: an upper info panel, a main display area, a persistent console input, and a live system stats bar. <strong>SenaLang</strong> is a bespoke general-purpose programming language, modelled after BASIC — readable, auditable, and sandboxed. Every line of SenaLang code can be understood and verified by a single person.</p>
+            <p>The security model is deliberately architectural rather than procedural. System-level files are logically separated from user-accessible ones — internally referred to as the "drinks cabinet" (read-only) and "snacks cupboard" (user space). An integrated audit log records all commands. The goal is not to compete with Linux; it is to prove that a complete, functional, and secure computing environment can be built lean.</p>
+          </div>
+          <div class="project-detail">
+            <div class="detail-block">
+              <span class="label">Stack</span>
+              <p>C; ARM Assembly; custom SenaLang interpreter; Raspberry Pi 5</p>
+            </div>
+            <div class="detail-block">
+              <span class="label">Key Concepts</span>
+              <p>Bare-metal OS design; security through simplicity; auditable computing; bespoke language design</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SparkNet -->
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-title-group">
+              <span class="project-id">Project III — SparkNet</span>
+              <div class="project-name">A Decentralised Sovereign Network</div>
+            </div>
+            <div class="project-badges">
+              <span class="badge wip">Ongoing</span>
+              <span class="badge">Networks</span>
+              <span class="badge">P2P</span>
+            </div>
+          </div>
+          <div class="project-desc">
+            <p>SparkNet is the project I have invested the most research into. It began as a practical need — secure communication between geographically dispersed SPARK Group members — and evolved into a full theoretical and practical framework for a sovereign, decentralised network layer that operates entirely outside the conventional internet infrastructure.</p>
+            <p>At the core of SparkNet is the <strong>SNX (SenEx) Protocol</strong> — a self-contained, identity-first routing and trust system that eliminates reliance on IP addresses, DNS, and centralised authorities like ICANN. Instead, nodes are identified via <strong>SNX-IDs</strong> in the format <code>NodeType:OrgName:Code/Path</code> (e.g. <code>MAC:Manus:101/home</code>). These identifiers encode not just destination but organisational affiliation and node purpose, enabling routing and access control without any third-party lookup service.</p>
+            <p>Trust within SparkNet is managed through a <strong>ticket-based model</strong>: cryptographically signed Certs and Tickets govern every meaningful interaction — from resource access to data transactions. The <strong>Root Command Server (RCS)</strong> acts as the certificate authority for the network, while <strong>Centrally Administered Systems (CASs)</strong> function as organisational root nodes — each effectively a digital nation-state, governing its own nodes and infrastructure.</p>
+            <p>For external communication, SparkNet deploys <strong>EXT (Gateway) nodes</strong> that bridge the internal network to the MainNet via TOR tunnels — preserving anonymity and ensuring SNX nodes are never exposed to the ClearNet. Crucially, SparkNet is also designed for entirely off-grid operation: nodes can communicate via USB, Ethernet, or serial links, and because SNX packets are self-contained and verifiable, they can be physically transported on USB drives and re-injected into the network. This enables delay-tolerant networking in environments with no internet access at all.</p>
+          </div>
+          <div class="project-detail">
+            <div class="detail-block">
+              <span class="label">Key Concepts</span>
+              <p>Decentralised networking; sovereign protocols; TOR integration; ticket-based authentication; delay-tolerant networking</p>
+            </div>
+            <div class="detail-block">
+              <span class="label">Network Components</span>
+              <p>RCS (Root Command Server); CAS (Centrally Administered System); EXT (Gateway); DAN (Direct Allied Network); USR (User Node)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kielder -->
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-title-group">
+              <span class="project-id">Project IV — Kielder</span>
+              <div class="project-name">Legacy Systems &amp; Intelligence Reservoirs</div>
+            </div>
+            <div class="project-badges">
+              <span class="badge done">Complete</span>
+              <span class="badge">Database</span>
+              <span class="badge">COBOL</span>
+            </div>
+          </div>
+          <div class="project-desc">
+            <p>Named after Kielder Water — a reservoir — Project Kielder explores legacy systems and intelligence data management. Conducted as part of my Integrated Industry Experience module at the University of Buckingham's School of Computing, the project produced a COBOL-based system capable of indexing and managing report files from external hardware (primarily USB drives).</p>
+            <p>The system integrates COBOL with modern ZSH shell scripting to automate data ingestion — reading structured headers from files (including WordGrinder documents, PDFs, and plain text), extracting metadata, and maintaining a flat-file index. The project exists in three versions: <em>TryNull</em> (the first working front-end, pure COBOL), <em>TryOne</em> (extended features, still pure COBOL), and the unreleased <em>TryTwo</em>, which integrates embedded SQL for genuine database functionality and folder access.</p>
+            <p>The project also includes a technically earnest self-destruct function — a data purging routine included as an exercise in secure deletion. The work on Kielder directly led to broader engagement with IBM Mainframe systems and globally recognised certifications in that area.</p>
+          </div>
+          <div class="project-detail">
+            <div class="detail-block">
+              <span class="label">Stack</span>
+              <p>COBOL; ZSH; embedded SQL (TryTwo); Raspberry Pi hardware integration</p>
+            </div>
+            <div class="detail-block">
+              <span class="label">Outputs</span>
+              <p>Working COBOL indexing system; USB data ingestion pipeline; IBM Mainframe certifications</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Clifford -->
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-title-group">
+              <span class="project-id">Project V — Clifford</span>
+              <div class="project-name">Hardware Integration &amp; Physical-Digital Interface</div>
+            </div>
+            <div class="project-badges">
+              <span class="badge theory">Theoretical</span>
+              <span class="badge">Hardware</span>
+            </div>
+          </div>
+          <div class="project-desc">
+            <p>The final SPARK Group project, and the one I have been least directly involved in. Clifford is named as a pun on Clifford the Big Red Dog — the "Big Red Button" being the central conceit of the project. It explores the physical-digital interface: the point at which software meets hardware in a tangible, user-facing way.</p>
+            <p>Conceptually, Clifford is the hardware counterpart to SenaCode's software. Where SenaCode defines the operating environment, Clifford defines the physical device that runs it — exploring how bespoke hardware design can reinforce and complement a security-first software philosophy. My involvement has been primarily in the theoretical framing of the physical-digital interface rather than the hands-on hardware development.</p>
+          </div>
+          <div class="project-detail">
+            <div class="detail-block">
+              <span class="label">Focus</span>
+              <p>Physical-digital interface; hardware design philosophy; SenaCode integration</p>
+            </div>
+            <div class="detail-block">
+              <span class="label">Status</span>
+              <p>Theoretical exploration; active development by other group members</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── LICENSING ── -->
+    <section id="licensing">
+      <div class="container fade-in">
+        <div class="section-header">
+          <span class="section-num mono">§ 03</span>
+          <h2 class="section-title">Licensing</h2>
+        </div>
+        <p>All SPARK Group outputs are open source and governed by the bespoke <strong>SPARK Group Licensing Agreement</strong>, drafted as part of Project Synthacope. The licence is designed to reflect the group's values: transparency, auditability, and non-commercial openness.</p>
+        <div class="license-block">
+          <span class="label">SPARK Group Licence — Summary</span>
+          <p>All project outputs are freely available for personal use, research, and educational purposes. Commercial use, redistribution, and derivative works are permitted under the terms of the agreement, provided attribution is maintained and outputs remain open.</p>
+          <p>Full licence terms are available via the <a href="https://github.com/JAJM2006" target="_blank" rel="noopener">SPARK Group GitHub Repository</a>.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="container fade-in">
+      <div class="footer-base">
+        <span>© 2026 The SPARK Group — <a href="/">jajm2006.uk</a></span>
+        <span class="mono">Static HTML · No tracking · No cookies</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const toggleBtns = document.querySelectorAll('.theme-toggle');
+    function getSystemTheme() { return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+    function applyTheme(theme) {
+      root.setAttribute('data-theme', theme);
+      const icon = theme === 'dark' ? '☀︎' : '☽';
+      toggleBtns.forEach(b => b.textContent = icon);
+      localStorage.setItem('theme', theme);
+    }
+    function toggleTheme() {
+      applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    }
+    const saved = localStorage.getItem('theme');
+    applyTheme(saved || getSystemTheme());
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      if (!localStorage.getItem('theme')) applyTheme(e.matches ? 'dark' : 'light');
+    });
+
+    function toggleMenu(btn) {
+      const drawer = document.getElementById('nav-drawer');
+      const open = drawer.classList.toggle('open');
+      btn.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open);
+    }
+    function closeMenu() {
+      const drawer = document.getElementById('nav-drawer');
+      const btn = document.querySelector('.nav-hamburger');
+      drawer.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', false);
+    }
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.06 });
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
