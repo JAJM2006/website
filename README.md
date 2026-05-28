@@ -1,33 +1,24 @@
-# [Astro](https://astro.build) Blog Template.
+# jajm2006.uk — Personal Portfolio & CV
 
-[![Screenshot](screenshot.png)](https://astro-blog-template.netlify.app/)
+Personal portfolio and academic CV of Joshua McManus (JAJM2006). Built with Astro, deployed via Cloudflare Workers.
 
-## 👉 Check out the ✨ [Live Demo](https://astro-blog-template.netlify.app/) ✨
+🌐 **Live site:** [www.jajm2006.uk](https://www.jajm2006.uk)
 
-## 👩‍🚀 Getting Started
+---
 
-### Locally
+## Overview
 
-```
-npm init astro -- --template Charca/astro-blog-template
-```
+A static portfolio site showcasing academic works, personal projects, and a curriculum vitae. Designed for researchers, collaborators, and postgraduate networks in the fields of geostrategy, security, and development studies.
 
-### On StackBlitz
+## Stack
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/charca/astro-blog-template)
+- **Framework:** [Astro](https://astro.build) with Svelte and MDX support
+- **Styling:** Vanilla CSS with dark/light theme toggle
+- **Fonts:** EB Garamond + JetBrains Mono (Google Fonts)
+- **Deployment:** Cloudflare Workers (via GitHub → Cloudflare Pages CI)
+- **Domain:** `jajm2006.uk` (registered UK domain)
 
-## ✨ Features:
-
-- ✅ Astro 4.0
-- ✅ Dark Mode
-- ✅ Full Markdown support
-- ✅ SEO-friendly setup with canonical URLs and OpenGraph data
-- ✅ RSS 2.0 generation
-- ✅ Sitemap.xml generation
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## Project Structure
 
 ```
 /
@@ -35,30 +26,39 @@ Inside of your Astro project, you'll see the following folders and files:
 │   ├── robots.txt
 │   └── favicon.ico
 ├── src/
-│   ├── components/
-│   │   └── Tour.astro
 │   └── pages/
-│       └── index.astro
+│       └── index.html       # Main portfolio page
+├── astro.config.mjs
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Local Development
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```bash
+npm install
+npm run dev        # Dev server at localhost:4321
+npm run build      # Build to ./dist/
+npm run preview    # Preview production build locally
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Deployment
 
-## 🧞 Commands
+This site deploys automatically via Cloudflare Workers on every push to the `main` branch. No manual deployment steps required.
 
-All commands are run from the root of the project, from a terminal:
+## SEO
 
-| Command           | Action                                       |
-| :---------------- | :------------------------------------------- |
-| `npm install`     | Installs dependencies                        |
-| `npm run dev`     | Starts local dev server at `localhost:3030`  |
-| `npm run build`   | Build your production site to `./dist/`      |
-| `npm run preview` | Preview your build locally, before deploying |
+- Sitemap available at [`/sitemap-index.xml`](https://www.jajm2006.uk/sitemap-index.xml)
+- Submitted to Google Search Console and Bing Webmaster Tools
+- OpenGraph and canonical tags configured
 
-## 👀 Want to learn more?
+## Contact
 
-Feel free to check [Astro's documentation](https://github.com/withastro/astro) or jump into Astro's [Discord server](https://astro.build/chat).
+**Joshua McManus**
+- Email: [Joshua@jajm2006.uk](mailto:Joshua@jajm2006.uk)
+- GitHub: [github.com/JAJM2006](https://github.com/JAJM2006)
+- LinkedIn: [linkedin.com/in/JAJM2006](https://linkedin.com/in/JAJM2006)
+- ORCID: [0009-0004-5910-7707](https://orcid.org/0009-0004-5910-7707)
+
+---
+
+*"Onwards Forevermore"*
