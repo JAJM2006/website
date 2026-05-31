@@ -1,4 +1,3 @@
-```markdown
 # jajm2006.uk | Personal Portfolio & CV
 
 A personal portfolio and online CV. Built with Astro, deployed via Cloudflare Pages.
@@ -27,10 +26,10 @@ A static portfolio site showcasing academic works, personal projects, and a curr
 │   ├── favicon/
 │   ├── works/
 │   │   ├── UG/
-│   │   │   ├── Year 1/      # Undergraduate Essays (Year 1, 2024-2025)
-│   │   │   └── Year 2/      # Undergraduate Essays (Year 2, 2025-2026)
+│   │   │   ├── Y1/          # Undergraduate Essays (Year 1, 2024-2025)
+│   │   │   └── Y2/          # Undergraduate Essays (Year 2, 2025-2026)
 │   │   └── PG/
-│   │        └── Masters/    # Postgraduate Essays (Masters, 2026-2027)
+│   │       └── Masters/     # Postgraduate Essays (Masters, 2026-2027)
 │   ├── 404.html
 │   ├── cv.pdf
 │   ├── og-image.png
@@ -43,7 +42,7 @@ A static portfolio site showcasing academic works, personal projects, and a curr
 │       │   └── index.html   # Academic works archive
 │       └── spark/
 │           └── index.html   # The SPARK Group
-├── LICENSE                  # The original License that accompanied the Astro Template
+├── LICENSE                  # Original licence from the Astro template
 ├── README.md
 ├── astro.config.mjs
 ├── package.json
@@ -77,4 +76,3 @@ Deploys automatically via Cloudflare Pages on every push to `main`.
 ---
 
 *"Onwards Forevermore"*
-```
