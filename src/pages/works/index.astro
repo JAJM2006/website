@@ -1,0 +1,435 @@
+---
+import Base from '../../layouts/Base.astro'
+---
+
+<Base
+  title="Academic Works - jajm2006.uk"
+  description="Academic works of Joshua McManus (JAJM2006) - essays, reports, and dissertations from the University of Buckingham."
+  canonicalUrl="https://www.jajm2006.uk/works/"
+  ogTitle="Academic Works - Joshua McManus"
+  ogDescription="Essays, reports, and dissertations from Joshua McManus (JAJM2006), University of Buckingham."
+  activePage="works"
+>
+
+  <style>
+    /* ── ACCORDION ── */
+    .term-group { border-top: 1px solid var(--rule); }
+    .term-group:last-child { border-bottom: 1px solid var(--rule); }
+    .term-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 0; cursor: pointer; user-select: none; gap: 1rem;
+    }
+    .term-header:hover .term-title { color: var(--bright); }
+    .term-left { display: flex; align-items: baseline; gap: 1.25rem; flex-wrap: wrap; }
+    .term-id { font-family: 'JetBrains Mono', monospace; font-size: .68em; color: var(--accent); letter-spacing: .1em; text-transform: uppercase; }
+    .term-title { font-size: 1.1rem; color: var(--head); transition: color .2s; }
+    .term-count { font-family: 'JetBrains Mono', monospace; font-size: .62em; color: var(--dim); letter-spacing: .08em; }
+    .term-chevron { font-family: 'JetBrains Mono', monospace; font-size: .75em; color: var(--dim); transition: transform .25s; flex-shrink: 0; }
+    .term-group.open .term-chevron { transform: rotate(90deg); }
+    .term-body { display: none; padding-bottom: 1.5rem; }
+    .term-group.open .term-body { display: block; }
+
+    /* ── MODULE BLOCK ── */
+    .module-block { margin-bottom: 2rem; }
+    .module-title {
+      font-family: 'JetBrains Mono', monospace; font-size: .66em;
+      letter-spacing: .15em; text-transform: uppercase; color: var(--accent);
+      margin-bottom: 1rem; padding-bottom: .5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* ── ESSAY ENTRY ── */
+    .essay { padding: 1.25rem 0; border-bottom: 1px dashed var(--rule); }
+    .essay:last-child { border-bottom: none; }
+    .essay-title { font-size: 1rem; color: var(--head); font-weight: 500; margin-bottom: .3rem; line-height: 1.35; }
+    .essay-abstract { font-size: .9em; color: var(--muted); line-height: 1.65; margin-bottom: .75rem; max-width: 62ch; }
+    .essay-footer { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .essay-tag { font-family: 'JetBrains Mono', monospace; font-size: .6em; letter-spacing: .08em; text-transform: uppercase; padding: .25em .6em; border: 1px solid var(--rule-2); color: var(--dim); border-radius: 3px; }
+    .essay-tag.wip { border-color: #2a3a2a; color: #6a9a6a; }
+    .essay-tag.done { border-color: #1e3a4a; color: #6aaaba; }
+    .essay-download { font-family: 'JetBrains Mono', monospace; font-size: .62em; letter-spacing: .08em; text-transform: uppercase; padding: .25em .75em; border: 1px solid var(--accent); color: var(--accent); border-radius: 3px; transition: background .2s, color .2s, border-color .2s; }
+    .essay-download:hover { background: var(--accent-dim); color: var(--bright); border-bottom-color: var(--accent); }
+
+    /* ── FOOTER ── */
+    footer { padding: 4rem 0 3rem; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      #hero { padding: 4rem 0 3.5rem; }
+    }
+    @media (max-width: 480px) {
+      #hero { padding: 3rem 0 2.5rem; }
+      .hero-title { font-size: 2.2rem; }
+    }
+  </style>
+
+  <!-- ── HERO ── -->
+  <header id="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-eyebrow">
+        <span class="label">University of Buckingham · BA(Hons) Security, Intelligence and Cyber</span>
+      </div>
+      <h1 class="hero-title">Academic Works<br /><em>2024 - 2026</em></h1>
+      <p class="hero-subtitle">Essays, reports, and formal academic outputs arranged by term. Abstracts are provided for each piece; PDFs available where permitted.</p>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── YEAR 1 ── -->
+    <section>
+      <div class="container fade-in">
+        <div class="section-header">
+          <span class="section-num mono">Year 1</span>
+          <h2 class="section-title">2024 - 2025</h2>
+        </div>
+
+        <!-- TERM 24T4 -->
+        <div class="term-group" onclick="toggleTerm(this)">
+          <div class="term-header">
+            <div class="term-left">
+              <span class="term-id">24T4</span>
+              <span class="term-title">Term One · Autumn 2024</span>
+              <span class="term-count">3 essays</span>
+            </div>
+            <span class="term-chevron">▶</span>
+          </div>
+          <div class="term-body">
+            <div class="module-block">
+              <div class="module-title">Diplomacy in the Modern Age</div>
+              <div class="essay">
+                <div class="essay-title">Are energy resources a blessing or a curse for smaller states?</div>
+                <p class="essay-abstract">This essay investigates the impact of energy resource wealth on the diplomatic and economic stability of smaller nations. It explores whether these resources act as a "blessing" by providing leverage and wealth or a "curse" that leads to dependency and conflict. The work addresses the complex role energy plays in contemporary global security.</p>
+                <div class="essay-footer">
+                  <span class="essay-tag done">Complete</span>
+                  <a href="/works/UG/Y1/24T4/JAJM-24T4-DPMA-ESSAY.pdf" class="essay-download">Download PDF</a>
+                </div>
+              </div>
+            </div>
+            <div class="module-block">
+              <div class="module-title">Intelligence Threats, Triumphs and Blunders</div>
+              <div class="essay">
+                <div class="essay-title">How Damaging are Unauthorised Disclosures to National Security?</div>
+                <p class="essay-abstract">Unauthorized disclosures of classified information present a profound challenge to modern national security and surveillance. This essay evaluates the impact of such leaks through case studies including Edward Snowden, Project Azorian, and Operation Rubicon. It discusses the complex consequences of these disclosures, noting the divided public perception that views leakers as either traitors or heroes.</p>
+                <div class="essay-footer">
+                  <span class="essay-tag done">Complete</span>
+                  <a href="/works/UG/Y1/24T4/ITTB-ESSAY.pdf" class="essay-download">Download PDF</a>
+                </div>
+              </div>
+            </div>
+            <div class="module-block">
+              <div class="module-title">Introduction to Political Theory</div>
+              <div class="essay">
+                <div class="essay-title">Is the abolition of the family the only way to achieve equality of opportunity?</div>
+                <p class="essay-abstract">Centering on George Murdock's definition of the family as a social group characterised by economic cooperation and reproduction, this essay analyzes the family unit's role in social structures. It explores the political theory that the family may act as an obstacle to achieving true equality of opportunity, and the social theory that we are nothing without our kin. The paper examines the evolution of the family and evaluates proposed solutions, including some people's beliefs on its potential abolition, to facilitate social mobility.</p>
+                <div class="essay-footer">
+                  <span class="essay-tag done">Complete</span>
+                  <a href="/works/UG/Y1/24T4/INPT-ESSAY.pdf" class="essay-download">Download PDF</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TERM 25T1 -->
+        <div class="term-group" onclick="toggleTerm(this)">
+          <div class="term-header">
+            <div class="term-left">
+              <span class="term-id">25T1</span>
+              <span class="term-title">Term Two · Winter 2025</span>
+              <span class="term-count">3 essays</span>
+            </div>
+            <span class="term-chevron">▶</span>
+          </div>
+          <div class="term-body">
+            <div class="module-block">
+              <div class="module-title">Cyber Challenges</div>
+              <div class="essay">
+                <div class="essay-title">In which ways will technology transform military conflict over the next twenty years?</div>
+                <p class="essay-abstract">This essay argues that the nature of war is constantly adapting to the technological capabilities of the time. It explores how emerging technologies like Artificial Intelligence, semi-autonomous unmanned systems, and cyber warfare will reshape military strategy over the next twenty years. Highlighting initiatives like NATO's DIANA project, the essay examines the ethical and geopolitical risks of a more data-driven and interconnected battlefield.</p>
+                <div class="essay-footer">
+                  <span class="essay-tag done">Complete</span>
+                  <a href="/works/UG/Y1/25T1/CYCH-ESSAY.pdf" class="essay-download">Download PDF</a>
+                </div>
+              </div>
+            </div>
+            <div class="module-block">
+              <div class="module-title">Foundations of Intelligence Organisations and Structures</div>
+              <div class="essay">
+                <div class="essay-title">The Importance of "All-Source Intelligence" - Advantages and Disadvantages of HUMINT, SIGINT, and OSINT</div>
+                <p class="essay-abstract">Focusing on the "Intelligence Cycle", this essay assesses the specific advantages and disadvantages of HUMINT, SIGINT, and OSINT. It defines intelligence as 'Information Actionable' and emphasises that effective strategic decisions require "All-Source Intelligence", the combination of multiple collection methodologies. The paper highlights HUMINT as one of the oldest disciplines, citing historical foundations from Sun Tzu's The Art of War.</p>
+                <div class="essay-footer">
+                  <span class="essay-tag done">Complete</span>
+                  <a href="/works/UG/Y1/25T1/FIOS-ESSAY.pdf" class="essay-download">Download PDF</a>
+                </div>
+              </div>
+            </div>
+            <div class="module-block">
+              <div class="module-title">Foundations of Global Security</div>
+              <div class="essay">
+                <div class="essay-title">Why has NATO persisted in the Post-Cold War Period?</div>
+                <p class="essay-abstract">This essay examines the endurance of the North Atlantic Treaty Organisation (NATO) following the dissolution of the Soviet Union. It explores the alliance's transition from a Cold War collective defense pact to a modern pillar of Western political dominance and global stability. By analyzing NATO's role as a balancing force for power and its expansion into humanitarian and counter-terrorism operations, the paper argues that the organisation persists because it provides a critical framework for transatlantic security cooperation and democratic alignment.</p>
+                <div class="essay-footer">
+                  <span class="essay-tag done">Complete</span>
+                  <a href="/works/UG/Y1/25T1/FOGS-ESSAY.pdf" class="essay-download">Download PDF</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TERM 25T2 -->
+        <div class="term-group" onclick="toggleTerm(this)">
+          <div class="term-header">
+            <div class="term-left">
+              <span class="term-id">25T2</span>
+              <span class="term-title">Term Three · Spring 2025</span>
+              <span class="term-count">3 essays</span>
+            </div>
+            <span class="term-chevron">▶</span>
+          </div>
+          <div class="term-body">
+            <div class="module-block">
+              <div class="module-title">Development and Security</div>
+              <div class="essay">
+                <div class="essay-title">Do sub-state actors pose a threat to 'development-security'?</div>
+                <p class="essay-abstract">Focusing on regions where state authority is fragmented or absent, this paper investigates the impact of sub-state actors (such as insurgent groups, militias, and criminal syndicates) on the "development-security nexus". It explores how these groups exploit power vacuums to establish alternative governance structures, often at the expense of regional stability and human rights. Through a study of the disruption caused by these actors, the essay concludes that they represent a fundamental challenge to both local development goals and broader international security.</p>
+                <div class="essay-footer">
+                  <span class="essay-tag done">Complete</span>
+                  <a href="/works/UG/Y1/25T2/DSEC-ESSAY.pdf" class="essay-download">Download PDF</a>
+                </div>
+              </div>
+            </div>
+            <div class="module-block">
+              <div class="module-title">National Security in a Cyber-Age</div>
+              <div class="essay">
+                <div class="essay-title">Marks and Spencer plc - A Risk Assessment</div>
+                <p class="essay-abstract">This essay presents a detailed security risk assessment of Marks and Spencer plc (M&amp;S) in the wake of the 2025 ransomware attack. It evaluates the vulnerabilities inherent in large-scale retail infrastructures, specifically focusing on asset risk analysis and the protection of consumer data. The paper discusses the broader implications of cyber threats for the British retail sector and emphasises the necessity of continuous monitoring and robust incident response frameworks to mitigate the impact of sophisticated digital adversaries.</p>
+                <div class="essay-footer">
+                  <span class="essay-tag done">Complete</span>
+                  <a href="/works/UG/Y1/25T2/NSCA-ESSAY.pdf" class="essay-download">Download PDF</a>
+                </div>
+              </div>
+            </div>
+            <div class="module-block">
+              <div class="module-title">Terrorism and Counter-Terrorism</div>
+              <div class="essay">
+                <div class="essay-title">Why is terrorism a contested concept?</div>
+                <p class="essay-abstract">The definition of "terrorism" remains one of the most debated topics in contemporary geopolitics. This essay traces the etymology of the term from the French Revolution's 'Reign of Terror' to its modern usage, highlighting the subjective nature of the label. By examining alternative theories and the "freedom fighter vs. terrorist" dichotomy, the paper argues that the lack of a universal definition stems from conflicting political interests, legal complexities, and the evolving tactics of non-state actors.</p>
+                <div class="essay-footer">
+                  <span class="essay-tag done">Complete</span>
+                  <a href="/works/UG/Y1/25T2/TECO-ESSAY.pdf" class="essay-download">Download PDF</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TERM 25T3 -->
+        <div class="term-group" onclick="toggleTerm(this)">
+          <div class="term-header">
+            <div class="term-left">
+              <span class="term-id">25T3</span>
+              <span class="term-title">Term Four · Summer 2025</span>
+              <span class="term-count">1 report</span>
+            </div>
+            <span class="term-chevron">▶</span>
+          </div>
+          <div class="term-body">
+            <div class="module-block">
+              <div class="module-title">Integrated Industry Experience</div>
+              <div class="essay">
+                <div class="essay-title">What I Have Learnt</div>
+                <p class="essay-abstract">This reflective essay outlines the pedagogical and professional development gained through the University of Buckingham's Integrated Industry Experience Module. It details the preparation, methodology, and practical applications of security and intelligence theories in a real-world professional setting. The paper highlights the value of experiential learning in bridging the gap between academic study and the specific competencies required by the intelligence and global security industries.</p>
+                <div class="essay-footer">
+                  <span class="essay-tag done">Complete</span>
+                  <a href="/works/UG/Y1/25T3/IIEM-ESSAY.pdf" class="essay-download">Download PDF</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── YEAR 2 ── -->
+    <section>
+      <div class="container fade-in">
+        <div class="section-header">
+          <span class="section-num mono">Year 2</span>
+          <h2 class="section-title">2025 - 2026</h2>
+        </div>
+
+        <!-- TERM 25T4 -->
+        <div class="term-group" onclick="toggleTerm(this)">
+          <div class="term-header">
+            <div class="term-left">
+              <span class="term-id">25T4</span>
+              <span class="term-title">Term Five · Autumn 2025</span>
+              <span class="term-count">2 modules · 3 essays</span>
+            </div>
+            <span class="term-chevron">▶</span>
+          </div>
+          <div class="term-body">
+            <div class="module-block">
+              <div class="module-title">DNA &amp; Crime</div>
+              <div class="essay">
+                <div class="essay-title">Can DNA analysis assist in disrupting the illegal trade in cannabis?</div>
+                <p class="essay-abstract">This paper explores the intersection of forensic botany and criminal investigation, specifically focusing on the use of DNA profiling to combat the illicit cannabis trade. It categorises the biological complexities of the Cannabis genus and evaluates how genetic sequencing can be used to track the geographic origin and distribution networks of illegal narcotics. While acknowledging technical and legal hurdles, the essay argues that DNA analysis is an increasingly vital tool for law enforcement in disrupting multi-billion dollar criminal economies.</p>
+                <div class="essay-footer">
+                  <span class="essay-tag done">Complete</span>
+                  <a href="/works/UG/Y2/25T4/DNAC-CANNABIS.pdf" class="essay-download">Download PDF</a>
+                </div>
+              </div>
+              <div class="essay">
+                <div class="essay-title">An Introduction Into Forensic Genetic Genealogy</div>
+                <p class="essay-abstract">Forensic Genetic Genealogy (FGG) is an emerging investigative tool that utilises single-nucleotide polymorphisms (SNPs) from biological samples to identify familial matches through consumer DNA databases. This essay introduces the technical processes of FGG, including genotype and phenotype coding, and discusses its application in North America and Scandinavia. It also addresses the significant legal and ethical challenges posed by the unregulated nature of these databases.</p>
+                <div class="essay-footer">
+                  <span class="essay-tag done">Complete</span>
+                  <a href="/works/UG/Y2/25T4/DNAC-FGG.pdf" class="essay-download">Download PDF</a>
+                </div>
+              </div>
+            </div>
+            <div class="module-block">
+              <div class="module-title">Conflict, Crisis, and Strategic Decision-Making</div>
+              <div class="essay">
+                <div class="essay-title">Examine the concepts of 'guerrilla warfare' and 'insurgency' and the effectiveness of at least two states' counter-insurgency responses</div>
+                <p class="essay-abstract">This essay explores the evolution of "new wars" characterised by globalisation and the rise of non-state actors that challenge the traditional Westphalian state system. It defines the core concepts of insurgency and guerrilla warfare, focusing on irregular personnel and ad-hoc units rather than specialised military forces. Through case studies of the Sri Lankan Civil War, the War on Terror, and the Vietnam War, the paper assesses the effectiveness of different state counter-insurgency responses.</p>
+                <div class="essay-footer">
+                  <span class="essay-tag done">Complete</span>
+                  <a href="/works/UG/Y2/25T4/CCSD-ESSAY.pdf" class="essay-download">Download PDF</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TERM 26T1 -->
+        <div class="term-group" onclick="toggleTerm(this)">
+          <div class="term-header">
+            <div class="term-left">
+              <span class="term-id">26T1</span>
+              <span class="term-title">Term Six · Winter 2026</span>
+              <span class="term-count">2 essays</span>
+            </div>
+            <span class="term-chevron">▶</span>
+          </div>
+          <div class="term-body">
+            <div class="module-block">
+              <div class="module-title">Global Security and International Law</div>
+              <div class="essay">
+                <div class="essay-title">To what extent can a state legally enact Protection of Nationals Abroad?</div>
+                <p class="essay-abstract">The international system's foundational principle of state sovereignty is increasingly in conflict with a home state's desire to protect its citizens residing in foreign territories. This paper examines the legality of Protection of Nationals Abroad (PONA) within the framework of the United Nations Charter and geopolitical realities. It analyses the tension between the primacy of the host state and the home state's right to defend its nationals against threats such as arbitrary detention or state failure.</p>
+                <div class="essay-footer">
+                  <span class="essay-tag done">Complete</span>
+                  <a href="/works/UG/Y2/26T1/GSIL-ESSAY.pdf" class="essay-download">Download PDF</a>
+                </div>
+              </div>
+            </div>
+            <div class="module-block">
+              <div class="module-title">Media, Society, Security, and Cyberspace</div>
+              <div class="essay">
+                <div class="essay-title">Is there a need for HUMINT in the age of digital intelligence?</div>
+                <p class="essay-abstract">In an era dominated by digital data, this essay questions the continued relevance of Human Intelligence (HUMINT). It distinguishes between data, information, and "actionable intelligence", arguing that while digital intelligence (SIGINT and OSINT) has grown exponentially, human insight remains a critical component of the intelligence landscape. The paper advocates for an "all-source" approach to intelligence to navigate a subjective world through contextualised insights.</p>
+                <div class="essay-footer">
+                  <span class="essay-tag done">Complete</span>
+                  <a href="/works/UG/Y2/26T1/MSSC-ESSAY.pdf" class="essay-download">Download PDF</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TERM 26T2 -->
+        <div class="term-group" onclick="toggleTerm(this)">
+          <div class="term-header">
+            <div class="term-left">
+              <span class="term-id">26T2</span>
+              <span class="term-title">Term Seven · Spring 2026</span>
+              <span class="term-count">3 essays</span>
+            </div>
+            <span class="term-chevron">▶</span>
+          </div>
+          <div class="term-body">
+            <div class="module-block">
+              <div class="module-title">Network Analysis for Criminal Investigators</div>
+              <div class="essay">
+                <div class="essay-title">Is it possible to identify criminal networks using mobile phone data?</div>
+                <p class="essay-abstract">Mapping modern criminal organisations is often hampered by the "information problem", the difficulty of obtaining high-quality data from groups actively concealing their activities. This paper examines how mobile phone data provides a pervasive digital footprint that can be used to construct and evaluate criminal networks. It argues that network identification is an active, constructed process involving mathematical diagnostics and spatial dimensions, bounded by legal and technical countermeasures.</p>
+                <div class="essay-footer">
+                  <span class="essay-tag done">Complete</span>
+                  <a href="/works/UG/Y2/26T2/NACI-CELLULAR.pdf" class="essay-download">Download PDF</a>
+                </div>
+              </div>
+              <div class="essay">
+                <div class="essay-title">How effective is network analysis in detecting money laundering?</div>
+                <p class="essay-abstract">This essay evaluates the efficacy of network analysis in anti-money laundering (AML) investigations, arguing that its effectiveness is fundamentally a function of data visibility. While traditional threshold-based monitoring fails to capture distributed financial crimes, graph-theoretic approaches (specifically cycle detection, betweenness centrality, and eigenvector centrality) successfully unmask complex layering architectures and structural holes. However, this mathematical precision is heavily constrained by empirical realities. Operational success remains severely restricted by data integration challenges, cross-border jurisdictional silos, and graph-deforming countermeasures within decentralised finance. Ultimately, network analysis is a powerful diagnostic tool, but its utility is strictly tethered to the topological integrity of the underlying data.</p>
+                <div class="essay-footer">
+                  <span class="essay-tag done">Complete</span>
+                  <a href="/works/UG/Y2/26T2/NACI-MONEY.pdf" class="essay-download">Download PDF</a>
+                </div>
+              </div>
+            </div>
+            <div class="module-block">
+              <div class="module-title">Security, Intelligence, and Policy Making</div>
+              <div class="essay">
+                <div class="essay-title">Far Right Ideologies: A Strategic Report on Threats Posed to Vulnerable Communities in the North East</div>
+                <p class="essay-abstract">This essay does not yet contain an abstract. Please wait, and one will be uploaded soon - JAJM &lt;3.</p>
+                <div class="essay-footer">
+                  <span class="essay-tag wip">Ongoing</span>
+                  <a href="/works/UG/Y2/26T2/SIPM-ESSAY.pdf" class="essay-download">Download PDF</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TERM 26T3 -->
+        <div class="term-group" onclick="toggleTerm(this)">
+          <div class="term-header">
+            <div class="term-left">
+              <span class="term-id">26T3</span>
+              <span class="term-title">Term Eight · Summer 2026</span>
+              <span class="term-count">Dissertation</span>
+            </div>
+            <span class="term-chevron">▶</span>
+          </div>
+          <div class="term-body">
+            <div class="module-block">
+              <div class="module-title">Undergraduate Dissertation · Supervised by Dr. Tanvi Pate</div>
+              <div class="essay">
+                <div class="essay-title">Sustainable Scotland: A Comparative Analysis of Development-Security</div>
+                <p class="essay-abstract">This dissertation does not yet contain an abstract. Please wait, and one will be uploaded soon - JAJM &lt;3.</p>
+                <div class="essay-footer">
+                  <span class="essay-tag wip">Ongoing · Due September 2026</span>
+                  <a href="/works/UG/Y2/26T3/DISS-Dissertation.pdf" class="essay-download">Download PDF</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="container fade-in">
+      <div class="footer-base">
+        <span>© 2026 Geordie Mac - <a href="/">jajm2006.uk</a></span>
+        <span class="mono">Static HTML · No tracking · No cookies</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTerm(group) {
+      group.classList.toggle('open');
+    }
+  </script>
+
+</Base>
