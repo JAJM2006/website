@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Page not found - jajm2006.uk" />
+  <title>404 — jajm2006.uk</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:       #0d0d0f;
+      --ink-2:     #141418;
+      --ink-3:     #1c1c22;
+      --ink-4:     #252530;
+      --rule:      #2e2e3a;
+      --rule-2:    #3d3d50;
+      --dim:       #5a5a72;
+      --muted:     #8585a0;
+      --body:      #c8c8d8;
+      --head:      #e8e8f0;
+      --bright:    #f4f4f8;
+      --accent:    #a89f6e;
+      --accent-2:  #c4b98a;
+      --accent-dim:#3a3520;
+    }
+
+    [data-theme="light"] {
+      --ink:       #f5f0e8;
+      --ink-2:     #ede8de;
+      --ink-3:     #e4ddd2;
+      --ink-4:     #d8d0c3;
+      --rule:      #c8bfaf;
+      --rule-2:    #b0a590;
+      --dim:       #7a6e5a;
+      --muted:     #5a5040;
+      --body:      #3a3020;
+      --head:      #1a1208;
+      --bright:    #0d0800;
+      --accent:    #7a6e3a;
+      --accent-2:  #5a5020;
+      --accent-dim:#e8e0c0;
+    }
+
+    html { font-size: 17px; }
+
+    body {
+      background: var(--ink);
+      color: var(--body);
+      font-family: 'EB Garamond', Georgia, serif;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      transition: background .3s, color .3s;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { color: var(--accent-2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .2s, color .2s; }
+    a:hover { color: var(--bright); border-bottom-color: var(--accent); }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--ink-2);
+      border-bottom: 1px solid var(--rule);
+      backdrop-filter: blur(12px);
+    }
+    .nav-inner {
+      max-width: 860px; margin: 0 auto; padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 56px;
+    }
+    .nav-logo {
+      font-family: 'JetBrains Mono', monospace; font-size: .78em; font-weight: 500;
+      letter-spacing: .08em; color: var(--accent-2); border-bottom: none;
+    }
+    .nav-logo:hover { color: var(--bright); border-bottom: none; }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-links a {
+      font-family: 'JetBrains Mono', monospace; font-size: .68em;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted); border-bottom: none; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--bright); border-bottom: none; }
+    .theme-toggle {
+      background: none; border: 1px solid var(--rule-2); border-radius: 4px;
+      cursor: pointer; font-size: .85rem; padding: .3em .55em;
+      color: var(--muted); transition: color .2s, border-color .2s; line-height: 1;
+    }
+    .theme-toggle:hover { color: var(--bright); border-color: var(--accent); }
+
+    /* ── MAIN ── */
+    .page-body {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* background grid, same as hero */
+    .page-body::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none; opacity: .04;
+      background-image: linear-gradient(var(--accent) 1px, transparent 1px), linear-gradient(90deg, var(--accent) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .inner {
+      max-width: 600px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: flex; align-items: center; gap: 1rem; margin-bottom: 1.75rem;
+    }
+    .eyebrow::after {
+      content: ''; flex: 1; max-width: 120px; height: 1px;
+      background: var(--accent); opacity: .5;
+    }
+    .label {
+      font-family: 'JetBrains Mono', monospace; font-size: .68em;
+      font-weight: 400; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .error-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(5rem, 20vw, 9rem);
+      font-weight: 300;
+      color: var(--ink-4);
+      line-height: 1;
+      letter-spacing: -.04em;
+      margin-bottom: -.15em;
+      /* Layered: dim base with accent outline effect */
+      -webkit-text-stroke: 1px var(--rule-2);
+      position: relative;
+      display: block;
+      user-select: none;
+    }
+
+    /* Accent stripe through the 404 */
+    .error-code-wrap {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+    .error-code-wrap::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 54%;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent) 0%, transparent 80%);
+      opacity: .4;
+    }
+
+    h1 {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 400;
+      color: var(--head);
+      line-height: 1.25;
+      margin-bottom: .75rem;
+    }
+    h1 em { color: var(--accent-2); font-style: italic; }
+
+    p {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 48ch;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      font-family: 'JetBrains Mono', monospace; font-size: .72em; letter-spacing: .08em;
+      text-transform: uppercase; padding: .7em 1.4em;
+      border: 1px solid var(--rule-2); color: var(--body);
+      border-radius: 2px; transition: background .2s, color .2s, border-color .2s;
+      cursor: pointer; display: inline-block; border-bottom: 1px solid var(--rule-2);
+    }
+    .btn:hover { background: var(--ink-4); color: var(--bright); border-color: var(--accent); border-bottom-color: var(--accent); }
+    .btn-accent { border-color: var(--accent); color: var(--accent-2); }
+    .btn-accent:hover { background: var(--accent-dim); color: var(--bright); }
+
+    .nav-hint {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .66em;
+      color: var(--dim);
+      letter-spacing: .05em;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .nav-hint a {
+      color: var(--dim); border-bottom: none;
+      transition: color .2s;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .nav-hint a:hover { color: var(--accent-2); border-bottom: none; }
+    .nav-hint span { color: var(--rule-2); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 1.25rem 2rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .64em;
+      color: var(--dim);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .5rem;
+      max-width: 100%;
+    }
+
+    @media (max-width: 480px) {
+      html { font-size: 15px; }
+      .nav-inner { padding: 0 1rem; height: 52px; }
+      .page-body { padding: 3rem 1rem; }
+      .error-code { font-size: 5.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" style="font-family:'JetBrains Mono',monospace">jajm2006.uk</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/works/">Works</a>
+        <a href="/spark/">SPARK</a>
+        <button class="theme-toggle" aria-label="Toggle light/dark theme" onclick="toggleTheme()">☀︎</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-body">
+    <div class="inner">
+
+      <div class="eyebrow">
+        <span class="label">Error</span>
+      </div>
+
+      <div class="error-code-wrap">
+        <span class="error-code">404</span>
+      </div>
+
+      <h1>Page Not Found<br /><em>The document has gone.</em></h1>
+
+      <p>Whatever you were looking for isn't here - it may have moved, been removed, or never existed. If you followed a link that should work, feel free to get in touch.</p>
+
+      <div class="cta">
+        <a href="/" class="btn btn-accent">← Return Home</a>
+        <a href="/works/" class="btn">Academic Works</a>
+        <a href="/spark/" class="btn">→ SPARK Group</a>
+      </div>
+
+      <div class="nav-hint">
+        <span>Navigate to:</span>
+        <a href="/#about">About</a>
+        <a href="/#works">Works</a>
+        <a href="/#projects">Projects</a>
+        <a href="/#cv">CV</a>
+        <a href="/#contact">Contact</a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <span>© 2026 Joshua McManus — jajm2006.uk</span>
+    <span>Static HTML · No tracking · No cookies</span>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const toggleBtns = document.querySelectorAll('.theme-toggle');
+    function getSystemTheme() { return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+    function applyTheme(theme) {
+      root.setAttribute('data-theme', theme);
+      toggleBtns.forEach(b => b.textContent = theme === 'dark' ? '☀︎' : '☽');
+      localStorage.setItem('theme', theme);
+    }
+    function toggleTheme() {
+      applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    }
+    const saved = localStorage.getItem('theme');
+    applyTheme(saved || getSystemTheme());
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      if (!localStorage.getItem('theme')) applyTheme(e.matches ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>

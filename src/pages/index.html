@@ -9,11 +9,15 @@
   <meta property="og:description" content="Portfolio and CV of Joshua McManus (JAJM2006)." />
   <meta property="og:url" content="https://www.jajm2006.uk" />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.jajm2006.uk/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://www.jajm2006.uk" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
   <link rel="manifest" href="/site.webmanifest" />
   <title>Joshua McManus - Geostrategy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -100,6 +104,7 @@
       letter-spacing: .08em; color: var(--accent-2); border-bottom: none; flex-shrink: 0;
     }
     .nav-logo:hover { color: var(--bright); border-bottom: none; }
+    .nav-links a.active { color: var(--accent-2); }
     .nav-links { display: flex; align-items: center; gap: 1.5rem; }
     .nav-links a {
       font-family: 'JetBrains Mono', monospace; font-size: .68em;
@@ -281,14 +286,11 @@
   <!-- ── NAV ── -->
   <nav aria-label="Primary navigation">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo mono">jajm2006.uk</a>
+      <a href="/" class="nav-logo mono">jajm2006.uk</a>
       <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#works">Works</a>
-        <a href="#projects">Projects</a>
-        <a href="#cv">CV</a>
-        <a href="#contact">Contact</a>
-        <a href="/spark">SPARK</a>
+        <a href="/" class="active">Home</a>
+        <a href="/works/">Works</a>
+        <a href="/spark/">SPARK</a>
         <button class="theme-toggle" aria-label="Toggle light/dark theme" onclick="toggleTheme()">☀︎</button>
       </div>
       <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu(this)">
@@ -296,16 +298,13 @@
       </button>
     </div>
     <div class="nav-drawer" id="nav-drawer">
-      <a href="#about"    onclick="closeMenu()">About</a>
-      <a href="#works"    onclick="closeMenu()">Works</a>
-      <a href="#projects" onclick="closeMenu()">Projects</a>
-      <a href="#cv"       onclick="closeMenu()">CV</a>
-      <a href="#contact"  onclick="closeMenu()">Contact</a>
-      <a href="/spark"    onclick="closeMenu()">SPARK</a>
+      <a href="/"       onclick="closeMenu()">Home</a>
+      <a href="/works/" onclick="closeMenu()">Works</a>
+      <a href="/spark/" onclick="closeMenu()">SPARK</a>
       <button class="theme-toggle" style="align-self:flex-start;margin-top:.25rem" aria-label="Toggle theme" onclick="toggleTheme()">☀︎</button>
     </div>
   </nav>
-
+  
   <!-- ── HERO ── -->
   <header id="hero">
     <div class="hero-grid" aria-hidden="true"></div>
@@ -335,7 +334,7 @@
         <div class="about-layout">
           <div class="about-text">
             <p>I am a final-year undergraduate student specialising in Security, Intelligence, and Cyber Studies at The University of Buckingham. My research sits at the intersection of Sustainability and Security, with a particular focus on Development-Security.</p>
-            <p>Beginning in 2026, I will be pursuing postgraduate study in Development, where I intend to develop my thesis on the geostrategic implications of maritime nuclear propulsion systems.</p>
+            <p>Beginning in late 2026, I plan to begin my Masters of Science, in Development, Environment, and International Politics at Newcastle University. I hope to write my final project on "The Maritime Applications of Nuclear Propulsion Systems, and the Geostrategic Implications thereof". </p>
             <p>Outside of formal research, I maintain a set of personal and technical projects that inform my methodological thinking - including work in data analysis, digital humanities, and open-source tooling.</p>
             <hr class="rule-h" />
             <p style="font-style:italic; color:var(--muted); font-size:.94em;">I am currently open to research collaborations, conference opportunities, and postgraduate networks in such areas.</p>
@@ -554,39 +553,39 @@
   </main>
 
   <!-- ── FOOTER ── -->
-  <footer id="contact">
-    <div class="container fade-in">
-      <div class="section-header">
-        <span class="section-num mono">§ 05</span>
-        <h2 class="section-title">Contact</h2>
-      </div>
-      <div class="footer-inner">
-        <p class="footer-tagline">"Onwards Forevermore"</p>
-        <div class="contact-links">
-          <div class="contact-link">
-            <span class="label">Email</span>
-            <a href="mailto:Joshua@jajm2006.uk">Joshua@jajm2006.uk</a>
-          </div>
-          <div class="contact-link">
-            <span class="label">ORCID</span>
-            <a href="https://orcid.org/0009-0004-5910-7707" target="_blank" rel="noopener">0009-0004-5910-7707</a>
-          </div>
-          <div class="contact-link">
-            <span class="label">GitHub</span>
-            <a href="https://github.com/JAJM2006" target="_blank" rel="noopener">github.com/JAJM2006</a>
-          </div>
-          <div class="contact-link">
-            <span class="label">LinkedIn</span>
-            <a href="https://linkedin.com/in/JAJM2006" target="_blank" rel="noopener">linkedin.com/in/JAJM2006</a>
+    <footer id="contact">
+      <div class="container fade-in">
+        <div class="section-header">
+          <span class="section-num mono">§ 05</span>
+          <h2 class="section-title">Contact</h2>
+        </div>
+        <div class="footer-inner">
+          <p class="footer-tagline">"Onwards Forevermore"</p>
+          <div class="contact-links">
+            <div class="contact-link">
+              <span class="label">Email</span>
+              <a href="mailto:Joshua@jajm2006.uk">Joshua@jajm2006.uk</a>
+            </div>
+            <div class="contact-link">
+              <span class="label">ORCID</span>
+              <a href="https://orcid.org/0009-0004-5910-7707" target="_blank" rel="noopener">0009-0004-5910-7707</a>
+            </div>
+            <div class="contact-link">
+              <span class="label">GitHub</span>
+              <a href="https://github.com/JAJM2006" target="_blank" rel="noopener">github.com/JAJM2006</a>
+            </div>
+            <div class="contact-link">
+              <span class="label">LinkedIn</span>
+              <a href="https://linkedin.com/in/JAJM2006" target="_blank" rel="noopener">linkedin.com/in/JAJM2006</a>
+            </div>
           </div>
         </div>
+        <div class="footer-base">
+          <span>© 2026 Geordie Mac - <a href="/">jajm2006.uk</a></span>
+          <span class="mono">Static HTML · No tracking · No cookies</span>
+        </div>
       </div>
-      <div class="footer-base">
-        <span>© 2026 Geordie Mac - jajm2006.uk</span>
-        <span class="mono">Static HTML · No tracking · No cookies</span>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
   <script>
     // ── THEME ──
