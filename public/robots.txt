@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://www.jajm2006.uk/sitemap-index.xml
