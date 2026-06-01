@@ -1,0 +1,333 @@
+---
+import Base from '../../layouts/Base.astro'
+---
+
+<Base
+  title="The SPARK Group"
+  description="The SPARK Group - Strategic Pursuits in the Advancement of Research and Knowledge."
+  canonicalUrl="https://www.jajm2006.uk/spark/"
+  ogTitle="The SPARK Group - JAJM2006"
+  ogDescription="An open-source collective working on decentralised networks, sovereign operating systems, and legacy database systems."
+  activePage="spark"
+>
+
+  <style>
+    /* ── OVERVIEW STATS ── */
+    .overview-stats {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .stat-block {
+      border: 1px solid var(--rule); border-radius: 2px;
+      padding: 1.25rem 1rem; text-align: center;
+    }
+    .stat-num {
+      font-family: 'JetBrains Mono', monospace; font-size: 1.6em;
+      color: var(--accent-2); display: block; margin-bottom: .25rem;
+    }
+    .stat-label { font-family: 'JetBrains Mono', monospace; font-size: .62em; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); }
+
+    /* ── PROJECT CARDS ── */
+    .project-card {
+      border: 1px solid var(--rule); border-radius: 2px;
+      padding: 2rem; margin-bottom: 1.5rem;
+      transition: border-color .2s;
+    }
+    .project-card:hover { border-color: var(--rule-2); }
+    .project-header {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .project-title-group { flex: 1; }
+    .project-id {
+      font-family: 'JetBrains Mono', monospace; font-size: .65em;
+      letter-spacing: .1em; text-transform: uppercase; color: var(--accent);
+      margin-bottom: .3rem; display: block;
+    }
+    .project-name { font-size: 1.2rem; color: var(--head); font-weight: 500; }
+    .project-badges { display: flex; gap: .5rem; flex-wrap: wrap; align-items: flex-start; padding-top: .1rem; }
+    .badge {
+      font-family: 'JetBrains Mono', monospace; font-size: .58em; letter-spacing: .08em;
+      text-transform: uppercase; padding: .25em .6em;
+      border: 1px solid var(--rule-2); color: var(--dim);
+      border-radius: 2px; white-space: nowrap;
+    }
+    .badge.wip    { border-color: #2a3a2a; color: #6a9a6a; }
+    .badge.done   { border-color: #1e3a4a; color: #6aaaba; }
+    .badge.theory { border-color: #3a2a3a; color: #9a6a9a; }
+
+    .project-desc { color: var(--muted); font-size: .95em; margin-bottom: 1.25rem; }
+    .project-desc p:last-child { margin-bottom: 0; }
+
+    .project-detail {
+      border-top: 1px solid var(--rule); padding-top: 1.25rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;
+    }
+    .detail-block .label { display: block; margin-bottom: .3rem; }
+    .detail-block p { font-size: .88em; color: var(--muted); margin: 0; }
+
+    /* ── LICENSING ── */
+    .license-block {
+      background: var(--ink-2); border: 1px solid var(--rule);
+      border-radius: 2px; padding: 1.75rem; margin-top: 2rem;
+    }
+    .license-block .label { display: block; margin-bottom: .75rem; }
+    .license-block p { font-size: .92em; color: var(--muted); margin-bottom: .75rem; }
+    .license-block p:last-child { margin: 0; }
+
+    /* ── FOOTER ── */
+    footer { padding: 4rem 0 3rem; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      #hero { padding: 4rem 0 3.5rem; }
+      .overview-stats { grid-template-columns: repeat(2, 1fr); }
+      .project-detail { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      #hero { padding: 3rem 0 2.5rem; }
+      .hero-title { font-size: 2.2rem; }
+      .overview-stats { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .project-card { padding: 1.25rem; }
+    }
+  </style>
+
+  <!-- ── HERO ── -->
+  <header id="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-eyebrow">
+        <span class="label">Open Source Collective</span>
+      </div>
+      <h1 class="hero-title">The SPARK Group<br /><em>An Open-Source Collective</em></h1>
+      <p class="hero-subtitle">Strategic Pursuits in the Advancement of Research and Knowledge - Exploring The Future, Today.</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-accent">View Projects</a>
+        <a href="https://github.com/JAJM2006" target="_blank" rel="noopener" class="btn">GitHub</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── OVERVIEW ── -->
+    <section id="overview">
+      <div class="container fade-in">
+        <div class="section-header">
+          <span class="section-num mono">§ 01</span>
+          <h2 class="section-title">Overview</h2>
+        </div>
+        <div class="overview-stats">
+          <div class="stat-block">
+            <span class="stat-num">5</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-num">2024</span>
+            <span class="stat-label">Founded</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-num">SLA</span>
+            <span class="stat-label">Licence</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-num">Globally</span>
+            <span class="stat-label">Based</span>
+          </div>
+        </div>
+        <p>The SPARK Group, while existing informally for years beforehand, was formally founded in 2024. The name itself is a testament to our ethos: <em>The Strategic Pursuits in the Advancement of Research and Knowledge</em>. In practice, the group functions as a research and development lab - a space to build, break, and learn from the ground up.</p>
+        <p>Many of us aren't technical by nature, and every project here represents a deliberate act of learning: choosing hard problems, building from first principles, and documenting the process honestly. The SPARK Group is less a finished product and more a philosophy of inquiry applied to software, hardware, and networks.</p>
+        <p>All projects are open source and hosted on the <a href="https://github.com/JAJM2006" target="_blank" rel="noopener">SPARK Group GitHub</a>. Development is ongoing and active, though the pace is shaped by academic commitments.</p>
+        <hr class="rule-h" />
+        <p style="font-style:italic; color:var(--muted); font-size:.94em;">The SPARK Group operates under its own bespoke licensing agreement, drafted as part of Project Synthacope. All outputs are open source within the terms of that agreement.</p>
+      </div>
+    </section>
+
+    <!-- ── PROJECTS ── -->
+    <section id="projects">
+      <div class="container fade-in">
+        <div class="section-header">
+          <span class="section-num mono">§ 02</span>
+          <h2 class="section-title">Projects</h2>
+        </div>
+        <p style="margin-bottom:2.5rem; color:var(--muted); font-style:italic;">So far, SPARK Labs has worked on 5 projects across digital ecosystems, networking, and infrastructure.</p>
+
+        <!-- Synthacope -->
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-title-group">
+              <span class="project-id">Project I - Synthacope</span>
+              <div class="project-name">Online Presence &amp; Infrastructure</div>
+            </div>
+            <div class="project-badges">
+              <span class="badge done">Complete</span>
+              <span class="badge">Infrastructure</span>
+            </div>
+          </div>
+          <div class="project-desc">
+            <p>The foundational project of the SPARK Group, focused on establishing the collective's online presence and identity. My primary output was the drafting of the <strong>SPARK Group Licensing Agreement (SLA)</strong> - a bespoke open-source licence governing all group outputs. This was also where we first explored the basics of web hosting, HTML, and repurposing old PCs as Linux servers.</p>
+            <p>Synthacope is the scaffolding that made everything else possible. Without it, the other projects would have no coherent base or technical home.</p>
+          </div>
+          <div class="project-detail">
+            <div class="detail-block">
+              <span class="label">Primary Output</span>
+              <p>SPARK Group Licensing Agreement. Web infrastructure. Server deployment</p>
+            </div>
+            <div class="detail-block">
+              <span class="label">Skills Developed</span>
+              <p>HTML. Cloudflare. Linux administration</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SenaCode -->
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-title-group">
+              <span class="project-id">Project II - SenaCode</span>
+              <div class="project-name">A Sovereign Operating Environment</div>
+            </div>
+            <div class="project-badges">
+              <span class="badge wip">Ongoing</span>
+              <span class="badge">Systems</span>
+              <span class="badge">SenaCode: OS</span>
+            </div>
+          </div>
+          <div class="project-desc">
+            <p>SenaCode is a minimalist digital ecosystem designed for global deployment and built around a single guiding principle: <em>Security through Simplicity</em>. Modern operating systems contain tens of millions of lines of code, written by thousands of contributors - so complex that no single person can fully understand, let alone audit, them. SenaCode is a direct challenge to that assumption.</p>
+            <p>The project has three interlocking components. <strong>SCOS</strong> (SenaCode: OS) is the bare-metal operating system, written in assembly, running entirely without unnecessary dependencies. <strong>GATBUI</strong> (The Graphically Assisted Text-Based User Interface) is the interface layer - a full-screen terminal environment inspired by retro computing aesthetics (think Pip-Boy from Fallout, or DOS). It is divided into four ASCII-bounded decks: an upper info panel, a main display area, a persistent console input, and a live system stats bar. <strong>SenaLang</strong> is a bespoke general-purpose programming language, modelled after BASIC; readable, auditable, and sandboxed. Every line of SenaLang code can be understood and verified by a single person.</p>
+            <p>The security model is deliberately architectural rather than procedural. System-level files are logically separated from user-accessible ones. An integrated audit log records all commands.</p>
+          </div>
+          <div class="project-detail">
+            <div class="detail-block">
+              <span class="label">Stack</span>
+              <p>Assembly. SenaLang. OS Development</p>
+            </div>
+            <div class="detail-block">
+              <span class="label">Key Concepts</span>
+              <p>Security through Simplicity</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SparkNet -->
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-title-group">
+              <span class="project-id">Project III - SparkNet</span>
+              <div class="project-name">A Decentralised Sovereign Network</div>
+            </div>
+            <div class="project-badges">
+              <span class="badge wip">Ongoing</span>
+              <span class="badge">Networks</span>
+              <span class="badge">P2P</span>
+            </div>
+          </div>
+          <div class="project-desc">
+            <p>SparkNet is the project I have invested the most research into. It began as a practical need (secure communication between geographically dispersed SPARK Group members) and evolved into a full theoretical and practical framework for a sovereign, decentralised network layer that operates entirely above the conventional internet infrastructure.</p>
+            <p>At the core of SparkNet is the <strong>SNX (SenaCode Network Exchange) Protocol</strong>, a self-contained, identity-first routing and trust system that eliminates reliance on IP addresses, DNS, and centralised authorities like ICANN. Instead, nodes are identified via <strong>SNX-IDs</strong>. These identifiers encode not just destination but organisational affiliation and node purpose, enabling routing and access control without any third-party lookup service.</p>
+            <p>Trust within SparkNet is managed through a <strong>ticket-based model</strong>: cryptographically signed Certs and Tickets govern every meaningful interaction, from resource access to data transactions. The <strong>Root Command Server (RCS)</strong> acts as the certificate authority for the network, while <strong>Centrally Administered Systems (CASs)</strong> function as organisational root nodes. Each CAS acts effectively as a digital nation-state, governing its own nodes and infrastructure.</p>
+            <p>For external communication, SparkNet deploys <strong>EXT (Exit/Gateway) nodes</strong> that bridge the internal network to the MainNet via TOR tunnels, preserving anonymity and ensuring SNX nodes are never exposed to the ClearNet. Crucially, SparkNet is also designed for entirely off-grid operation: nodes can communicate via USB, Ethernet, or serial links, and because SNX packets are self-contained and verifiable, they can be physically transported on USB drives and re-injected into the network. This enables delay-tolerant networking in environments with no internet access at all.</p>
+          </div>
+          <div class="project-detail">
+            <div class="detail-block">
+              <span class="label">Key Concepts</span>
+              <p>Decentralised Networking. Blockchain. Securely Anonymous</p>
+            </div>
+            <div class="detail-block">
+              <span class="label">Network Components</span>
+              <p>RCS (Root Command Server). CAS (Centrally Administered System). EXT (Gateway). DAN (Direct Allied Network). USR (User Node)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kielder -->
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-title-group">
+              <span class="project-id">Project IV - Kielder</span>
+              <div class="project-name">Legacy Systems &amp; Intelligence Reservoirs</div>
+            </div>
+            <div class="project-badges">
+              <span class="badge done">Complete</span>
+              <span class="badge">Database</span>
+              <span class="badge">COBOL</span>
+            </div>
+          </div>
+          <div class="project-desc">
+            <p>Project Kielder explores legacy systems and intelligence data management. Named after Kielder Water, it acts as a way to manage a data reservoir. Conducted as part of Geordie Mac's Integrated Industry Experience module at the University of Buckingham's School of Computing, the project produced a COBOL-based system capable of indexing and managing report files from external hardware (primarily USB drives).</p>
+            <p>The system integrates COBOL with modern ZSH shell scripting to automate data ingestion. This includes reading structured headers from files (including WordGrinder documents, PDFs, and plain text), extracting metadata, and maintaining a flat-file index.</p>
+            <p>The project also includes a technically earnest self-destruct function, a data purging routine included as an exercise in secure deletion. The work on Kielder directly led to broader engagement with IBM Mainframe systems and globally recognised certifications in that area.</p>
+          </div>
+          <div class="project-detail">
+            <div class="detail-block">
+              <span class="label">Stack</span>
+              <p>COBOL. ZSH. Embedded SQL. Raspberry Pi hardware integration</p>
+            </div>
+            <div class="detail-block">
+              <span class="label">Outputs</span>
+              <p>Legacy Systems. IBM Mainframe certifications</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Clifford -->
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-title-group">
+              <span class="project-id">Project V - Clifford</span>
+              <div class="project-name">Hardware Integration &amp; Physical-Digital Interface</div>
+            </div>
+            <div class="project-badges">
+              <span class="badge theory">Theoretical</span>
+              <span class="badge">Hardware</span>
+            </div>
+          </div>
+          <div class="project-desc">
+            <p>The final SPARK Group project, and the one that has had the least development. Clifford is named as a pun on Clifford the Big Red Dog, or in this case, the "Big Red Button". It explores the physical-digital interface: the point at which software meets hardware in a tangible, user-facing way.</p>
+            <p>Conceptually, Clifford is the hardware counterpart to SenaCode's software. Where SenaCode defines the operating environment, Clifford defines the physical device that runs it, exploring how bespoke hardware design can reinforce and complement a security-first software philosophy.</p>
+          </div>
+          <div class="project-detail">
+            <div class="detail-block">
+              <span class="label">Focus</span>
+              <p>Physical-digital interface. Hardware design philosophy. SenaCode integration</p>
+            </div>
+            <div class="detail-block">
+              <span class="label">Status</span>
+              <p>Purely Theoretical</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── LICENSING ── -->
+    <section id="licensing">
+      <div class="container fade-in">
+        <div class="section-header">
+          <span class="section-num mono">§ 03</span>
+          <h2 class="section-title">Licensing</h2>
+        </div>
+        <p>All SPARK Group outputs are open source and governed by the bespoke <strong>SPARK Group Licensing Agreement (SLA)</strong>, drafted as part of Project Synthacope. The licence is designed to reflect the group's values: Transparency, Auditability, and Openness.</p>
+        <div class="license-block">
+          <span class="label">SPARK Group Licence - Summary</span>
+          <p>All project outputs are freely available for personal use, research, and educational purposes. Commercial use, redistribution, and derivative works are permitted under the terms of the agreement, provided attribution is maintained and outputs remain open.</p>
+          <p>Full licence terms are available via the <a href="https://github.com/JAJM2006/The-SPARK-Group" target="_blank" rel="noopener">SPARK Group GitHub Repository</a>.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="container fade-in">
+      <div class="footer-base">
+        <span>© 2026 Geordie Mac - <a href="/">jajm2006.uk</a></span>
+        <span class="mono">Static HTML · No tracking · No cookies</span>
+      </div>
+    </div>
+  </footer>
+
+</Base>
