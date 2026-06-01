@@ -1,0 +1,369 @@
+---
+import Base from '../layouts/Base.astro'
+---
+
+<Base
+  title="Joshua McManus - Geostrategy"
+  description="Joshua McManus (JAJM2006) - portfolio and CV. Student of geostrategy, development-security, and sustainability."
+  canonicalUrl="https://www.jajm2006.uk"
+  ogTitle="Joshua McManus - Geostrategy"
+  ogDescription="Portfolio and CV of Joshua McManus (JAJM2006)."
+  activePage="home"
+>
+
+  <style>
+    /* ── ABOUT ── */
+    .about-layout { display: grid; grid-template-columns: 1fr 260px; gap: 3.5rem; align-items: start; }
+    .about-meta { display: flex; flex-direction: column; gap: 1.5rem; }
+    .meta-block { border-left: 2px solid var(--accent-dim); padding-left: 1rem; }
+    .meta-block .label { display: block; margin-bottom: .3rem; }
+    .meta-block p { color: var(--muted); font-size: .92em; margin: 0; }
+    .about-text p:last-child { margin-bottom: 0; }
+
+    /* ── ENTRIES ── */
+    .entry-list { display: flex; flex-direction: column; }
+    .entry {
+      padding: 1.6rem 0; border-bottom: 1px solid var(--rule);
+      display: grid; grid-template-columns: 72px 1fr auto; gap: 1.25rem; align-items: start;
+    }
+    .entry:first-child { border-top: 1px solid var(--rule); }
+    .entry-year { font-family: 'JetBrains Mono', monospace; font-size: .7em; color: var(--dim); padding-top: .2rem; }
+    .entry-title { font-size: 1.05rem; font-weight: 500; color: var(--head); margin-bottom: .25rem; }
+    .entry-title a { color: var(--head); border-bottom-color: transparent; }
+    .entry-title a:hover { color: var(--accent-2); border-bottom-color: var(--accent); }
+    .entry-meta { font-family: 'JetBrains Mono', monospace; font-size: .66em; color: var(--dim); margin-bottom: .45rem; letter-spacing: .03em; }
+    .entry-desc { font-size: .91em; color: var(--muted); line-height: 1.6; margin: 0; max-width: 55ch; }
+    .tag-list { display: flex; flex-direction: column; align-items: flex-end; gap: .4rem; padding-top: .1rem; }
+    .tag {
+      font-family: 'JetBrains Mono', monospace; font-size: .6em; letter-spacing: .08em;
+      text-transform: uppercase; padding: .25em .6em;
+      border: 1px solid var(--rule-2); color: var(--dim);
+      border-radius: 2px; white-space: nowrap;
+    }
+    .tag.pub  { border-color: var(--accent-dim); color: var(--accent); }
+    .tag.wip  { border-color: #2a3a2a; color: #6a9a6a; }
+    .tag.done { border-color: #1e3a4a; color: #6aaaba; }
+
+    /* ── CV ── */
+    .cv-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .cv-section-title { font-family: 'JetBrains Mono', monospace; font-size: .66em; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
+    .cv-item { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--rule); }
+    .cv-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .cv-item-title { font-size: 1rem; color: var(--head); margin-bottom: .15rem; }
+    .cv-item-sub { font-family: 'JetBrains Mono', monospace; font-size: .68em; color: var(--dim); margin-bottom: .4rem; }
+    .cv-item-desc { font-size: .88em; color: var(--muted); margin: 0; }
+    .cv-download { margin-top: 2rem; }
+
+    /* ── FOOTER / CONTACT ── */
+    footer { padding: 4rem 0 3rem; }
+    .footer-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: end; }
+    .footer-tagline { font-size: 1.3rem; font-style: italic; color: var(--muted); max-width: 36ch; line-height: 1.4; }
+    .contact-links { display: flex; flex-direction: column; gap: .75rem; }
+    .contact-link { display: flex; align-items: center; gap: .75rem; }
+    .contact-link a { border-bottom: none; }
+    .contact-link a:hover { border-bottom: none; }
+
+    /* ── RESPONSIVE: tablet ── */
+    @media (max-width: 720px) {
+      #hero { padding: 4rem 0 3.5rem; }
+      .about-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .about-meta { flex-direction: row; flex-wrap: wrap; gap: 1.25rem; }
+      .meta-block { min-width: 140px; flex: 1; }
+      .entry { grid-template-columns: 56px 1fr; gap: 1rem; }
+      .tag-list { display: none; }
+      .cv-columns { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-base { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ── RESPONSIVE: phone ── */
+    @media (max-width: 480px) {
+      #hero { padding: 3rem 0 2.5rem; }
+      .entry { grid-template-columns: 44px 1fr; gap: .75rem; }
+      .about-meta { flex-direction: column; }
+    }
+  </style>
+
+  <!-- ── HERO ── -->
+  <header id="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-eyebrow">
+        <span class="label">My Portfolio</span>
+      </div>
+      <h1 class="hero-title">Joshua McManus<br /><em>Geostrategy</em></h1>
+      <p class="hero-subtitle">Final-year undergraduate in Security, Intelligence &amp; Cyber Studies, transitioning to postgraduate research. Committed to the future of knowledge.</p>
+      <div class="hero-cta">
+        <a href="#works"    class="btn btn-accent">Academic Works</a>
+        <a href="#projects" class="btn">Personal Projects</a>
+        <a href="#cv"       class="btn">Curriculum Vitae</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── ABOUT ── -->
+    <section id="about">
+      <div class="container fade-in">
+        <div class="section-header">
+          <span class="section-num mono">§ 01</span>
+          <h2 class="section-title">About Me</h2>
+        </div>
+        <div class="about-layout">
+          <div class="about-text">
+            <p>I am a final-year undergraduate student specialising in Security, Intelligence, and Cyber Studies at The University of Buckingham. My research sits at the intersection of Sustainability and Security, with a particular focus on Development-Security.</p>
+            <p>Beginning in late 2026, I plan to begin my Masters of Science, in Development, Environment, and International Politics at Newcastle University. I hope to write my final project on "The Maritime Applications of Nuclear Propulsion Systems, and the Geostrategic Implications thereof".</p>
+            <p>Outside of formal research, I maintain a set of personal and technical projects that inform my methodological thinking - including work in data analysis, digital humanities, and open-source tooling.</p>
+            <hr class="rule-h" />
+            <p style="font-style:italic; color:var(--muted); font-size:.94em;">I am currently open to research collaborations, conference opportunities, and postgraduate networks in such areas.</p>
+          </div>
+          <div class="about-meta">
+            <div class="meta-block">
+              <span class="label">Institution</span>
+              <p>The University of Buckingham<br />BUCSIS</p>
+            </div>
+            <div class="meta-block">
+              <span class="label">Research Areas</span>
+              <p>Security<br />Sustainability<br />Development</p>
+            </div>
+            <div class="meta-block">
+              <span class="label">Status</span>
+              <p>Final Year UG<br />Incoming PG - 2026</p>
+            </div>
+            <div class="meta-block">
+              <span class="label">Location</span>
+              <p>United Kingdom</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WORKS ── -->
+    <section id="works">
+      <div class="container fade-in">
+        <div class="section-header">
+          <span class="section-num mono">§ 02</span>
+          <h2 class="section-title">Academic Works</h2>
+        </div>
+        <p style="margin-bottom:2.5rem; color:var(--muted); font-style:italic;">Dissertations, essays, and formal academic outputs. Arranged by year of submission.</p>
+        <div class="entry-list">
+
+          <div class="entry">
+            <div class="entry-year">2026</div>
+            <div>
+              <div class="entry-title"><a href="#">Sustainable Scotland: A Comparative Analysis of Development-Security</a></div>
+              <div class="entry-meta">Undergraduate Dissertation · University of Buckingham · Supervised by Dr. Tanvi Pate</div>
+              <p class="entry-desc">Analysing the ideas of Scottish Development-Security by comparing case studies of Norway and China.</p>
+            </div>
+            <div class="tag-list">
+              <span class="tag wip">Ongoing</span>
+              <span class="tag">Dissertation</span>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-year">2026</div>
+            <div>
+              <div class="entry-title"><a href="#">Far Right Ideologies: A Strategic Report on Threats Posed to Vulnerable Communities in the North East</a></div>
+              <div class="entry-meta">Report · North East Mayoral Strategic Authority</div>
+              <p class="entry-desc">Analysing the effects that Far-Right ideologies, such as the manosphere and incel culture, have on communities.</p>
+            </div>
+            <div class="tag-list">
+              <span class="tag wip">Ongoing</span>
+              <span class="tag">Report</span>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-year">2026</div>
+            <div>
+              <div class="entry-title"><a href="#">Global Security and International Law: To What Extent Can a State Legally Enact Protection of Nationals Abroad?</a></div>
+              <div class="entry-meta">Assessed Essay · University of Buckingham Law School</div>
+              <p class="entry-desc">A marked essay as part of my undergraduate work, in connection with the University of Buckingham's Law School.</p>
+            </div>
+            <div class="tag-list">
+              <span class="tag done">Complete</span>
+              <span class="tag">Essay</span>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-year">2025</div>
+            <div>
+              <div class="entry-title">DNA &amp; Crime: An Introduction Into Forensic Genetic Genealogy</div>
+              <div class="entry-meta">Assessed Essay</div>
+              <p class="entry-desc">This paper provides the foundational grounds for understanding Forensic Genetic Genealogy and its applications in law enforcement.</p>
+            </div>
+            <div class="tag-list">
+              <span class="tag done">Complete</span>
+              <span class="tag">Essay</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PROJECTS ── -->
+    <section id="projects">
+      <div class="container fade-in">
+        <div class="section-header">
+          <span class="section-num mono">§ 03</span>
+          <h2 class="section-title">Projects</h2>
+        </div>
+        <p style="margin-bottom:2.5rem; color:var(--muted); font-style:italic;">Personal, technical, and interdisciplinary work - side inquiries that sit outside formal academic submission.</p>
+        <div class="entry-list">
+
+          <div class="entry">
+            <div class="entry-year">2025</div>
+            <div>
+              <div class="entry-title"><a href="/spark/#projects">Project: SenaCode</a></div>
+              <div class="entry-meta">Personal Project · The SPARK Group</div>
+              <p class="entry-desc">An open-source digital ecosystem built from the ground up.</p>
+            </div>
+            <div class="tag-list">
+              <span class="tag wip">Ongoing</span>
+              <span class="tag">Open Source</span>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-year">2025</div>
+            <div>
+              <div class="entry-title"><a href="/spark/#projects">Project: SparkNet</a></div>
+              <div class="entry-meta">Personal Project · The SPARK Group</div>
+              <p class="entry-desc">By combining multiple SenaCode devices, I helped design the basics of the decentralised SparkNet Exchange Protocol (SNX).</p>
+            </div>
+            <div class="tag-list">
+              <span class="tag wip">Ongoing</span>
+              <span class="tag">Open Source</span>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-year">2025</div>
+            <div>
+              <div class="entry-title"><a href="/spark/#projects">Project: Kielder</a></div>
+              <div class="entry-meta">Assessed Project · Integrated Industry Experience Module</div>
+              <p class="entry-desc">In partnership with the University of Buckingham's School of Computing, I applied principles of database design alongside prior knowledge in COBOL to create a rudimentary Intelligence Collection Database.</p>
+            </div>
+            <div class="tag-list">
+              <span class="tag done">Complete</span>
+              <span class="tag">Database</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CV ── -->
+    <section id="cv">
+      <div class="container fade-in">
+        <div class="section-header">
+          <span class="section-num mono">§ 04</span>
+          <h2 class="section-title">Curriculum Vitae</h2>
+        </div>
+        <div class="cv-columns">
+
+          <div>
+            <div class="cv-section-title">Education</div>
+            <div class="cv-item">
+              <div class="cv-item-title">BA(Hons) Security, Intelligence and Cyber</div>
+              <div class="cv-item-sub">The University of Buckingham · 2024 – 2026</div>
+              <p class="cv-item-desc">Final-year undergraduate on a two-year accelerated degree, expecting to graduate with First Class Honours.</p>
+            </div>
+            <div class="cv-item">
+              <div class="cv-item-title">Ponteland High School</div>
+              <div class="cv-item-sub">2015 – 2022</div>
+              <p class="cv-item-desc">A-levels: Geography, Mathematics, and Physics.</p>
+            </div>
+          </div>
+
+          <div>
+            <div class="cv-section-title">Experience &amp; Roles</div>
+            <div class="cv-item">
+              <div class="cv-item-title">Student Geostrategist</div>
+              <div class="cv-item-sub">The SPARK Group · 2024 – Present</div>
+              <p class="cv-item-desc">Founder and lead developer across multiple open-source projects.</p>
+            </div>
+            <div class="cv-item">
+              <div class="cv-item-title">Student Academic Representative</div>
+              <div class="cv-item-sub">University of Buckingham · 2024 – 2026</div>
+              <p class="cv-item-desc">Representing BUCSIS students and amplifying the centre's voice within the institution.</p>
+            </div>
+          </div>
+
+          <div>
+            <div class="cv-section-title">Awards &amp; Honours</div>
+            <div class="cv-item">
+              <div class="cv-item-title">Fellowship of the Royal Society of Arts</div>
+              <div class="cv-item-sub">RSA · 2026</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="cv-section-title">Skills &amp; Methods</div>
+            <div class="cv-item">
+              <div class="cv-item-title">Research Methods</div>
+              <div class="cv-item-sub">Qualitative &amp; Quantitative</div>
+              <p class="cv-item-desc">Discourse analysis, archival research, thematic coding, statistical analysis.</p>
+            </div>
+            <div class="cv-item">
+              <div class="cv-item-title">Technical Skills</div>
+              <div class="cv-item-sub">Software &amp; Tools</div>
+              <p class="cv-item-desc">Git, COBOL, NixOS, QGIS.</p>
+            </div>
+            <div class="cv-item">
+              <div class="cv-item-title">Languages</div>
+              <p class="cv-item-desc">English (native).</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="cv-download">
+          <a href="/cv.pdf" class="btn btn-accent">Download full CV (PDF)</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER / CONTACT ── -->
+  <footer id="contact">
+    <div class="container fade-in">
+      <div class="section-header">
+        <span class="section-num mono">§ 05</span>
+        <h2 class="section-title">Contact</h2>
+      </div>
+      <div class="footer-inner">
+        <p class="footer-tagline">"Onwards Forevermore"</p>
+        <div class="contact-links">
+          <div class="contact-link">
+            <span class="label">Email</span>
+            <a href="mailto:Joshua@jajm2006.uk">Joshua@jajm2006.uk</a>
+          </div>
+          <div class="contact-link">
+            <span class="label">ORCID</span>
+            <a href="https://orcid.org/0009-0004-5910-7707" target="_blank" rel="noopener">0009-0004-5910-7707</a>
+          </div>
+          <div class="contact-link">
+            <span class="label">GitHub</span>
+            <a href="https://github.com/JAJM2006" target="_blank" rel="noopener">github.com/JAJM2006</a>
+          </div>
+          <div class="contact-link">
+            <span class="label">LinkedIn</span>
+            <a href="https://linkedin.com/in/JAJM2006" target="_blank" rel="noopener">linkedin.com/in/JAJM2006</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-base">
+        <span>© 2026 Geordie Mac - <a href="/">jajm2006.uk</a></span>
+        <span class="mono">Static HTML · No tracking · No cookies</span>
+      </div>
+    </div>
+  </footer>
+
+</Base>
