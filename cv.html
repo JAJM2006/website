@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Curriculum Vitae - Joshua McManus (JAJM2006)" />
+  <title>CV - Joshua McManus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:       #0d0d0f;
+      --ink-2:     #141418;
+      --ink-3:     #1c1c22;
+      --ink-4:     #252530;
+      --rule:      #2e2e3a;
+      --rule-2:    #3d3d50;
+      --dim:       #5a5a72;
+      --muted:     #8585a0;
+      --body:      #c8c8d8;
+      --head:      #e8e8f0;
+      --bright:    #f4f4f8;
+      --accent:    #a89f6e;
+      --accent-2:  #c4b98a;
+      --accent-dim:#3a3520;
+    }
+
+    [data-theme="light"] {
+      --ink:       #f5f0e8;
+      --ink-2:     #ede8de;
+      --ink-3:     #e4ddd2;
+      --ink-4:     #d8d0c3;
+      --rule:      #c8bfaf;
+      --rule-2:    #b0a590;
+      --dim:       #7a6e5a;
+      --muted:     #5a5040;
+      --body:      #3a3020;
+      --head:      #1a1208;
+      --bright:    #0d0800;
+      --accent:    #7a6e3a;
+      --accent-2:  #5a5020;
+      --accent-dim:#e8e0c0;
+    }
+
+    html { scroll-behavior: smooth; font-size: 17px; }
+
+    body {
+      background: var(--ink);
+      color: var(--body);
+      font-family: 'EB Garamond', Georgia, serif;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      transition: background .3s, color .3s;
+    }
+
+    h1, h2, h3, h4 { color: var(--head); font-family: 'EB Garamond', serif; font-weight: 400; line-height: 1.25; }
+    p { margin-bottom: 1.1em; max-width: 66ch; }
+    a { color: var(--accent-2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .2s, color .2s; }
+    a:hover { color: var(--bright); border-bottom-color: var(--accent); }
+    strong { color: var(--head); font-weight: 500; }
+    em { font-style: italic; }
+
+    .mono { font-family: 'JetBrains Mono', monospace; font-size: .78em; font-weight: 300; letter-spacing: .02em; }
+    .label { font-family: 'JetBrains Mono', monospace; font-size: .68em; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+    .rule-h { border: none; border-top: 1px solid var(--rule); margin: 2rem 0; }
+    .container { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--ink-2); border-bottom: 1px solid var(--rule);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      transition: background .3s;
+    }
+    .nav-inner {
+      max-width: 860px; margin: 0 auto; padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between; height: 56px;
+    }
+    .nav-logo { font-family: 'JetBrains Mono', monospace; font-size: .78em; font-weight: 500; letter-spacing: .08em; color: var(--accent-2); border-bottom: none; }
+    .nav-logo:hover { color: var(--bright); border-bottom: none; }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-links a { font-family: 'JetBrains Mono', monospace; font-size: .68em; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); border-bottom: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--bright); border-bottom: none; }
+    .theme-toggle { background: none; border: 1px solid var(--rule-2); border-radius: 4px; cursor: pointer; font-size: .85rem; padding: .3em .55em; color: var(--muted); transition: color .2s, border-color .2s; line-height: 1; }
+    .theme-toggle:hover { color: var(--bright); border-color: var(--accent); }
+
+    /* ── HERO ── */
+    #hero {
+      padding: 5rem 0 4rem; border-bottom: 1px solid var(--rule);
+      position: relative; overflow: hidden;
+    }
+    .hero-grid {
+      position: absolute; inset: 0; pointer-events: none; opacity: .04;
+      background-image: linear-gradient(var(--accent) 1px, transparent 1px), linear-gradient(90deg, var(--accent) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-eyebrow { margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+    .hero-eyebrow::after { content: ''; flex: 1; max-width: 120px; height: 1px; background: var(--accent); opacity: .5; }
+    .hero-title {
+      font-size: clamp(2.4rem, 7vw, 4.5rem); font-weight: 400; line-height: 1.1;
+      letter-spacing: -.01em; color: var(--bright); margin-bottom: .75rem;
+    }
+    .hero-title em { color: var(--accent-2); font-style: italic; }
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.2rem); color: var(--muted);
+      margin-bottom: 2rem; font-style: italic; max-width: 60ch;
+    }
+    .hero-contact {
+      display: flex; gap: 2rem; flex-wrap: wrap;
+      font-family: 'JetBrains Mono', monospace; font-size: .68em; color: var(--dim);
+      letter-spacing: .04em;
+    }
+    .hero-contact a { color: var(--accent); border-bottom: none; transition: color .2s; }
+    .hero-contact a:hover { color: var(--bright); border-bottom: none; }
+
+    /* ── SECTIONS ── */
+    section { padding: 4rem 0; border-bottom: 1px solid var(--rule); }
+    section:last-of-type { border-bottom: none; }
+    .section-header { display: flex; align-items: baseline; gap: 1.25rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+    .section-num { font-family: 'JetBrains Mono', monospace; font-size: .7em; color: var(--accent); }
+    .section-title { font-size: clamp(1.3rem, 3vw, 1.6rem); letter-spacing: -.01em; }
+
+    /* ── SUMMARY ── */
+    .summary-text { font-size: 1.05rem; color: var(--body); max-width: 68ch; line-height: 1.8; }
+    .summary-text p:last-child { margin-bottom: 0; }
+
+    /* ── CV BLOCKS ── */
+    .cv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .cv-col { display: flex; flex-direction: column; gap: 0; }
+
+    .cv-section-title {
+      font-family: 'JetBrains Mono', monospace; font-size: .66em;
+      letter-spacing: .15em; text-transform: uppercase; color: var(--accent);
+      margin-bottom: 1.25rem; padding-bottom: .5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .cv-item {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .cv-item:last-child { border-bottom: none; }
+
+    .cv-item-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: .2rem; flex-wrap: wrap; }
+    .cv-item-title { font-size: 1rem; color: var(--head); font-weight: 500; }
+    .cv-item-date { font-family: 'JetBrains Mono', monospace; font-size: .65em; color: var(--dim); white-space: nowrap; padding-top: .15rem; }
+    .cv-item-org { font-family: 'JetBrains Mono', monospace; font-size: .68em; color: var(--accent); letter-spacing: .04em; margin-bottom: .5rem; }
+    .cv-item-desc { font-size: .9em; color: var(--muted); margin: 0; line-height: 1.65; }
+
+    /* bullet points for experience */
+    .cv-bullets { list-style: none; padding: 0; margin: .5rem 0 0; }
+    .cv-bullets li {
+      font-size: .88em; color: var(--muted); line-height: 1.6;
+      padding-left: 1.1em; position: relative; margin-bottom: .25rem;
+    }
+    .cv-bullets li::before {
+      content: '-';
+      position: absolute; left: 0;
+      color: var(--accent); font-family: 'JetBrains Mono', monospace;
+      font-size: .85em;
+    }
+
+    /* ── CERTS / QUALS ── */
+    .quals-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+    .qual-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--rule);
+      display: grid; grid-template-columns: 1fr auto; gap: .75rem; align-items: baseline;
+    }
+    .qual-item:nth-child(odd) { padding-right: 1.5rem; }
+    .qual-item:nth-child(even) { padding-left: 1.5rem; border-left: 1px solid var(--rule); }
+    .qual-name { font-size: .92em; color: var(--body); }
+    .qual-issuer { font-family: 'JetBrains Mono', monospace; font-size: .62em; color: var(--dim); white-space: nowrap; }
+
+    /* ── LEADERSHIP BLOCK ── */
+    .leadership-block {
+      background: var(--ink-2); border: 1px solid var(--rule);
+      border-radius: 2px; padding: 1.5rem; margin-top: 1.5rem;
+    }
+    .leadership-block .label { display: block; margin-bottom: .75rem; }
+    .leadership-block p { font-size: .92em; color: var(--muted); margin: 0; }
+
+    /* ── MEMBERSHIPS ── */
+    .member-row {
+      display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem;
+    }
+    .member-tag {
+      font-family: 'JetBrains Mono', monospace; font-size: .6em;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: .3em .75em;
+      border: 1px solid var(--rule-2); color: var(--dim);
+      border-radius: 2px;
+    }
+    .member-tag.fellow { border-color: var(--accent-dim); color: var(--accent-2); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2.5rem 0 2rem;
+      border-top: 1px solid var(--rule);
+      margin-top: 0;
+    }
+    .footer-base {
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem;
+      font-family: 'JetBrains Mono', monospace; font-size: .64em; color: var(--dim);
+    }
+
+    /* ── PRINT STYLES ── */
+    @media print {
+      nav, .no-print { display: none !important; }
+      body { background: #fff; color: #111; font-size: 10pt; }
+      :root {
+        --ink: #fff; --ink-2: #f8f8f8; --rule: #ddd; --rule-2: #ccc;
+        --body: #222; --head: #000; --bright: #000;
+        --muted: #555; --dim: #777; --accent: #7a6e3a; --accent-2: #5a4e28;
+      }
+      section { padding: 1rem 0; border-bottom: 1px solid #ddd; }
+      #hero { padding: 1.5rem 0 1rem; }
+      .container { padding: 0; }
+      .cv-grid { gap: 1.5rem; }
+      .quals-grid { gap: 0; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      .container { padding: 0 1.25rem; }
+      .nav-inner { padding: 0 1.25rem; }
+      .cv-grid { grid-template-columns: 1fr; gap: 0; }
+      .quals-grid { grid-template-columns: 1fr; }
+      .qual-item:nth-child(even) { padding-left: 0; border-left: none; }
+      .qual-item:nth-child(odd) { padding-right: 0; }
+    }
+    @media (max-width: 480px) {
+      html { font-size: 15px; }
+      .container { padding: 0 1rem; }
+      #hero { padding: 3rem 0 2.5rem; }
+      .hero-title { font-size: 2.2rem; }
+      .hero-contact { flex-direction: column; gap: .5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo mono">jajm2006.uk</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/works/">Works</a>
+        <a href="/spark/">SPARK</a>
+        <button class="theme-toggle" aria-label="Toggle light/dark theme" onclick="toggleTheme()">☀︎</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <header id="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-eyebrow">
+        <span class="label">Curriculum Vitae</span>
+      </div>
+      <h1 class="hero-title">Joshua McManus<br /><em>Geostrategy</em></h1>
+      <p class="hero-subtitle">Final-year BA (Hons) Security, Intelligence, and Cyber student. Fast and adaptive learner with grounding in analytical reasoning and strategic evaluation across geographical, strategic, and technical domains.</p>
+      <div class="hero-contact">
+        <a href="mailto:Joshua@JAJM2006.uk">Joshua@JAJM2006.uk</a>
+        <a href="https://www.linkedin.com/in/jajm2006/" target="_blank" rel="noopener">linkedin.com/in/jajm2006</a>
+        <a href="https://orcid.org/0009-0004-5910-7707" target="_blank" rel="noopener">ORCID 0009-0004-5910-7707</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── § 01 SUMMARY ── -->
+    <section id="summary">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-num mono">§ 01</span>
+          <h2 class="section-title">Summary</h2>
+        </div>
+        <div class="summary-text">
+          <p>Final-year BA (Hons) Security, Intelligence, and Cyber student on an accelerated two-year degree at The University of Buckingham. Fast and adaptive learner with growing independent study in GIS and OSINT analysis. Strong grounding in analytical reasoning, and strategic evaluation across geographical, strategic, and technical domains gained through both academic studies and personal interests.</p>
+          <p>Incoming postgraduate researcher, commencing an MSc in Development, Environment, and International Politics at Newcastle University in late 2026. Currently open to research collaborations, conference opportunities, and postgraduate networks in geostrategy, development-security, and sustainability.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── § 02 EDUCATION ── -->
+    <section id="education">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-num mono">§ 02</span>
+          <h2 class="section-title">Education</h2>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-item-header">
+            <div class="cv-item-title">BA (Hons) Security, Intelligence and Cyber</div>
+            <div class="cv-item-date">2024 – 2026</div>
+          </div>
+          <div class="cv-item-org">The University of Buckingham · BUCSIS</div>
+          <ul class="cv-bullets">
+            <li>Accelerated two-year undergraduate degree, expecting to graduate with First Class Honours.</li>
+            <li>Key Modules: Development and Security, DNA and Crime, and National Security in a Cyber Age.</li>
+            <li>Dissertation Focus: <em>Sustainable Scotland - A Comparative Analysis of Development-Security</em>, supervised by Dr. Tanvi Pate.</li>
+            <li>Coursework includes Forensic Sciences, Terrorism and Counter-Terrorism, and cyber fundamentals in areas such as Databases and Critical National Infrastructure.</li>
+          </ul>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-item-header">
+            <div class="cv-item-title">Ponteland High School</div>
+            <div class="cv-item-date">2015 – 2022</div>
+          </div>
+          <div class="cv-item-org">GCE A-Levels (2022–2024) · GCSEs (2020–2022)</div>
+          <ul class="cv-bullets">
+            <li>A-Level Subjects: Geography, Mathematics, and Physics.</li>
+            <li>Completed independent fieldwork on the relationship between urban areas and organic carbon stores within the city of Newcastle-Upon-Tyne.</li>
+            <li>Attained 11 GCSEs including English, Maths, and the Sciences.</li>
+            <li>Extended Project Qualification: <em>Surviving the High North - A Look into Culture and Geography</em> (2023).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── § 03 EXPERIENCE ── -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-num mono">§ 03</span>
+          <h2 class="section-title">Experience</h2>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-item-header">
+            <div class="cv-item-title">Student Geostrategist &amp; Founder</div>
+            <div class="cv-item-date">Sep 2024 – Present</div>
+          </div>
+          <div class="cv-item-org">The SPARK Group</div>
+          <ul class="cv-bullets">
+            <li>Founded the SPARK Group as an international voluntary open-source collaboration effort.</li>
+            <li>Founded and delivered open-source projects relating to enhancing hardware and networking skills.</li>
+            <li>Lead Developer on digital ecosystem projects: SparkNet and SenaCode.</li>
+          </ul>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-item-header">
+            <div class="cv-item-title">Front &amp; Back of House</div>
+            <div class="cv-item-date">Aug 2022 – Sep 2024</div>
+          </div>
+          <div class="cv-item-org">Sodexo Live! · St James' Park</div>
+          <ul class="cv-bullets">
+            <li>Front-of-House: Worked various roles and events, from Christmas parties, to VIP boxes, and grand openings.</li>
+            <li>Back-of-House: Independently managed high-volume dispense, Glasswash, and back of bar during major match days and high-profile functions.</li>
+            <li>Recognised with multiple 'On the Spot' awards for efficiency and service excellence.</li>
+            <li>Spearheaded Glasswash operations for St James' premier luxury suite from launch day, coordinating a small team processing thousands of glasses per match.</li>
+            <li>Monitored inventory flow, anticipated surges in demand, and coordinated seamlessly with cellar and Front-of-House teams to maintain quality product distribution.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── § 04 SKILLS & METHODS ── -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-num mono">§ 04</span>
+          <h2 class="section-title">Skills &amp; Methods</h2>
+        </div>
+
+        <div class="cv-grid">
+          <div class="cv-col">
+            <div class="cv-section-title">Research &amp; Analytical</div>
+            <div class="cv-item">
+              <div class="cv-item-title">Qualitative Methods</div>
+              <p class="cv-item-desc">Discourse analysis, archival research, thematic coding, case-study methodology.</p>
+            </div>
+            <div class="cv-item">
+              <div class="cv-item-title">Quantitative Methods</div>
+              <p class="cv-item-desc">Statistical analysis, network analysis, GIS spatial analysis.</p>
+            </div>
+            <div class="cv-item">
+              <div class="cv-item-title">Intelligence Disciplines</div>
+              <p class="cv-item-desc">OSINT, HUMINT methodology, all-source intelligence synthesis.</p>
+            </div>
+          </div>
+
+          <div class="cv-col">
+            <div class="cv-section-title">Technical</div>
+            <div class="cv-item">
+              <div class="cv-item-title">Programming &amp; Systems</div>
+              <p class="cv-item-desc">COBOL, Assembly, ZSH scripting, Git, Linux/NixOS administration.</p>
+            </div>
+            <div class="cv-item">
+              <div class="cv-item-title">Data &amp; Geospatial</div>
+              <p class="cv-item-desc">QGIS, database design, embedded SQL, flat-file systems.</p>
+            </div>
+            <div class="cv-item">
+              <div class="cv-item-title">Languages</div>
+              <p class="cv-item-desc">English (native).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── § 05 CERTIFICATIONS ── -->
+    <section id="certifications">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-num mono">§ 05</span>
+          <h2 class="section-title">Certificates &amp; Qualifications</h2>
+        </div>
+
+        <div class="quals-grid">
+          <div class="qual-item">
+            <span class="qual-name">Principles of Database Systems</span>
+            <span class="qual-issuer">Univ. of Buckingham</span>
+          </div>
+          <div class="qual-item">
+            <span class="qual-name">Ethical Hacking with Kali Linux Professional Certificate</span>
+            <span class="qual-issuer">IBM · 2025</span>
+          </div>
+          <div class="qual-item">
+            <span class="qual-name">IBM Mainframe Practitioner Professional Certificate</span>
+            <span class="qual-issuer">IBM · 2025</span>
+          </div>
+          <div class="qual-item">
+            <span class="qual-name">IBM Mainframe Developer Professional Certificate</span>
+            <span class="qual-issuer">IBM · 2025</span>
+          </div>
+          <div class="qual-item">
+            <span class="qual-name">Industrial Control Systems</span>
+            <span class="qual-issuer">TAIT · 2025</span>
+          </div>
+          <div class="qual-item">
+            <span class="qual-name">Radio Awareness</span>
+            <span class="qual-issuer">TAIT · 2025</span>
+          </div>
+          <div class="qual-item">
+            <span class="qual-name">Inspiring Digital Enterprise Award (iDEA)</span>
+            <span class="qual-issuer">2023</span>
+          </div>
+          <div class="qual-item">
+            <span class="qual-name">Rotary Youth Leadership Award</span>
+            <span class="qual-issuer">Rotary · 2022</span>
+          </div>
+          <div class="qual-item">
+            <span class="qual-name">First Aider's Qualification</span>
+            <span class="qual-issuer">Northumbrian ACF · 2023</span>
+          </div>
+          <div class="qual-item">
+            <span class="qual-name">Radio Operator</span>
+            <span class="qual-issuer">Air Training Corps · 2022</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── § 06 LEADERSHIP & AFFILIATIONS ── -->
+    <section id="leadership">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-num mono">§ 06</span>
+          <h2 class="section-title">Leadership &amp; Affiliations</h2>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-item-header">
+            <div class="cv-item-title">Student Academic Representative</div>
+          </div>
+          <div class="cv-item-org">Centre for Security and Intelligence Studies (BUCSIS) · University of Buckingham</div>
+          <p class="cv-item-desc">Representing BUCSIS students and amplifying the centre's voice within the institution.</p>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-item-header">
+            <div class="cv-item-title">Cadet Senior Non-Commissioned Officer</div>
+            <div class="cv-item-date">5+ years</div>
+          </div>
+          <div class="cv-item-org">Air Training Corps &amp; Northumbrian ACF</div>
+          <p class="cv-item-desc">Achieved rank of Sergeant IC across service in both the Air Training Corps and Northumbrian ACF.</p>
+        </div>
+
+        <hr class="rule-h" />
+
+        <div class="cv-section-title" style="margin-bottom:.75rem;">Fellowships &amp; Memberships</div>
+        <div class="member-row">
+          <span class="member-tag fellow">FRSA - Fellow of the Royal Society of Arts</span>
+          <span class="member-tag fellow">British Cartographic Society</span>
+          <span class="member-tag fellow">Energy Institute</span>
+          <span class="member-tag fellow">Association for Geographic Information</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="container">
+      <div class="footer-base">
+        <span>© 2026 Geordie Mac - <a href="/">jajm2006.uk</a></span>
+        <span class="mono">Static HTML · No tracking · No cookies</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const toggleBtns = document.querySelectorAll('.theme-toggle');
+    function getSystemTheme() { return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+    function applyTheme(theme) {
+      root.setAttribute('data-theme', theme);
+      const icon = theme === 'dark' ? '☀︎' : '☽';
+      toggleBtns.forEach(b => b.textContent = icon);
+      localStorage.setItem('theme', theme);
+    }
+    function toggleTheme() {
+      applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    }
+    const saved = localStorage.getItem('theme');
+    applyTheme(saved || getSystemTheme());
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      if (!localStorage.getItem('theme')) applyTheme(e.matches ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>
