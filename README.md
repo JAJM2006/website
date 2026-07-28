@@ -55,6 +55,9 @@ A static portfolio site showcasing academic works, personal projects, and a curr
 - **Home** — Portfolio, academic works summary, projects, CV, and contact
 - **Works** — Full academic works archive, arranged by term with abstracts and PDF downloads
 - **SPARK** — The SPARK Group open-source collective and project documentation
+- **Media** (`/media/`) — Password-protected photo/video galleries, backed by Cloudflare
+  R2 + KV + Pages Functions. See [`MEDIA_SETUP.md`](./MEDIA_SETUP.md) for one-time
+  Cloudflare dashboard setup (bindings + secrets) and usage.
 
 ## Deployment
 
