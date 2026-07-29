@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Media | jajm2006.uk</title>
+  <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:       #0d0d0f;
+      --ink-2:     #141418;
+      --ink-3:     #1c1c22;
+      --ink-4:     #252530;
+      --rule:      #2e2e3a;
+      --rule-2:    #3d3d50;
+      --dim:       #5a5a72;
+      --muted:     #8585a0;
+      --body:      #c8c8d8;
+      --head:      #e8e8f0;
+      --bright:    #f4f4f8;
+      --accent:    #a89f6e;
+      --accent-2:  #c4b98a;
+      --accent-dim:#3a3520;
+    }
+    [data-theme="light"] {
+      --ink:       #f5f0e8;
+      --ink-2:     #ede8de;
+      --ink-3:     #e4ddd2;
+      --ink-4:     #d8d0c3;
+      --rule:      #c8bfaf;
+      --rule-2:    #b0a590;
+      --dim:       #7a6e5a;
+      --muted:     #5a5040;
+      --body:      #3a3020;
+      --head:      #1a1208;
+      --bright:    #0d0800;
+      --accent:    #7a6e3a;
+      --accent-2:  #5a5020;
+      --accent-dim:#e8e0c0;
+    }
+
+    html { scroll-behavior: smooth; font-size: 17px; }
+    body {
+      background: var(--ink); color: var(--body);
+      font-family: 'EB Garamond', Georgia, serif; line-height: 1.75;
+      -webkit-font-smoothing: antialiased; transition: background .3s, color .3s;
+      min-height: 100vh; display: flex; flex-direction: column;
+    }
+    h1, h2, h3, h4 { color: var(--head); font-family: 'EB Garamond', serif; font-weight: 400; line-height: 1.25; }
+    a { color: var(--accent-2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .2s, color .2s; }
+    a:hover { color: var(--bright); border-bottom-color: var(--accent); }
+    .mono { font-family: 'JetBrains Mono', monospace; font-size: .78em; font-weight: 300; letter-spacing: .02em; }
+    .label { font-family: 'JetBrains Mono', monospace; font-size: .68em; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+    .container { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ── NAV (shared with rest of site) ── */
+    nav {
+      position: sticky; top: 0; z-index: 100; background: var(--ink-2);
+      border-bottom: 1px solid var(--rule);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      transition: background .3s;
+    }
+    .nav-inner {
+      max-width: 860px; margin: 0 auto; padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between; height: 56px;
+    }
+    .nav-logo {
+      font-family: 'JetBrains Mono', monospace; font-size: .78em; font-weight: 500;
+      letter-spacing: .08em; color: var(--accent-2); border-bottom: none; flex-shrink: 0;
+    }
+    .nav-logo:hover { color: var(--bright); border-bottom: none; }
+    .nav-links a.active { color: var(--accent-2); }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-links a {
+      font-family: 'JetBrains Mono', monospace; font-size: .68em;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted); border-bottom: none; transition: color .2s; white-space: nowrap;
+    }
+    .nav-links a:hover { color: var(--bright); border-bottom: none; }
+    .theme-toggle {
+      background: none; border: 1px solid var(--rule-2); border-radius: 4px;
+      cursor: pointer; font-size: .85rem; padding: .3em .55em;
+      color: var(--muted); transition: color .2s, border-color .2s; line-height: 1; flex-shrink: 0;
+    }
+    .theme-toggle:hover { color: var(--bright); border-color: var(--accent); }
+    .nav-hamburger {
+      display: none; background: none; border: none; cursor: pointer;
+      flex-direction: column; gap: 5px; padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px; background: var(--muted);
+      border-radius: 2px; transition: transform .25s, opacity .25s;
+    }
+    .nav-drawer {
+      display: none; flex-direction: column; background: var(--ink-2);
+      border-bottom: 1px solid var(--rule); padding: 1rem 2rem 1.25rem; gap: .9rem;
+      transition: background .3s;
+    }
+    .nav-drawer a {
+      font-family: 'JetBrains Mono', monospace; font-size: .72em;
+      letter-spacing: .1em; text-transform: uppercase; color: var(--muted); border-bottom: none;
+    }
+    .nav-drawer a:hover { color: var(--bright); }
+    .nav-drawer.open { display: flex; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 720px) {
+      .nav-inner { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-drawer { padding: 1rem 1.25rem 1.25rem; }
+    }
+
+    /* ── PAGE CONTENT ── */
+    main { flex: 1; padding: 4rem 0 5rem; }
+    .page-title { margin-top: .5rem; margin-bottom: .35rem; }
+    .sub { color: var(--dim); font-size: .8em; margin-bottom: 2.5rem; }
+
+    .gate { max-width: 380px; margin: 4rem auto 0; text-align: center; }
+    .gate input {
+      width: 100%; padding: .75rem .9rem; background: var(--ink-2);
+      border: 1px solid var(--rule-2); color: var(--bright); border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace; font-size: .9em; margin-top: 1rem;
+    }
+    .gate button {
+      width: 100%; margin-top: 1rem; padding: .75rem .9rem; border-radius: 2px;
+      border: 1px solid var(--accent); background: var(--accent-dim); color: var(--accent-2);
+      font-family: 'JetBrains Mono', monospace; font-size: .82em; letter-spacing: .08em;
+      cursor: pointer; text-transform: uppercase; transition: background .2s, color .2s;
+    }
+    .gate button:hover { background: var(--accent); color: var(--ink); }
+    .error { color: #d98a8a; font-size: .8em; margin-top: .75rem; min-height: 1.2em; }
+
+    .grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem; margin-top: 1.5rem;
+    }
+    .tile {
+      border: 1px solid var(--rule); border-radius: 4px; overflow: hidden;
+      background: var(--ink-2); cursor: pointer; aspect-ratio: 1 / 1; position: relative;
+    }
+    .tile img, .tile video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .tile .kind {
+      position: absolute; top: .4rem; right: .4rem; background: rgba(0,0,0,.55);
+      color: #fff; font-size: .65em; padding: .15rem .4rem; border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .empty { color: var(--dim); font-size: .9em; text-align: center; margin-top: 3rem; }
+
+    .lightbox {
+      position: fixed; inset: 0; background: rgba(5,5,8,.94); display: none;
+      align-items: center; justify-content: center; z-index: 200; padding: 2rem;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img, .lightbox video { max-width: 100%; max-height: 100%; border-radius: 4px; }
+    .lightbox .close {
+      position: absolute; top: 1.25rem; right: 1.5rem; background: none; border: none;
+      color: #fff; font-size: 1.8rem; cursor: pointer; line-height: 1;
+    }
+    .hidden { display: none !important; }
+
+    /* ── FOOTER (shared with rest of site) ── */
+    footer { border-top: 1px solid var(--rule); padding: 2.5rem 0; }
+    .footer-base {
+      display: flex; justify-content: space-between; align-items: center;
+      font-family: 'JetBrains Mono', monospace; font-size: .68em; color: var(--dim);
+      flex-wrap: wrap; gap: .75rem;
+    }
+    .footer-base a { color: var(--dim); }
+    .footer-base a:hover { color: var(--accent-2); }
+    @media (max-width: 720px) { .footer-base { flex-direction: column; align-items: flex-start; } }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo mono">jajm2006.uk</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/works/">Works</a>
+        <a href="/spark/">SPARK</a>
+        <a href="/media/" class="active">Media</a>
+        <button class="theme-toggle" aria-label="Toggle light/dark theme" onclick="toggleTheme()">☀︎</button>
+      </div>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu(this)">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-drawer" id="nav-drawer">
+      <a href="/"       onclick="closeMenu()">Home</a>
+      <a href="/works/" onclick="closeMenu()">Works</a>
+      <a href="/spark/" onclick="closeMenu()">SPARK</a>
+      <a href="/media/" onclick="closeMenu()">Media</a>
+      <button class="theme-toggle" style="align-self:flex-start;margin-top:.25rem" aria-label="Toggle theme" onclick="toggleTheme()">☀︎</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div id="gate-view" class="gate hidden">
+      <div class="label">Private gallery</div>
+      <h1 class="page-title" id="gate-title">This gallery is password protected</h1>
+      <input id="password-input" type="password" placeholder="Password" autocomplete="off" />
+      <button id="unlock-btn" onclick="attemptUnlock()">Unlock</button>
+      <div class="error" id="gate-error"></div>
+    </div>
+
+    <div id="empty-view" class="empty hidden">
+      <p>Nothing to see here directly — you'll need a link to a specific gallery.</p>
+    </div>
+
+    <div id="gallery-view" class="hidden">
+      <div class="label">Private gallery</div>
+      <h1 class="page-title" id="gallery-title"></h1>
+      <div class="sub mono" id="gallery-count"></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </main>
+
+  <div class="lightbox" id="lightbox">
+    <button class="close" onclick="closeLightbox()">&times;</button>
+    <div id="lightbox-content"></div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-base">
+        <span>© 2026 Geordie Mac - <a href="/">jajm2006.uk</a></span>
+        <span class="mono">Static HTML · No tracking</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── THEME (same convention as rest of site) ──
+    const root = document.documentElement;
+    const toggleBtns = document.querySelectorAll('.theme-toggle');
+    function getSystemTheme() { return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+    function applyTheme(theme) {
+      root.setAttribute('data-theme', theme);
+      const icon = theme === 'dark' ? '☀︎' : '☽';
+      toggleBtns.forEach(b => b.textContent = icon);
+      localStorage.setItem('theme', theme);
+    }
+    function toggleTheme() { applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'); }
+    const saved = localStorage.getItem('theme');
+    applyTheme(saved || getSystemTheme());
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      if (!localStorage.getItem('theme')) applyTheme(e.matches ? 'dark' : 'light');
+    });
+
+    // ── HAMBURGER ──
+    function toggleMenu(btn) {
+      const drawer = document.getElementById('nav-drawer');
+      const open = drawer.classList.toggle('open');
+      btn.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open);
+    }
+    function closeMenu() {
+      const drawer = document.getElementById('nav-drawer');
+      const btn = document.querySelector('.nav-hamburger');
+      drawer.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', false);
+    }
+
+    // ── GALLERY LOGIC ──
+    function currentGalleryId() {
+      const parts = location.pathname.split('/').filter(Boolean); // e.g. ["media","summer-2026"]
+      if (parts.length < 2) return '';
+      return decodeURIComponent(parts[1]);
+    }
+    const galleryId = currentGalleryId();
+
+    function show(id) {
+      ['gate-view', 'empty-view', 'gallery-view'].forEach(v => {
+        document.getElementById(v).classList.toggle('hidden', v !== id);
+      });
+    }
+
+    function fileKind(key) {
+      const ext = key.split('.').pop().toLowerCase();
+      return ['mp4','mov','webm','mkv','m4v','avi'].includes(ext) ? 'video' : 'image';
+    }
+
+    async function loadGallery() {
+      const res = await fetch(`/api/media/list?gallery=${encodeURIComponent(galleryId)}`, { credentials: 'same-origin' });
+      if (res.status === 401) { show('gate-view'); return; }
+      if (!res.ok) { show('gate-view'); document.getElementById('gate-error').textContent = 'Something went wrong loading this gallery.'; return; }
+      const data = await res.json();
+      renderGallery(data);
+    }
+
+    function renderGallery(data) {
+      document.getElementById('gallery-title').textContent = data.name;
+      document.getElementById('gallery-count').textContent = `${data.files.length} item${data.files.length === 1 ? '' : 's'}`;
+      const grid = document.getElementById('grid');
+      grid.innerHTML = '';
+      data.files.forEach(f => {
+        const kind = fileKind(f.key);
+        const url = `/api/media/file/${encodeURIComponent(galleryId)}/${encodeURIComponent(f.key)}`;
+        const tile = document.createElement('div');
+        tile.className = 'tile';
+        if (kind === 'image') {
+          tile.innerHTML = `<img src="${url}" loading="lazy" alt="">`;
+        } else {
+          tile.innerHTML = `<video src="${url}#t=0.5" preload="metadata" muted></video><span class="kind">▶ video</span>`;
+        }
+        tile.onclick = () => openLightbox(url, kind);
+        grid.appendChild(tile);
+      });
+      show('gallery-view');
+    }
+
+    function openLightbox(url, kind) {
+      const content = document.getElementById('lightbox-content');
+      content.innerHTML = kind === 'image'
+        ? `<img src="${url}" alt="">`
+        : `<video src="${url}" controls autoplay></video>`;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.getElementById('lightbox-content').innerHTML = '';
+    }
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+      if (e.target.id === 'lightbox') closeLightbox();
+    });
+
+    async function attemptUnlock() {
+      const input = document.getElementById('password-input');
+      const errorEl = document.getElementById('gate-error');
+      errorEl.textContent = '';
+      const btn = document.getElementById('unlock-btn');
+      btn.disabled = true;
+      try {
+        const res = await fetch('/api/media/login', {
+          method: 'POST', credentials: 'same-origin',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ gallery: galleryId, password: input.value }),
+        });
+        if (!res.ok) {
+          const err = await res.json().catch(() => ({}));
+          errorEl.textContent = err.error || 'Incorrect password.';
+          btn.disabled = false;
+          return;
+        }
+        await loadGallery();
+      } catch {
+        errorEl.textContent = 'Network error — try again.';
+      }
+      btn.disabled = false;
+    }
+    document.getElementById('password-input').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') attemptUnlock();
+    });
+
+    // ── BOOT ──
+    if (!galleryId) {
+      show('empty-view');
+    } else {
+      loadGallery();
+    }
+  </script>
+</body>
+</html>
