@@ -109,13 +109,106 @@ export async function getAdminAuth(request, env) {
   return payload && payload.admin === true;
 }
 
+// OTP-redeemed sessions live in their own cookie, separate from the
+// password-based media_auth cookie, since they carry a narrower and
+// shorter-lived scope (possibly a single file, not a whole gallery).
+export async function getOtpAuth(request, env) {
+  const cookies = parseCookies(request);
+  return verifyCookieValue(cookies.media_otp, env.SESSION_SECRET);
+}
+
+/**
+ * Gallery-wide authorization: admin, a password-unlocked gallery, or a
+ * folder-scoped OTP redemption. A file-scoped OTP does NOT grant this —
+ * it should only unlock the one file it names (see isAuthorizedForFile),
+ * not the ability to list/browse the whole gallery.
+ */
 export async function isAuthorizedForGallery(request, env, galleryId) {
   if (await getAdminAuth(request, env)) return true;
+
   const auth = await getMediaAuth(request, env);
-  return !!(auth && Array.isArray(auth.galleries) && auth.galleries.includes(galleryId));
+  if (auth && Array.isArray(auth.galleries) && auth.galleries.includes(galleryId)) return true;
+
+  const otp = await getOtpAuth(request, env);
+  if (otp && otp.gallery === galleryId && otp.type === 'folder') return true;
+
+  return false;
+}
+
+/**
+ * File-level authorization: everything isAuthorizedForGallery allows,
+ * plus a file-scoped OTP redemption that names this exact file.
+ */
+export async function isAuthorizedForFile(request, env, galleryId, filename) {
+  if (await isAuthorizedForGallery(request, env, galleryId)) return true;
+
+  const otp = await getOtpAuth(request, env);
+  if (otp && otp.gallery === galleryId && otp.type === 'file' && otp.file === filename) return true;
+
+  return false;
 }
 
 export { SESSION_MAX_AGE };
+
+// ---------- OTP (one-time share codes) ----------
+// KV schema:  otp:<CODE>  ->  JSON { gallery, type: "folder"|"file", file, createdAt }
+// TTL: 900s (15 min). Codes are single-use — consumeOtp deletes on read.
+const OTP_CHARSET = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // no 0/O/1/I
+const OTP_LENGTH = 8;
+const OTP_TTL_SECONDS = 900;
+
+export function generateOtpCode() {
+  const bytes = crypto.getRandomValues(new Uint8Array(OTP_LENGTH));
+  let code = '';
+  for (let i = 0; i < OTP_LENGTH; i++) code += OTP_CHARSET[bytes[i] % OTP_CHARSET.length];
+  return code;
+}
+
+/**
+ * Creates a new OTP scoped to a gallery (whole folder) or a single file
+ * within it, and stores it in KV with a 15-minute TTL.
+ */
+export async function createOtp(env, { gallery, type, file }) {
+  let code = null;
+  // Vanishingly unlikely to collide, but a quick check costs little and
+  // avoids ever silently overwriting a still-live code.
+  for (let attempt = 0; attempt < 5 && !code; attempt++) {
+    const candidate = generateOtpCode();
+    const existing = await env.MEDIA_KV.get(`otp:${candidate}`);
+    if (!existing) code = candidate;
+  }
+  if (!code) code = generateOtpCode();
+
+  const value = {
+    gallery,
+    type,
+    file: type === 'file' ? file : null,
+    createdAt: Date.now(),
+  };
+
+  await env.MEDIA_KV.put(`otp:${code}`, JSON.stringify(value), { expirationTtl: OTP_TTL_SECONDS });
+
+  return { code, ...value };
+}
+
+/**
+ * Reads and deletes an OTP from KV in one step (single-use enforcement).
+ * Returns the parsed scope, or null if the code doesn't exist / already
+ * expired / already used.
+ */
+export async function consumeOtp(env, code) {
+  const key = `otp:${code}`;
+  const raw = await env.MEDIA_KV.get(key);
+  if (!raw) return null;
+  await env.MEDIA_KV.delete(key);
+  try {
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+export { OTP_TTL_SECONDS };
 
 // ---------- misc ----------
 export function json(data, init) {
