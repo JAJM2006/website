@@ -1,0 +1,10 @@
+# /media/admin normalizes to the real static admin page (Astro builds it to
+# /media/admin/index.html; this covers requests without the trailing slash).
+/media/admin            /media/admin/   200
+
+# Any /media/<gallery-slug>/ URL that isn't a real file (i.e. any gallery
+# created later via the admin panel) falls through to this and serves the
+# same static viewer page; client-side JS reads the slug from the URL path.
+# Cloudflare Pages checks for a matching real static file BEFORE applying
+# this rule, so it never hijacks /media/ or /media/admin/ themselves.
+/media/*                /media/index.html   200
