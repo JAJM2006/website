@@ -1,7 +1,0 @@
-# /media/admin shows the admin panel (rule must come before the wildcard below)
-/media/admin            /gallery-app/admin/   200
-/media/admin/           /gallery-app/admin/   200
-
-# Any other /media/<gallery-slug>/ URL serves the same static viewer page;
-# client-side JS reads the slug from the URL path and handles auth + rendering.
-/media/*                /gallery-app/index.html   200
