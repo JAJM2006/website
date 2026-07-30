@@ -18,7 +18,9 @@ export async function onRequestPost({ request, env }) {
     }
     
     const cookieValue = await signCookieValue({ admin: true, exp: Date.now() + SESSION_MAX_AGE * 1000 }, env.SESSION_SECRET);
-    return json({ ok: true }, { headers: { 'Set-Cookie': cookieHeader('media_admin', cookieValue, SESSION_MAX_AGE) } });
+    
+    // ✅ PASS `request` TO cookieHeader HERE:
+    return json({ ok: true }, { headers: { 'Set-Cookie': cookieHeader('media_admin', cookieValue, SESSION_MAX_AGE, request) } });
   } catch (err) {
     return json({ error: `Unexpected server error: ${err.message}` }, { status: 500 });
   }
