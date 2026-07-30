@@ -22,12 +22,28 @@ export function checkConfig(env, checks = []) {
   return null;
 }
 
-export function cookieHeader(name, value, maxAge) {
-  return `${name}=${value}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=${maxAge}`;
+/**
+ * Determines whether a given Request object was made via HTTPS.
+ */
+function isHttpsRequest(request) {
+  if (!request) return false;
+  try {
+    return new URL(request.url).protocol === 'https:';
+  } catch {
+    return false;
+  }
 }
 
-export function clearCookieHeader(name) {
-  return `${name}=; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=0`;
+export function cookieHeader(name, value, maxAge, request = null) {
+  const isHttps = isHttpsRequest(request);
+  const secureFlag = isHttps ? 'Secure; ' : '';
+  return `${name}=${value}; Path=/; HttpOnly; ${secureFlag}SameSite=Lax; Max-Age=${maxAge}`;
+}
+
+export function clearCookieHeader(name, request = null) {
+  const isHttps = isHttpsRequest(request);
+  const secureFlag = isHttps ? 'Secure; ' : '';
+  return `${name}=; Path=/; HttpOnly; ${secureFlag}SameSite=Lax; Max-Age=0`;
 }
 
 export function parseCookies(request) {
