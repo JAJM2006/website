@@ -21,33 +21,100 @@ A static portfolio site showcasing academic works, personal projects, and a curr
 ## Project Structure
 
 ```
-/
-├── public/
-│   ├── favicon/
-│   ├── works/
-│   │   ├── UG/
-│   │   │   ├── Y1/          # Undergraduate Essays (Year 1, 2024-2025)
-│   │   │   └── Y2/          # Undergraduate Essays (Year 2, 2025-2026)
-│   │   └── PG/
-│   │       └── Masters/     # Postgraduate Essays (Masters, 2026-2027)
-│   ├── 404.html
-│   ├── cv.pdf
-│   ├── og-image.png
-│   ├── robots.txt
-│   └── site.webmanifest
-├── src/
-│   └── pages/
-│       ├── index.html       # Main portfolio & CV
-│       ├── works/
-│       │   └── index.html   # Academic works archive
-│       └── spark/
-│           └── index.html   # The SPARK Group
-├── LICENSE                  # Original licence from the Astro template
+website/
+├── .gitignore
+├── .npmrc
+├── .stackblitzrc
+├── LICENSE
+├── MEDIA_SETUP.md
 ├── README.md
 ├── astro.config.mjs
+├── cv.html
+├── functions/
+│   ├── _utils.js
+│   └── api/
+│       ├── admin/
+│       │   ├── file.js
+│       │   ├── galleries.js
+│       │   ├── login.js
+│       │   ├── logout.js
+│       │   ├── otp.js
+│       │   └── upload-url.js
+│       └── media/
+│           ├── file/
+│           │   └── [[path]].js
+│           ├── list.js
+│           ├── login.js
+│           ├── logout.js
+│           └── otp.js
 ├── package.json
+├── public/
+│   ├── 404.html
+│   ├── _redirects
+│   ├── cv-old.pdf
+│   ├── cv.pdf
+│   ├── favicon.ico
+│   ├── favicon/
+│   │   ├── android-chrome-192x192.png
+│   │   ├── android-chrome-512x512.png
+│   │   ├── apple-touch-icon.png
+│   │   ├── favicon-16x16.png
+│   │   ├── favicon-32x32.png
+│   │   └── favicon.ico
+│   ├── og-image.png
+│   ├── robots.txt
+│   ├── site.webmanifest
+│   └── works/
+│       ├── PG/
+│       │   └── MSc/
+│       │       ├── T1/
+│       │       │   └── potatoes.potato
+│       │       └── T2/
+│       │           └── potato.potato
+│       └── UG/
+│           ├── Y1/
+│           │   ├── 24T4/
+│           │   │   ├── DPMA-ESSAY.pdf
+│           │   │   ├── INPT-ESSAY.pdf
+│           │   │   └── ITTB-ESSAY.pdf
+│           │   ├── 25T1/
+│           │   │   ├── CYCH-ESSAY.pdf
+│           │   │   ├── FIOS-ESSAY.pdf
+│           │   │   └── FOGS-ESSAY.pdf
+│           │   ├── 25T2/
+│           │   │   ├── DSEC-ESSAY.pdf
+│           │   │   ├── NSCA-ESSAY.pdf
+│           │   │   └── TECO-ESSAY.pdf
+│           │   └── 25T3/
+│           │       └── IIEM-ESSAY.pdf
+│           └── Y2/
+│               ├── 25T4/
+│               │   ├── CCSD-ESSAY.pdf
+│               │   ├── DNAC-CANNABIS.pdf
+│               │   └── DNAC-FGG.pdf
+│               ├── 26T1/
+│               │   ├── GSIL-ESSAY.pdf
+│               │   └── MSSC-ESSAY.pdf
+│               ├── 26T2/
+│               │   ├── NACI-CELLULAR.pdf
+│               │   └── NACI-MONEY.pdf
+│               └── 26T3/
+│                   └── dissertation.md
 ├── sandbox.config.json
+├── src/
+│   ├── pages/
+│   │   ├── index.html
+│   │   ├── media/
+│   │   │   ├── admin.html
+│   │   │   └── index.html
+│   │   ├── spark/
+│   │   │   └── index.html
+│   │   └── works/
+│   │       └── index.html
+│   └── potato/
+│       └── potato.potato
 └── tsconfig.json
+
 ```
 
 ## Pages
