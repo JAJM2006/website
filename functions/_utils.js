@@ -1,6 +1,7 @@
 // Shared utilities for authentication, hashing, cookies, and sanity checks
 
 export const SESSION_MAX_AGE = 60 * 60 * 24 * 7; // 7 days
+export const OTP_TTL_SECONDS = 15 * 60; // 15 minutes TTL for unused OTPs
 
 export function json(data, init = {}) {
   const headers = new Headers(init.headers || {});
@@ -15,7 +16,7 @@ export function checkConfig(env, checks = []) {
   if (checks.includes('bucket') && !env.MEDIA_BUCKET) return 'Missing MEDIA_BUCKET R2 binding';
   if (checks.includes('r2creds')) {
     if (!env.R2_ACCOUNT_ID || !env.R2_ACCESS_KEY_ID || !env.R2_SECRET_ACCESS_KEY || !env.R2_BUCKET_NAME) {
-      return 'Missing one or more R2 API credentials (R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_BUCKET_NAME)';
+      return 'Missing one or more R2 API credentials';
     }
   }
   return null;
@@ -95,11 +96,58 @@ export async function getAdminAuth(request, env) {
   return data && data.admin === true;
 }
 
-export async function isAuthorizedForGallery(request, env, galleryId) {
+export async function isAuthorizedForGallery(request, env, galleryId, requestedFile = null) {
+  // 1. Admin check
   if (await getAdminAuth(request, env)) return true;
+
   const cookies = parseCookies(request);
-  const data = await verifyCookieValue(cookies.media_auth, env.SESSION_SECRET);
-  return data && Array.isArray(data.galleries) && data.galleries.includes(galleryId);
+
+  // 2. Full gallery password session check (media_auth)
+  const authData = await verifyCookieValue(cookies.media_auth, env.SESSION_SECRET);
+  if (authData && Array.isArray(authData.galleries) && authData.galleries.includes(galleryId)) {
+    return true;
+  }
+
+  // 3. OTP session check (media_otp)
+  const otpData = await verifyCookieValue(cookies.media_otp, env.SESSION_SECRET);
+  if (otpData && otpData.gallery === galleryId) {
+    if (otpData.type === 'folder') return true;
+    if (otpData.type === 'file' && requestedFile && otpData.file === requestedFile) return true;
+  }
+
+  return false;
+}
+
+// ── OTP UTILITIES ──
+
+export async function createOtp(env, { gallery, type, file }) {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // Avoid easily confused characters
+  const array = new Uint8Array(8);
+  crypto.getRandomValues(array);
+  let code = '';
+  for (let i = 0; i < 8; i++) {
+    code += chars[array[i] % chars.length];
+  }
+
+  const payload = JSON.stringify({ gallery, type, file: file || null });
+  await env.MEDIA_KV.put(`otp:${code}`, payload, { expirationTtl: OTP_TTL_SECONDS });
+
+  return { code, gallery, type, file };
+}
+
+export async function consumeOtp(env, code) {
+  const key = `otp:${code}`;
+  const raw = await env.MEDIA_KV.get(key);
+  if (!raw) return null;
+
+  // Single-use: delete immediately after reading
+  await env.MEDIA_KV.delete(key);
+
+  try {
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
 }
 
 export async function hashPassword(password) {
@@ -116,4 +164,13 @@ export async function verifyPassword(password, saltHex, expectedHashHex) {
   const keyBuf = await crypto.subtle.digest('SHA-256', enc.encode(saltHex + password));
   const hashHex = Array.from(new Uint8Array(keyBuf)).map((b) => b.toString(16).padStart(2, '0')).join('');
   return timingSafeEqual(hashHex, expectedHashHex);
+}
+
+export function guessMime(filename) {
+  const ext = filename.split('.').pop().toLowerCase();
+  const map = {
+    jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png', gif: 'image/gif', webp: 'image/webp',
+    mp4: 'video/mp4', mov: 'video/quicktime', webm: 'video/webm', pdf: 'application/pdf'
+  };
+  return map[ext] || 'application/octet-stream';
 }
