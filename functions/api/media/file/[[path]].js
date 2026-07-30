@@ -8,7 +8,8 @@ export async function onRequestGet({ request, env, params }) {
   const filename = rest.join('/');
   const key = `${galleryId}/${filename}`;
 
-  const authorized = await isAuthorizedForGallery(request, env, galleryId);
+  // Pass filename to support single-file OTP authorization
+  const authorized = await isAuthorizedForGallery(request, env, galleryId, filename);
   if (!authorized) return new Response('Not authorized', { status: 401 });
 
   const rangeHeader = request.headers.get('Range');
