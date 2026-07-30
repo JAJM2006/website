@@ -1,26 +1,33 @@
-import { isAuthorizedForGallery, json } from '../../_utils.js';
+import { isAuthorizedForGallery, json, checkConfig } from '../../_utils.js';
 
 export async function onRequestGet({ request, env }) {
-  const url = new URL(request.url);
-  const galleryId = url.searchParams.get('gallery') || '';
-  if (!galleryId) return json({ error: 'Missing gallery' }, { status: 400 });
+  try {
+    const configError = checkConfig(env, ['session', 'kv', 'bucket']);
+    if (configError) return json({ error: configError }, { status: 500 });
 
-  const authorized = await isAuthorizedForGallery(request, env, galleryId);
-  if (!authorized) return json({ error: 'Not authorized' }, { status: 401 });
+    const url = new URL(request.url);
+    const galleryId = url.searchParams.get('gallery') || '';
+    if (!galleryId) return json({ error: 'Missing gallery' }, { status: 400 });
 
-  const metaRaw = await env.MEDIA_KV.get(`gallery:${galleryId}`);
-  if (!metaRaw) return json({ error: 'Not found' }, { status: 404 });
-  const meta = JSON.parse(metaRaw);
+    const authorized = await isAuthorizedForGallery(request, env, galleryId);
+    if (!authorized) return json({ error: 'Not authorized' }, { status: 401 });
 
-  const listed = await env.MEDIA_BUCKET.list({ prefix: `${galleryId}/` });
-  const files = listed.objects
-    .filter((o) => o.size > 0)
-    .map((o) => ({
-      key: o.key.slice(`${galleryId}/`.length),
-      size: o.size,
-      uploaded: o.uploaded,
-    }))
-    .sort((a, b) => new Date(b.uploaded) - new Date(a.uploaded));
+    const metaRaw = await env.MEDIA_KV.get(`gallery:${galleryId}`);
+    if (!metaRaw) return json({ error: 'Gallery not found' }, { status: 404 });
 
-  return json({ name: meta.name, files });
+    const meta = JSON.parse(metaRaw);
+    const listed = await env.MEDIA_BUCKET.list({ prefix: `${galleryId}/` });
+    const files = listed.objects
+      .filter((o) => o.size > 0)
+      .map((o) => ({
+        key: o.key.slice(`${galleryId}/`.length),
+        size: o.size,
+        uploaded: o.uploaded,
+      }))
+      .sort((a, b) => new Date(b.uploaded) - new Date(a.uploaded));
+
+    return json({ name: meta.name, files });
+  } catch (err) {
+    return json({ error: `Unexpected server error listing files: ${err.message}` }, { status: 500 });
+  }
 }
