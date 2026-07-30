@@ -13,14 +13,12 @@ export async function onRequestPost({ request, env }) {
 
   const raw = await env.MEDIA_KV.get(`gallery:${galleryId}`);
   if (!raw) {
-    // Don't reveal whether the gallery exists.
     return json({ error: 'Incorrect password' }, { status: 401 });
   }
   const meta = JSON.parse(raw);
   const ok = await verifyPassword(password, meta.salt, meta.hash);
   if (!ok) return json({ error: 'Incorrect password' }, { status: 401 });
 
-  // Merge with any existing authorized galleries on the current cookie.
   const cookies = parseCookies(request);
   const existing = await verifyCookieValue(cookies.media_auth, env.SESSION_SECRET);
   const galleries = new Set(existing && Array.isArray(existing.galleries) ? existing.galleries : []);
@@ -33,6 +31,7 @@ export async function onRequestPost({ request, env }) {
 
   return json(
     { ok: true, name: meta.name },
-    { headers: { 'Set-Cookie': cookieHeader('media_auth', cookieValue, SESSION_MAX_AGE) } }
+    // ✅ PASS `request` TO cookieHeader HERE:
+    { headers: { 'Set-Cookie': cookieHeader('media_auth', cookieValue, SESSION_MAX_AGE, request) } }
   );
 }
