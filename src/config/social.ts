@@ -3,7 +3,7 @@ import type { SocialLink } from "../types";
 export const SOCIALS: SocialLink[] = [
     {
         name: "Github",
-        href: "https://github.com/JAJM2005",
+        href: "https://github.com/JAJM2006",
         linkTitle: `Follow Joshua on Github`,
         isActive: true,
     },

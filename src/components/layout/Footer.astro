@@ -14,10 +14,10 @@ const showDevTools = import.meta.env.DEV || SETTINGS.addDevToolsInProduction;
     <div class="flex items-center gap-4">
         <span class="body-xs hidden sm:inline-block"
             >Built with <a
-                href="https://github.com/rubzip/academic-portfolio-astro/"
+                href="https://astro.build"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="link">Academic Portfolio Astro</a
+                class="link">Astro</a
             ></span
         >
         <a
@@ -40,18 +40,6 @@ const showDevTools = import.meta.env.DEV || SETTINGS.addDevToolsInProduction;
                     <Icon name="Sun" size={16} class="hidden dark:block" />
                     <Icon name="Moon" size={16} class="block dark:hidden" />
                 </button>
-            )
-        }
-        {
-            showDevTools && (
-                <a
-                    href="/dev-tools"
-                    aria-label="Developer Tools"
-                    title="Developer Tools"
-                    class="btn-icon"
-                >
-                    <Icon name="Settings" size={16} />
-                </a>
             )
         }
     </div>

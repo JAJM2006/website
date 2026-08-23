@@ -9,7 +9,7 @@ export const PAGES: PagesConfig = {
     blog: {
         title: "Blog",
         subtitle: "Thoughts and updates.",
-        isActive: true,
+        isActive: false,
     },
     publications: {
         title: "Publications",
@@ -19,12 +19,12 @@ export const PAGES: PagesConfig = {
     talks: {
         title: "Talks & Presentations",
         subtitle: "Stuff that has helped me get here.",
-        isActive: true,
+        isActive: false,
     },
     projects: {
         title: "Code & Projects",
         subtitle: "Open source contributions and experiments.",
-        isActive: true,
+        isActive: false,
     },
     teaching: {
         title: "Teaching",
@@ -34,7 +34,7 @@ export const PAGES: PagesConfig = {
     tags: {
         title: "Tags",
         subtitle: "Explore content by topic.",
-        isActive: true,
+        isActive: flase,
     },
     cv: {
         title: "Curriculum Vitae",
