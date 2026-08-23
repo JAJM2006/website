@@ -34,7 +34,7 @@ export const PAGES: PagesConfig = {
     tags: {
         title: "Tags",
         subtitle: "Explore content by topic.",
-        isActive: flase,
+        isActive: false,
     },
     cv: {
         title: "Curriculum Vitae",
