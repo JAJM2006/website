@@ -1,7 +1,7 @@
 ---
 name: "Joshua McManus"
 avatar: "joshua.jpg"
-shortBio: "Masters Student"
+shortBio: "Masters Student and Researcher"
 institution: "Newcatsle University"
 ---
 
@@ -19,7 +19,7 @@ My independent technical portfolio includes founding and leading The SPARK Group
 
 ## Research Interests
 
-My research focus includes: **Anything and Everything, All at Once**.
+My research focus includes: **Exploring the Misunderstood**.
 
 ---
 
