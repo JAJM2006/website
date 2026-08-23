@@ -109,27 +109,27 @@ Here are the primary collections you'll work with:
 - **`posts/`**: Your blog posts (like this one!).
 - **`projects/`**: Showcase your software, hardware, or research projects.
 - **`publications/`**: List your academic papers. 
-- **`talks/`**: Archive your conference presentations and slides.
+- **`suggestions/`**: Archive your conference presentations and slides.
 - **`teaching/`**: List the courses you teach or have taught.
 
 ### Disabling Pages
 
 If you don't want to use all the content collections provided by default, you can disable them in `src/config/pages.ts`.
 
-For example, if you don't want to use the `talks` collection, you can set the following in `src/config/pages.ts`:
+For example, if you don't want to use the `suggestions` collection, you can set the following in `src/config/pages.ts`:
 
 ```typescript
 export const PAGES: PagesConfig = {
     // Default configuration for pages, you can override any property of the objects
-    talks: {
-        title: "Talks & Presentations", // Title for the page
+    suggestions: {
+        title: "Suggestions & Presentations", // Title for the page
         subtitle: "Public lectures, colloquia, and conference presentations.", // Subtitle for the page
-        isActive: false, // Enable the talks collection
+        isActive: false, // Enable the suggestions collection
     },
     ...
 };
 ```
-This configuration will disable the talks page in the navigation bar and the content collection.
+This configuration will disable the suggestions page in the navigation bar and the content collection.
 
 ### Writing a new post
 

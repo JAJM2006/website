@@ -3,14 +3,14 @@ import { getCollection } from "astro:content";
 import BaseDetail from "../../layouts/BaseDetail.astro";
 import { PAGES } from "../../config";
 
-if (PAGES.talks.isActive === false) {
+if (PAGES.suggestions.isActive === false) {
     return Astro.redirect("/404");
 }
 
 export async function getStaticPaths() {
-    if (PAGES.talks.isActive === false) return [];
-    const talks = await getCollection("talks");
-    return talks.map((talk: any) => ({
+    if (PAGES.suggestions.isActive === false) return [];
+    const suggestions = await getCollection("suggestions");
+    return suggestions.map((talk: any) => ({
         params: { id: talk.id },
         props: { talk },
     }));
@@ -19,4 +19,4 @@ export async function getStaticPaths() {
 const { id } = Astro.params;
 ---
 
-<BaseDetail collection="talks" id={id} />
+<BaseDetail collection="suggestions" id={id} />

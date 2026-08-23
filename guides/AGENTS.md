@@ -10,7 +10,7 @@
 
 ## Architecture
 - **Barrel files:** `src/config/index.ts`, `src/types/index.ts`
-- **Content:** `src/content/` - Add `.md` files to subdirectories (posts/, publications/, projects/, talks/, teaching/)
+- **Content:** `src/content/` - Add `.md` files to subdirectories (posts/, publications/, projects/, suggestions/, teaching/)
 - **Config:** `src/config/` - site.ts (SITE, THEME_CONFIG, SETTINGS, ANALYTICS), pages.ts (PAGES), navigation.ts (NAV_LINKS), social.ts (SOCIALS), themes.ts
 - **Types:** `src/types/` - content.ts (Bio, CVItem, etc.), display.ts (ListingItem, DetailItem), config.ts, themes.ts
 - **Styles:** `src/styles/global.css` - Theme colors, base styles

@@ -15,10 +15,10 @@ Strongly inspired by [Academic Pages](https://github.com/academicpages/academicp
 
 ## Features
 
-- **Markdown-Driven Collections:** Easily manage your `Bio`, `Blog`, `Publications`, `Projects`, `Talks`, `CV`, and `Teaching` experience purely through `.md` files, **no programming knowledge required**.
+- **Markdown-Driven Collections:** Easily manage your `Bio`, `Blog`, `Publications`, `Projects`, `Suggestions`, `CV`, and `Teaching` experience purely through `.md` files, **no programming knowledge required**.
 - **Academic Standard Support:** Out-of-the-box $\LaTeX$ rendering support via `remark-math`/`rehype-katex`.
 - **Extensive Theming System:** Built-in Light/Dark mode toggle with a highly customizable underlying design system and several preset color palettes.
-- **Toggleable Sections:** Don't need a "Talks" or "Teaching" section? Disable them globally with a single boolean flag in your config.
+- **Toggleable Sections:** Don't need a "Suggestions" or "Teaching" section? Disable them globally with a single boolean flag in your config.
 - **Peak Performance:** Built with Astro and Tailwind CSS v4 (via `@tailwindcss/vite`), yielding near-perfect Lighthouse scores and minimal client-side JavaScript.
 - **Analytics:** Includes native configuration options for self-hosted Umami analytics (`umami.websiteId`), as well as GA4 support (`ga4Id`).
 - **Two-Column Architecture:** Optimized layout with a sticky left profile sidebar and a scrollable main content area.
@@ -73,7 +73,7 @@ This project follows a centralized configuration architecture and is driven enti
 │   │   ├── posts/
 │   │   ├── projects/
 │   │   ├── publications/
-│   │   ├── talks/
+│   │   ├── suggestions/
 │   │   └── teaching/
 │   ├── layouts/            # Page layout wrappers
 │   ├── pages/              # Astro routing
@@ -95,7 +95,7 @@ All configuration is managed centrally in the `src/config` directory. Modify the
 
 | File | Purpose |
 | :--- | :--- |
-| [`pages.ts`](src/config/pages.ts) | Enable/disable entire sections (e.g., `talks`, `teaching`) and set page subtitles. |
+| [`pages.ts`](src/config/pages.ts) | Enable/disable entire sections (e.g., `suggestions`, `teaching`) and set page subtitles. |
 | [`themes.ts`](src/config/themes.ts) | Define and manage all color palettes. Use `THEME_CONFIG` in `site.ts` to apply. |
 | [`site.ts`](src/config/site.ts) | Manage metadata, analytics keys (Umami/GA4), and critical file paths. |
 | [`navigation.ts`](src/config/navigation.ts) | Define the primary navigation bar links. |

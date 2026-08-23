@@ -13,11 +13,11 @@ export const PAGES: PagesConfig = {
     },
     publications: {
         title: "Publications",
-        subtitle: "A collection of my papers, essays, and articles.",
+        subtitle: "A collection of papers, essays, and articles.",
         isActive: true,
     },
-    talks: {
-        title: "Talks & Presentations",
+    suggestions: {
+        title: "Suggestions & Presentations",
         subtitle: "Stuff that has helped me get here.",
         isActive: false,
     },
@@ -28,7 +28,7 @@ export const PAGES: PagesConfig = {
     },
     teaching: {
         title: "Teaching",
-        subtitle: "Academic courses and educational materials.",
+        subtitle: "My notes and educational materials.",
         isActive: true,
     },
     tags: {
