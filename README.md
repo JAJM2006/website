@@ -1,4 +1,4 @@
-# 🎓 Academic Portfolio Astro
+# Academic Portfolio Astro
 
 [![Astro](https://img.shields.io/badge/ASTRO-FF5D01?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build/)
 [![Tailwind](https://img.shields.io/badge/TAILWIND-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
@@ -11,9 +11,9 @@ A fast, minimalist, and highly customizable Astro template designed specifically
 
 Strongly inspired by [Academic Pages](https://github.com/academicpages/academicpages.github.io) and [AstroPaper](https://github.com/satnaing/astro-paper), this template prioritizes content readability, SEO discoverability, and ease of configuration without touching the UI code.
 
-> 🌟 **[View the Live Demo](https://astro-academics-page.vercel.app/)**
+> **[View the Live Demo](https://astro-academics-page.vercel.app/)**
 
-## ✨ Features
+## Features
 
 - **Markdown-Driven Collections:** Easily manage your `Bio`, `Blog`, `Publications`, `Projects`, `Talks`, `CV`, and `Teaching` experience purely through `.md` files, **no programming knowledge required**.
 - **Academic Standard Support:** Out-of-the-box $\LaTeX$ rendering support via `remark-math`/`rehype-katex`.
@@ -23,7 +23,7 @@ Strongly inspired by [Academic Pages](https://github.com/academicpages/academicp
 - **Analytics:** Includes native configuration options for self-hosted Umami analytics (`umami.websiteId`), as well as GA4 support (`ga4Id`).
 - **Two-Column Architecture:** Optimized layout with a sticky left profile sidebar and a scrollable main content area.
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Bootstrap the Repository
 
@@ -51,7 +51,7 @@ npm run dev
 ```
 Your local server will start at `http://localhost:4321`.
 
-## 📂 Architecture & Structure
+## Architecture & Structure
 
 This project follows a centralized configuration architecture and is driven entirely by Markdown/MDX content.
 
@@ -82,14 +82,14 @@ This project follows a centralized configuration architecture and is driven enti
 └── content.config.ts       # Zod schemas for all markdown collections
 ```
 
-## 📖 Documentation & Setup
+## Documentation & Setup
 
 For a comprehensive, step-by-step guide on how to configure your site, modify the design, and write new content, please refer to the dedicated setup post included in this template:
 
-**👉 [Setting up Your Academic Portfolio](src/content/posts/setting-up-portfolio.md)**
+** [Setting up Your Academic Portfolio](src/content/posts/setting-up-portfolio.md)**
 
 
-## 📋 Configuration
+## Configuration
 
 All configuration is managed centrally in the `src/config` directory. Modify these files to personalize your portfolio without touching any UI code:
 
@@ -102,7 +102,7 @@ All configuration is managed centrally in the `src/config` directory. Modify the
 | [`social.ts`](src/config/social.ts) | Configure social media links appearing in the footer and header. |
 
 
-## 🛠️ Build Commands
+## Build Commands
 
 All standard build commands run through `npm`:
 
@@ -113,7 +113,7 @@ All standard build commands run through `npm`:
 | `npm run preview` | Previews your production build locally |
 | `npm run format` | Runs Prettier on all files to format code |
 
-## 🤝 Contributing & License
+## Contributing & License
 
 Contributions, issues, and feature requests are always welcome! Feel free to check the [issues page](https://github.com/rubzip/academic-portfolio-astro/issues).
 
