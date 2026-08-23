@@ -8,7 +8,7 @@ tags:
   - "Machine Learning"
   - "AI"
   - "Theory"
-image: "/images/placeholder.svg"
+image: "/images/sunset.jpeg"
 ---
 
 As machine learning began to emerge as a field in the 1950s, I saw strong connections to information theory. This paper explored those connections.

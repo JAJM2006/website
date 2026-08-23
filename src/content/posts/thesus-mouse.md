@@ -8,7 +8,7 @@ tags:
   - "Robotics"
   - "Machine Learning"
   - "History"
-image: "/images/placeholder.svg"
+image: "/images/sunset.jpeg"
 ---
 
 I built a mechanical mouse called **Theseus** that could navigate a maze using telephone relay circuits and magnetism. This was one of the first machines to demonstrate learning behavior.

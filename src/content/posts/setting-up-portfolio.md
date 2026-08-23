@@ -63,7 +63,7 @@ export const SITE: SiteConfig = {
     title: "Your Name",
     ogImage: "your-image.webp",
     postPerPage: 5,
-    favicon: "/favicon.svg",
+    favicon: "/favicon.png",
     lang: "en",
 };
 ```

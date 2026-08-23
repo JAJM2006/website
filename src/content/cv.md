@@ -1,32 +1,27 @@
 ---
-name: "Claude Shannon"
-title: "Mathematician and Electrical Engineer"
+name: "Joshua McManus"
+title: "Masters Student"
 experience:
-  - role: "Research Mathematician"
-    institution: "Bell Telephone Laboratories"
-    period: "1941 - 1972"
-    description: "Conducted groundbreaking research in information theory, cryptography, and digital computing."
-  - role: "Professor of Electrical Engineering"
-    institution: "MIT"
-    period: "1958 - 1978"
-    description: "Taught courses in information theory, switching theory, and mathematical foundations of computing."
+  - role: "Researcher"
+    institution: "The SPARK Group"
+    period: "2024+"
+    description: "Researcher and Open-Source Contributor."
 education:
-  - degree: "PhD in Mathematics"
-    institution: "MIT"
-    period: "1936 - 1940"
-    thesis: "An Algebra for Theoretical Genetics"
+  - degree: "MSc in Development, Environment, and International Politics"
+    institution: "Newcastle University"
+    period: "2026 - 2027"
+    thesis: "The Legality and Logistics of Nuclear Energy in Cis-lunar Environments"
     description: "Developed mathematical foundations for genetic inheritance."
-  - degree: "Bachelor of Science in Electrical Engineering"
-    institution: "University of Michigan"
-    period: "1932 - 1936"
+  - degree: "BA(Hons) in Security, Intelligence, and Cyber"
+    institution: "The University of Buckingham"
+    period: "2024 - 2026"
+    thesis: "Sustainable Scotland: A Comparitive Analysis of Development-Security"
 ---
 
 ## Skills
-- Information Theory
-- Mathematics
-- Electrical Engineering
-- Cryptography
-- Computer Science
+- Research
+- Team Leadership
+- CFD and GIS analysis
 
 ## Biographical Summary
-Extra biographical notes or a summary can go here.
+Avid Human.

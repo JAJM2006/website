@@ -1,28 +1,26 @@
 ---
-name: "Claude Shannon"
-avatar: "shannon.jpg"
-shortBio: "Mathematician and electrical engineer known as the 'Father of Information Theory'. Pioneer in digital computing and cryptography."
-institution: "MIT, Cambridge MA"
+name: "Joshua McManus"
+avatar: "joshua.jpg"
+shortBio: "Masters Student"
+institution: "Newcatsle University"
 ---
 
-I am a mathematician and electrical engineer best known for founding **Information Theory**. My work in the late 1940s established the theoretical foundations of modern digital communications and computing.
+I am a postgraduate student and researcher specialising in the intersection of security studies, data science, and advanced systems science. My current research bridges the gap between terrestrial development-security paradigms and the legal, technical, and logistical architectures required for **Deep Space Mission Engineering**.
 
 ## My Life
 
-Born in Petoskey, Michigan on April 30, 1916, I showed an early aptitude for engineering and mathematics. After studying at the University of Michigan, I completed my PhD at MIT where I famously applied Boolean algebra to electrical circuits. My master's thesis on relay switching circuits is considered one of the most important master's theses ever written.
+My academic journey began with a BA(Hons) in Security, Intelligence, and Cyber from the University of Buckingham, where I was also the Student Academic Representative for the Centre for Security and Intelligence Studies (BUCSIS). During this time, I focused on high-level analysis, critical national infrastructure, and development-security frameworks. Driven by a commitment to leadership and public service, I was elected a Fellow of the Royal Society of Arts (FRSA) at the age of 19.
 
-During World War, I worked at Bell Labs on fire control systems and cryptography, which led to my seminal work in information theory.
+To transition from pure macro-strategy into a Whole-of-Systems mindest, I am completing an MSc in Development, Environment, and International Politics at Newcastle University. My master's dissertation, *"The Legality and Logistics of Nuclear Material in a Cis-Lunar Environment,"* serves as my core intellectual bridge. It synthesises public international law, emerging space technologies, and data science to address the real-world operational constraints of off-world deployments.
 
 ## Current Work
 
-I continue to work on various problems at the intersection of mathematics, engineering, and computer science. My interests include artificial intelligence, pattern recognition, game theory, and the fundamental limits of computation.
-
-I also enjoy juggling, unicycling, and playing the clarinet - I even built a juggling machine!
+My independent technical portfolio includes founding and leading The SPARK Group, an international collaborative effort focused on open-source hardware engineering, networking, and digital ecosystem development. When not analysing databases or deciphering confusing legal documents, I volunteer as a CFAV with the Army Cadet Force, helping to give the same opportunities I had to the younger generation.
 
 ## Research Interests
 
-My research focus includes: **Information Theory**, **Cryptography**, **Digital Computing**, **Artificial Intelligence**, **Game Theory**, and **Switching Circuits**.
+My research focus includes: **Anything and Everything, All at Once**.
 
 ---
 
-*"I am a mathematician. I am interested in the fundamental limits on the rate at which information can be transmitted."*
+*"Avid Human."*

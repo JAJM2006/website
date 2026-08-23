@@ -8,22 +8,22 @@ export const PAGES: PagesConfig = {
     },
     blog: {
         title: "Blog",
-        subtitle: "Thoughts on physics, philosophy, and music.",
+        subtitle: "Thoughts and updates.",
         isActive: true,
     },
     publications: {
         title: "Publications",
-        subtitle: "A collection of research papers and scientific articles.",
+        subtitle: "A collection of my papers, essays, and articles.",
         isActive: true,
     },
     talks: {
         title: "Talks & Presentations",
-        subtitle: "Public lectures, colloquia, and conference presentations.",
+        subtitle: "Stuff that has helped me get here.",
         isActive: true,
     },
     projects: {
         title: "Code & Projects",
-        subtitle: "Open source contributions and technological experiments.",
+        subtitle: "Open source contributions and experiments.",
         isActive: true,
     },
     teaching: {

@@ -6,7 +6,7 @@ tags:
   - "Robotics"
   - "Machine Learning"
   - "Hardware"
-image: "/images/placeholder.svg"
+image: "/images/sunset.jpeg"
 external_url: "https://en.wikipedia.org/wiki/Theseus_(robot)"
 ---
 
@@ -14,7 +14,7 @@ external_url: "https://en.wikipedia.org/wiki/Theseus_(robot)"
 
 Theseus was an experimental maze-solving robot I built in 1950 at Bell Labs. It was one of the first examples of a machine that could learn and improve its behavior.
 
-![Theseus mouse demonstration](/images/placeholder.svg)
+![Theseus mouse demonstration](/images/sunset.jpeg)
 
 ## Technical Implementation
 

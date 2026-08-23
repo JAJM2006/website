@@ -6,14 +6,14 @@ author: "Your Name"
 tags:
   - "Tag1"
   - "Tag2"
-image: "/images/placeholder.svg"
+image: "/images/sunset.jpeg"
 ---
 
 # Introduction
 
 Start writing your blog post here. You can add images:
 
-![Sample image](/images/placeholder.svg)
+![Sample image](/images/sunset.jpeg)
 
 The image above demonstrates how to include images in your posts. Images are useful for:
 - Visual illustrations
