@@ -19,7 +19,7 @@ export const PAGES: PagesConfig = {
     suggestions: {
         title: "Suggestions & Presentations",
         subtitle: "Stuff that has helped me get here.",
-        isActive: false,
+        isActive: true,
     },
     projects: {
         title: "Code & Projects",
