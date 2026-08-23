@@ -9,7 +9,7 @@ export const SOCIALS: SocialLink[] = [
     },
     {
         name: "Mail",
-        href: "mailto:spam@JAJM2006.uk",
+        href: "mailto:mail@JAJM2006.uk",
         linkTitle: `Send an email to Joshua`,
         isActive: true,
     },
