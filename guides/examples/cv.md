@@ -10,7 +10,7 @@ education:
   - degree: "Ph.D. in Physics"
     institution: "University of Zurich"
     period: "1905"
-    thesis: "A New Determination of Molecular Dimensions"
+    dissertation: "A New Determination of Molecular Dimensions"
     description: "Taught theoretical physics and conducted research on thermodynamics."
 ---
 ## Skills

@@ -1,8 +1,9 @@
 ---
 title: "The Bandwagon of Information Theory"
+author: "C.E. Shannon"
 date: "1956-10-01"
 event: "IRE National Convention, New York"
-external_url: "https://archive.org/details/shannon-bandwagon"
+external_url: "https://ieeexplore.ieee.org/ielx5/4547527/22736/01056774.pdf"
 description: "A cautionary talk about the spread and misuse of information theory outside its proper domain. Famous for warning against overapplication."
 tags:
   - "Information Theory"

@@ -20,6 +20,7 @@ education:
     institution: "The University of Buckingham"
     period: "2024 - 2026"
     dissertation: "Sustainable Scotland: A Comparitive Analysis of Development-Security"
+external_url: "https://www.jajm2006.uk/works/BA(Hons)/Y2/26T3/DISSERTATION.pdf"
 ---
 
 ## Biographical Summary
@@ -29,3 +30,6 @@ Postgrad studying Development-Security at Newcastle University. Fast and adaptiv
 - Research
 - Team Leadership
 - CFD and GIS analysis
+
+## Honours and Awards
+- Fellowship of the Royal Society of Arts

@@ -89,7 +89,7 @@ const cv = defineCollection({
             degree: z.string(),
             institution: z.string(),
             period: z.string(),
-            thesis: z.string().optional(),
+            dissertation: z.string().optional(),
             description: z.string().optional(),
         })).optional(),
     }),

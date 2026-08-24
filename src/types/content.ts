@@ -13,7 +13,7 @@ export interface CVItem {
 
 export interface EducationItem extends CVItem {
   degree: string;
-  thesis?: string;
+  dissertation?: string;
 }
 
 export interface ExperienceItem extends CVItem {

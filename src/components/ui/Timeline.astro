@@ -4,7 +4,7 @@ export interface TimelineItemData {
     period: string;
     subtitle: string;
     description?: string;
-    thesis?: string;
+    dissertation?: string;
 }
 
 interface Props {
@@ -39,9 +39,9 @@ const { items } = Astro.props;
                             {item.description}
                         </div>
                     )}
-                    {item.thesis && (
+                    {item.dissertation && (
                         <div class="body italic mt-2 opacity-80">
-                            Thesis: {item.thesis}
+                            Dissertation: {item.dissertation}
                         </div>
                     )}
                 </div>
