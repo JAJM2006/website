@@ -38,7 +38,7 @@ export const PAGES: PagesConfig = {
     },
     cv: {
         title: "Curriculum Vitae",
-        subtitle: "Academic and professional history.",
+        subtitle: "Postgrad studying Development-Security at Newcastle University. Fast and adaptive learner with growing independent study in CFD and GIS analysis. Strong grounding in analytical reasoning, and strategic evaluation across geographical, strategic, and technical domains gained through both academic studies and personal interests.",
         isActive: true,
     },
 };
