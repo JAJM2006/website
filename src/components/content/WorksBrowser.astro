@@ -1,0 +1,53 @@
+---
+import Icon from "../ui/Icon.astro";
+import type { WorksNode } from "../../utils/works";
+
+interface Props {
+    items: WorksNode[];
+    basePath: string; // e.g. "/publications/works"
+}
+
+const { items, basePath } = Astro.props;
+
+const fileIconMap: Record<string, string> = {
+    pdf: "FileText",
+    md: "FileText",
+    doc: "FileText",
+    docx: "FileText",
+};
+
+const folders = items.filter((i) => i.type === "folder");
+const files = items.filter((i) => i.type === "file");
+---
+
+{folders.length > 0 && (
+    <div class="folder-grid">
+        {folders.map((folder) => (
+            <a href={`${basePath}/${folder.path}`} class="folder-item">
+                <Icon name="Folder" size={32} />
+                <span class="folder-item-name">{folder.name}</span>
+            </a>
+        ))}
+    </div>
+)}
+
+{files.length > 0 && (
+    <div class="file-list mt-8">
+        {files.map((file) => (
+            
+                href={`${import.meta.env.BASE_URL}works/${file.path}`.replace(/\/{2,}/g, "/")}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="file-item"
+            >
+                <Icon name={fileIconMap[file.ext ?? ""] || "FileText"} size={20} />
+                <span class="file-item-name">{file.name}</span>
+                <span class="file-item-ext">.{file.ext}</span>
+            </a>
+        ))}
+    </div>
+)}
+
+{folders.length === 0 && files.length === 0 && (
+    <p class="body opacity-60 italic mt-8 text-center">This folder is empty.</p>
+)}
