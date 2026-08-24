@@ -3,7 +3,7 @@ import type { SiteConfig, ThemeConfig, SettingsConfig, UmamiAnalyticsConfig, Ana
 export const SITE: SiteConfig = {
     website: "https://www.JAJM2006.uk",
     author: "Joshua McManus",
-    desc: "My life so far",
+    desc: "My Website",
     title: "Joshua McManus",
     ogImage: "website.webp",
     postPerPage: 5,
