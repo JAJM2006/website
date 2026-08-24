@@ -1,0 +1,60 @@
+---
+// src/pages/publications/works/[...path].astro
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import WorksBrowser from "../../../components/content/WorksBrowser.astro";
+import { buildWorksTree, findNode, getAllFolderPaths } from "../../../utils/works";
+import { PAGES } from "../../../config";
+
+if (PAGES.publications.isActive === false) {
+    return Astro.redirect("/404");
+}
+
+export async function getStaticPaths() {
+    const tree = buildWorksTree();
+    const folderPaths = getAllFolderPaths(tree);
+
+    return folderPaths.map((segments) => ({
+        params: { path: segments.join("/") },
+        props: { segments },
+    }));
+}
+
+const { segments } = Astro.props as { segments: string[] };
+const tree = buildWorksTree();
+const items = findNode(tree, segments);
+
+if (items === null) {
+    return Astro.redirect("/404");
+}
+
+const breadcrumbs = [
+    { label: "Publications", href: "/publications" },
+    ...segments.map((seg, i) => ({
+        label: seg,
+        href: "/publications/works/" + segments.slice(0, i + 1).join("/"),
+    })),
+];
+
+const currentTitle = segments[segments.length - 1];
+---
+
+<BaseLayout title={currentTitle + " — " + PAGES.publications.title}>
+    <header class="page-header">
+        <h1 class="page-title">{currentTitle}</h1>
+    </header>
+
+    <nav class="breadcrumbs mb-8">
+        {breadcrumbs.map((b, i) => (
+            <Fragment>
+                {i > 0 && <span class="opacity-40 mx-1">/</span>}
+                {i === breadcrumbs.length - 1 ? (
+                    <span class="breadcrumb-current">{b.label}</span>
+                ) : (
+                    <a href={b.href} class="breadcrumb-link">{b.label}</a>
+                )}
+            </Fragment>
+        ))}
+    </nav>
+
+    <WorksBrowser items={items} basePath="/publications/works" />
+</BaseLayout>
