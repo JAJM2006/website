@@ -36,34 +36,33 @@ education:
 
 
 ## Non-Credit Courses
-| `Course` | Awarding Body | Date |
+| Course | Awarding Body | Date |
 | :--- | :--- | :--- |
 | `Oceanography` | Universitat de Barcelona | 2025 |
-| `MITx Advanced FD 1 [2.25.2x]` | Massachusetts Institute of Technology | Ongoing, 2026+ |
-| `MITx Advanced FD 2 [2.25.2x]` | Massachusetts Institute of Technology | Ongoing, 2026+ |
+| `MITx Advanced FD 1 [2.25.2x]` | Massachusetts Institute of Technology | 2026+ (ongoing)|
+| `MITx Advanced FD 2 [2.25.2x]` | Massachusetts Institute of Technology | 2026+ (ongoing)|
 
 
 
 
 ## Certificates and Qualifications
-| `Cert` | Awarding Body | Date |
+| Cert | Awarding Body | Date |
 | :--- | :--- | :--- |
-| `Fortran for Scientific Programming` | edX LLC | Ongoing, 2026+ |
+| `Fortran for Scientific Programming` | edX LLC | 2026+ (ongoing) |
 | `Ethical Hacking with Kali Linux Professional Certificate` | IBM | 2025 |
 | `Mainframe Developer Professional Certificate` | IBM | 2025 |
 | `z/OS Mainframe Practitioner Professional Certificate` | IBM | 2025 |
-| `Industrial Control Systems` | TAIT communications | 2025 |
-| `Radio Awareness` | TAIT communications | 2025 |
+| `Industrial Control Systems` | TAIT | 2025 |
+| `Radio Awareness` | TAIT | 2025 |
 | `First Aider’s Qualification` | Northumbrian ACF | 2023 |
 
 
 
 
 ## Fellowships and Awards
-| `Cert` | Awarding Body | Year |
+| Award | Awarding Body | Year |
 | :--- | :--- | :--- |
 | `Fellowship (FRSA)` | Royal Society of the Arts | 2026 |
 | `Inspiring Digital Enterprise Award` | iDEA | 2023 |
 | `Rotary Youth Leadership Award` | Rotary International | 2022|
-| `ATC Leadership Badge` | Air Training Corps | 2022 |
 ---
