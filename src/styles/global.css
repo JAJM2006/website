@@ -988,6 +988,108 @@ a:hover,
     opacity: 0.5;
     text-transform: uppercase;
 }
+/* ===========================================
+   WORKS ACCORDION (Coursework entries)
+   =========================================== */
+
+.works-accordion {
+    display: flex;
+    flex-direction: column;
+}
+
+.works-entry {
+    border-bottom: 1px dashed var(--border);
+}
+
+.works-entry:first-child {
+    border-top: 1px solid var(--border);
+}
+
+.works-entry-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+}
+
+.works-entry-summary::-webkit-details-marker {
+    display: none;
+}
+
+.works-entry-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--foreground);
+    line-height: 1.4;
+}
+
+.works-entry-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+}
+
+.works-entry-status {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.2em 0.6em;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.works-entry-chevron {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7em;
+    color: var(--text-muted);
+    transition: transform 0.2s ease;
+}
+
+.works-entry[open] .works-entry-chevron {
+    transform: rotate(90deg);
+}
+
+.works-entry-body {
+    padding: 0 0 1.25rem;
+}
+
+.works-entry-abstract {
+    font-size: 0.9rem;
+    color: var(--foreground);
+    opacity: 0.8;
+    line-height: 1.6;
+    max-width: 68ch;
+    margin-bottom: 0.75rem;
+}
+
+.works-entry-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.35em 0.8em;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.works-entry-download:hover {
+    background: var(--accent);
+    color: var(--background);
+}
 
 /* ===========================================
    RESPONSIVE
