@@ -593,7 +593,6 @@ a:hover,
     margin-bottom: 1rem;
 }
 
-
 /* ===========================================
    PROSE (Content Typography)
    =========================================== */
@@ -707,6 +706,35 @@ a:hover,
     margin: 2rem 0;
 }
 
+/* Markdown Tables */
+.prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+}
+
+.prose th,
+.prose td {
+    padding: 0.6rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+.prose th {
+    font-weight: 700;
+    color: var(--foreground);
+    border-bottom: 2px solid var(--border);
+}
+
+.prose td:first-child,
+.prose th:first-child {
+    padding-left: 0;
+}
+
+.prose td:last-child,
+.prose th:last-child {
+    padding-right: 0;
+}
 
 /* ===========================================
    SHARED COMPONENTS

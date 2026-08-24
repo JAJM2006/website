@@ -65,5 +65,5 @@ education:
 | `Fellowship (FRSA)` | Royal Society of the Arts | 2026 |
 | `Inspiring Digital Enterprise Award` | iDEA | 2023 |
 | `Rotary Youth Leadership Award` | Rotary International | 2022|
-| `ATC Leadership Badge` | Air Training Corps | 2022
+| `ATC Leadership Badge` | Air Training Corps | 2022 |
 ---
