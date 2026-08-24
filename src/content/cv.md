@@ -40,7 +40,7 @@ Postgrad studying Development-Security at Newcastle University. Fast and adaptiv
 ## Non-Credit Courses
 | `Course` | Awarding Body | Date |
 | :--- | :--- | :--- |
-| `Oceanography` | Universitat de Barcelona & Fundació Navegació Oceànica Barcelona | 2025 |
+| `Oceanography` | Universitat de Barcelona | 2025 |
 | `Advanced Fluid Dynamics 1 [2.25.2x]` | Massachusetts Institute of Technology (MITx) | Ongoing, 2026+ |
 | `Advanced Fluid Dynamics 2 [2.25.2x]` | Massachusetts Institute of Technology (MITx) | Ongoing, 2026+ |
 
@@ -48,18 +48,19 @@ Postgrad studying Development-Security at Newcastle University. Fast and adaptiv
 
 
 ## Certs and Quals
-<pre>
-Fortran for Scientific Programming                              - edX LLC (Ongoing, 2026+)
-Principles of Database Systems                                  - University of Buckingham (2025)
-Ethical Hacking with Kali Linux Professional Certificate        - IBM (2025)
-Mainframe Developer Professional Certificate                    - IBM (2025)
-z/OS Mainframe Practitioner Professional Certificate            - IBM (2025)
-Industrial Control Systems                                      - TAIT communications (2025)
-Radio Awareness                                                 - TAIT communications (2025)
-First Aider’s Qualification                                     - Northumbrian ACF (2023)
-Inspiring Digital Enterprise Award                              - iDEA (2023)
-Rotary Youth Leadership Award                                   - Rotary International (2022)
-</pre>
+| `Course` | Awarding Body | Date |
+| :--- | :--- | :--- |
+| `Fortran for Scientific Programming` | edX LLC | Ongoing, 2026+ |
+| `Principles of Database Systems` | University of Buckingham | 2025 |
+| `Ethical Hacking with Kali Linux Professional Certificate` | IBM | 2025 |
+| `Mainframe Developer Professional Certificate` | IBM | 2025 |
+| `z/OS Mainframe Practitioner Professional Certificate` | IBM | 2025 |
+| `Industrial Control Systems` | TAIT communications | 2025 |
+| `Radio Awareness` | TAIT communications | 2025 |
+| `First Aider’s Qualification` | Northumbrian ACF | 2023 |
+| `Inspiring Digital Enterprise Award` | iDEA | 2023 |
+| `Rotary Youth Leadership Award` | Rotary International | 2022| 
+
 
 
 
