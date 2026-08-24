@@ -1,14 +1,29 @@
 ---
 import BaseListing from "../../layouts/BaseListing.astro";
+import WorksBrowser from "../../components/content/WorksBrowser.astro";
+import { buildWorksTree } from "../../utils/works";
 import { PAGES } from "../../config";
 
 if (PAGES.publications.isActive === false) {
     return Astro.redirect("/404");
 }
+
+const worksTree = buildWorksTree();
 ---
 
 <BaseListing
     collection="publications"
     title={PAGES.publications.title}
     subtitle={PAGES.publications.subtitle}
-/>
+>
+    <Fragment slot="after">
+        <hr class="divider-solid my-12" />
+        <section class="mt-12">
+            <h2 class="title-lg mb-2">Coursework & Documents</h2>
+            <p class="body-sm opacity-70 mb-6">
+                Browse essays, dissertations, and other written work by folder.
+            </p>
+            <WorksBrowser items={worksTree} basePath="/publications/works" />
+        </section>
+    </Fragment>
+</BaseListing>
