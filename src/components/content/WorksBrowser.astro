@@ -5,10 +5,12 @@ import type { WorksNode } from "../../utils/works";
 
 interface Props {
     items: WorksNode[];
-    basePath: string; // e.g. "/publications/works"
+    basePath: string;
 }
 
-const { items, basePath } = Astro.props;
+const props = Astro.props;
+const items = props.items;
+const basePath = props.basePath;
 
 const fileIconMap: Record<string, string> = {
     pdf: "FileText",
@@ -17,20 +19,42 @@ const fileIconMap: Record<string, string> = {
     docx: "FileText",
 };
 
+function getFileIcon(ext: string | undefined): string {
+    if (!ext) {
+        return "FileText";
+    }
+    if (fileIconMap[ext]) {
+        return fileIconMap[ext];
+    }
+    return "FileText";
+}
+
 function fileHref(filePath: string): string {
     const base = import.meta.env.BASE_URL;
-    const normalizedBase = base.endsWith("/") ? base.slice(0, -1) : base;
+    let normalizedBase = base;
+    if (normalizedBase.endsWith("/")) {
+        normalizedBase = normalizedBase.slice(0, -1);
+    }
     return normalizedBase + "/works/" + filePath;
 }
 
-const folders = items.filter((i) => i.type === "folder");
-const files = items.filter((i) => i.type === "file");
+function folderHref(folderPath: string): string {
+    return basePath + "/" + folderPath;
+}
+
+const folders = items.filter(function (i) {
+    return i.type === "folder";
+});
+
+const files = items.filter(function (i) {
+    return i.type === "file";
+});
 ---
 
 {folders.length > 0 && (
     <div class="folder-grid">
         {folders.map((folder) => (
-            <a href={basePath + "/" + folder.path} class="folder-item">
+            <a href={folderHref(folder.path)} class="folder-item">
                 <Icon name="Folder" size={32} />
                 <span class="folder-item-name">{folder.name}</span>
             </a>
@@ -47,7 +71,7 @@ const files = items.filter((i) => i.type === "file");
                 rel="noopener noreferrer"
                 class="file-item"
             >
-                <Icon name={fileIconMap[file.ext ?? ""] || "FileText"} size={20} />
+                <Icon name={getFileIcon(file.ext)} size={20} />
                 <span class="file-item-name">{file.name}</span>
                 <span class="file-item-ext">.{file.ext}</span>
             </a>
