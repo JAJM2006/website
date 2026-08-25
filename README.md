@@ -44,3 +44,7 @@ This is the README.md for my personal website [(found here)](https://www.JAJM200
 ## Templates.
 This website utilises [Rubzip's Template](https://github.com/rubzip/academic-portfolio-astro/), which itself is based on [Academic Pages](https://github.com/academicpages/academicpages.github.io) and [AstroPaper](https://github.com/satnaing/astro-paper). 
 
+## Contributing & License
+
+Contributions, issues, and feature requests are always welcome! Feel free to check the [issues page](https://github.com/rubzip/academic-portfolio-astro/issues). This project is licensed under the **MIT License** - see the `LICENSE` file for details.
+
