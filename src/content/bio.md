@@ -2,7 +2,7 @@
 name: "Joshua McManus"
 avatar: "joshua.jpg"
 shortBio: "Masters Student and Researcher"
-institution: "Newcatsle University"
+institution: "Newcastle University"
 ---
 
 I am a postgraduate student and researcher specialising in the intersection of security studies, data science, and advanced systems science. My current research bridges the gap between terrestrial development-security paradigms and the legal, technical, and logistical architectures required for **Deep Space Mission Engineering**.
