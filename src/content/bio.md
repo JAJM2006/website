@@ -5,21 +5,21 @@ shortBio: "Masters Student and Researcher"
 institution: "Newcastle University"
 ---
 
-I am a postgraduate student and researcher specialising in the intersection of security studies, data science, and advanced systems science. My current research bridges the gap between terrestrial development-security paradigms and the legal, technical, and logistical architectures required for **Deep Space Mission Engineering**.
+I am a postgraduate student and researcher working across the intersections of Development-Security, space logistics, and systems engineering. My academic focus is intentionally interdisciplinary, taking high-level strategic reasoning and applying it directly to low-level operational systems.
 
-## My Life
+## My Background
 
-My academic journey began with a BA(Hons) in Security, Intelligence, and Cyber from the University of Buckingham, where I was also the Student Academic Representative for the Centre for Security and Intelligence Studies (BUCSIS). During this time, I focused on high-level analysis, critical national infrastructure, and development-security frameworks. Driven by a commitment to leadership and public service, I was elected a Fellow of the Royal Society of Arts (FRSA) at the age of 19.
+My academic journey began with a BA(Hons) in Security, Intelligence, and Cyber from the University of Buckingham, where I served as the Student Academic Representative for the Centre for Security and Intelligence Studies (BUCSIS). This grounded my background in threat analysis, critical national infrastructure, and development-security dynamics.
 
-To transition from pure macro-strategy into a Whole-of-Systems mindest, I am completing an MSc in Development, Environment, and International Politics at Newcastle University. My master's dissertation, *"The Legality and Logistics of Nuclear Material in a Cis-Lunar Environment,"* serves as my core intellectual bridge. It syndissertationes public international law, emerging space technologies, and data science to address the real-world operational constraints of off-world deployments.
+To bridge macro-strategy into quantitative system architectures, I am pursuing an MSc in Development, Environment, and International Politics at Newcastle University. My master's research, *"The Legality and Logistics of Nuclear Energy in Cislunar Environments,"* serves as my stepping stone toward future research in **Deep Space Mission Engineering**. My objective is to take a Whole-of-Systems approach to the technical-operational divide, evaluating how known parameters and semi-fixed variables directly dictate mission execution, escape trajectories, and abort planning.
 
 ## Current Work
 
-My independent technical portfolio includes founding and leading The SPARK Group, an international collaborative effort focused on open-source hardware engineering, networking, and digital ecosystem development. When not analysing databases or deciphering confusing legal documents, I volunteer as a CFAV with the Army Cadet Force, helping to give the same opportunities I had to the younger generation.
+Outside of my degree, I lead **The SPARK Group** (*Strategic Pursuits in the Advancement of Research and Knowledge*), an small collaborative research effort spanning open-source hardware, networking, and applied social security studies. When not analysing databases or navigating complex frameworks, I volunteer as a CFAV with the Army Cadet Force, supporting personal development and giving back to the local community.
 
 ## Research Interests
 
-My research focus includes: **Exploring the Misunderstood**.
+Bridging the Technical with the Operational.
 
 ---
 
